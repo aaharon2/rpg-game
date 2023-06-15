@@ -4,6 +4,7 @@ const speed = 100
 var current_dir = "none"
 
 var cashier_in_range = false
+var sign_in_range = false
  
 func _read():
 	$AnimatedSprite2D.play("front_idle")
@@ -11,8 +12,12 @@ func _read():
 func _physics_process(delta):
 	if cashier_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
-			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main")
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/main.dialogue"), "main")
 			return
+	if sign_in_range == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://dialogue/sign.dialogue"), "sign")
+			return		
 			
 	player_movement(delta)
 			
@@ -75,7 +80,11 @@ func play_anim(movement):
 func _on_detection_area_body_entered(body):
 	if body.has_method("cashier"):
 		cashier_in_range = true
+	if body.has_method("sign"):
+		sign_in_range = true
 
 func _on_detection_area_body_exited(body):
 	if body.has_method("cashier"):
 		cashier_in_range = false
+	if body.has_method("sign"):
+		sign_in_range = false

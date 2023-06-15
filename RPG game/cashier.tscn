@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://b550jpjbxt61"]
+[gd_scene load_steps=8 format=3 uid="uid://co4jjsixks32l"]
 
-[ext_resource type="Texture2D" uid="uid://duhpv1wnlde17" path="res://assets/cashier.png" id="1_88chd"]
 [ext_resource type="Script" path="res://cashier.gd" id="1_lyeln"]
+[ext_resource type="Texture2D" uid="uid://duhpv1wnlde17" path="res://assets/cashier.png" id="2_wbacg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aiu5o"]
-atlas = ExtResource("1_88chd")
+atlas = ExtResource("2_wbacg")
 region = Rect2(6, 0, 125, 251)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqrj7"]
-atlas = ExtResource("1_88chd")
+atlas = ExtResource("2_wbacg")
 region = Rect2(131, 0, 125, 251)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vtbaw"]

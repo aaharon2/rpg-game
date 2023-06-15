@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dier4hvf52dmy"]
+
+[ext_resource type="Script" path="res://sign.gd" id="1_3h2vs"]
+[ext_resource type="Texture2D" uid="uid://11pj53xag25l" path="res://assets/pixil-frame-0.png" id="2_kemf6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cnuoe"]
+radius = 10.0557
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa8sv"]
+size = Vector2(76.6616, 0.844842)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_3h2vs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kemf6")
+offset = Vector2(0, -14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(-1.19336, -0.880051)
+shape = SubResource("CircleShape2D_cnuoe")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.175741, 41.2169)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.71329e-06, -0.327536)
+scale = Vector2(2.07829, -0.947683)
+shape = SubResource("RectangleShape2D_wa8sv")
