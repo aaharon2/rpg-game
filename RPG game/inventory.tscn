@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1syayclmuj30"]
+
+[ext_resource type="Script" path="res://inventory.gd" id="1_2pksx"]
+[ext_resource type="Texture2D" uid="uid://dcnwtnxpg0x4l" path="res://assets/UI/sidebar/without_slots.png" id="1_okrvx"]
+[ext_resource type="Texture2D" uid="uid://clijlyfy1thlp" path="res://assets/UI/slots/variation_1.png" id="2_4mtgp"]
+[ext_resource type="Script" path="res://slot.gd" id="3_xm40f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bim5l"]
+texture = ExtResource("2_4mtgp")
+
+[sub_resource type="Animation" id="Animation_of5s4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-8, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a4y8o"]
+resource_name = "TransIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 0), Vector2(-8, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q3b8o"]
+resource_name = "TransOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-8, 0), Vector2(-200, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdf1x"]
+_data = {
+"RESET": SubResource("Animation_of5s4"),
+"TransIn": SubResource("Animation_a4y8o"),
+"TransOut": SubResource("Animation_q3b8o")
+}
+
+[node name="inventory" type="Node2D"]
+position = Vector2(-8, 0)
+script = ExtResource("1_2pksx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 8.0
+offset_top = 128.0
+offset_right = 72.0
+offset_bottom = 448.0
+texture = ExtResource("1_okrvx")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 16.0
+offset_top = 152.0
+offset_right = 64.0
+offset_bottom = 425.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 8
+
+[node name="slot1" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bim5l")
+script = ExtResource("3_xm40f")
+
+[node name="slot2" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bim5l")
+script = ExtResource("3_xm40f")
+
+[node name="slot3" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bim5l")
+script = ExtResource("3_xm40f")
+
+[node name="slot4" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bim5l")
+script = ExtResource("3_xm40f")
+
+[node name="slot5" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bim5l")
+script = ExtResource("3_xm40f")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fdf1x")
+}

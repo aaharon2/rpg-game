@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgl2kftaf4fpt"]
+
+[ext_resource type="Script" path="res://pausemenu.gd" id="1_s6g00"]
+[ext_resource type="Texture2D" uid="uid://c51km211wbl50" path="res://assets/Clouds 7/1.png" id="2_t7ape"]
+[ext_resource type="Texture2D" uid="uid://dhtgjon471687" path="res://assets/Clouds 7/2.png" id="3_2tdqq"]
+[ext_resource type="Texture2D" uid="uid://coyjou5aa1vvm" path="res://assets/Clouds 7/3.png" id="4_w4ai3"]
+[ext_resource type="Texture2D" uid="uid://bd1gw2ubw7q2l" path="res://assets/Clouds 7/4.png" id="5_ivs7o"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s6g00")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t7ape")
+
+[node name="BG2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2tdqq")
+
+[node name="BG3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w4ai3")
+
+[node name="BG4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ivs7o")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -33.0
+offset_right = 60.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Paused" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 60
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Space" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+
+[node name="ResumeGame" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Resume Game"
+
+[node name="Space2" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Quit
+"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeGame" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,22 @@
+~ main
+
+if ordered_coffee == false:
+	Cashier: [[How can I help you?|What would you like today?|Hi, what would you like?]]
+	- Could I have a latte please
+		Cashier: Here you go!
+		set ordered_coffee = true
+		=> END
+	- I would like a long black
+		Cashier: Of course!
+		set ordered_coffee = true
+		=> END
+	- An iced coffee
+		Cashier: Coming right up!
+		set ordered_coffee = true
+		=> END
+	- Goodbye => END
+if ordered_coffee == true:
+	Cashier: [[You again! You just ordered coffee right?|Oh, hello again! I already gave you your coffee.|Hiya, didn't you just order a coffee?|]]
+	Cashier: You can open your inventory using 'e' then select your coffee to drink it.
+	=> END
+=> END
