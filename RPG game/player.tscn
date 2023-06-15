@@ -365,6 +365,16 @@ y_sort_enabled = true
 position = Vector2(0, -26)
 script = ExtResource("1_e7vw2")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1144
+limit_bottom = 653
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)
 shape = SubResource("CircleShape2D_fk7le")
@@ -372,22 +382,13 @@ shape = SubResource("CircleShape2D_fk7le")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.74219, 1.72656)
 sprite_frames = SubResource("SpriteFrames_nbwnt")
-animation = &"back_idle"
-autoplay = "back_idle"
+animation = &"front_idle"
+autoplay = "front_idle"
 
 [node name="Detection Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Area"]
 shape = SubResource("CapsuleShape2D_waoy6")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(595, 388)
-limit_left = 0
-limit_top = 0
-limit_right = 1144
-limit_bottom = 653
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection Area" to="." method="_on_detection_area_body_exited"]

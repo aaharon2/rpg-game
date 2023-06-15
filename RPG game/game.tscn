@@ -13,7 +13,7 @@ script = ExtResource("1_fukq0")
 
 [node name="Player" parent="." instance=ExtResource("3_de6nf")]
 y_sort_enabled = false
-position = Vector2(332, 329)
+position = Vector2(31, 143)
 
 [node name="Cashier" parent="." instance=ExtResource("4_wcgvp")]
 light_mask = 1
@@ -25,6 +25,3 @@ scale = Vector2(0.5, 0.5)
 
 [node name="map" parent="." instance=ExtResource("5_p3d56")]
 position = Vector2(-7, 0)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(581, 315)
