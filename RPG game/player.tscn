@@ -363,7 +363,8 @@ height = 96.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(0, -26)
+position = Vector2(0, -30)
+scale = Vector2(1.12333, 1.56355)
 script = ExtResource("1_e7vw2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
