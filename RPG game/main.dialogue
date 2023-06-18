@@ -20,3 +20,11 @@ if ordered_coffee == true:
 	Cashier: You can open your inventory using 'e' then select your coffee to drink it.
 	=> END
 => END
+
+~ sign
+
+Sign: Up: Calcaire Town
+Sign: Left: Dead end
+Sign: Right: Dungeon
+
+=> END
