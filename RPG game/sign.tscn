@@ -10,6 +10,7 @@ radius = 10.0557
 radius = 0.78997
 
 [node name="Sign" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_3h2vs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

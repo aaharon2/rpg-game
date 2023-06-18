@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmqjduv84a7so"]
+
+[sub_resource type="TileSet" id="TileSet_23b6t"]
+
+[node name="Calcaire Town" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_23b6t")
+format = 2
