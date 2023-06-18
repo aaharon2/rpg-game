@@ -1,7 +1,6 @@
-[gd_scene load_steps=57 format=3 uid="uid://ds0so60rt0x5o"]
+[gd_scene load_steps=56 format=3 uid="uid://ds0so60rt0x5o"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_e7vw2"]
-[ext_resource type="Script" path="res://camera.gd" id="2_177pv"]
 [ext_resource type="Texture2D" uid="uid://4mjk5ouwj6tr" path="res://assets/RPGMCharacter_v1.0/_up attack.png" id="2_loq1t"]
 [ext_resource type="Texture2D" uid="uid://b1843sjflihod" path="res://assets/RPGMCharacter_v1.0/_up idle.png" id="3_sjvvr"]
 [ext_resource type="Texture2D" uid="uid://baod1ljvsjwe3" path="res://assets/RPGMCharacter_v1.0/_up walk.png" id="4_x74xe"]
@@ -376,7 +375,6 @@ limit_smoothed = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-script = ExtResource("2_177pv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 18)

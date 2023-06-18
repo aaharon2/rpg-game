@@ -1,7 +1,6 @@
-[gd_scene load_steps=36 format=3 uid="uid://cicx0mb5cndwj"]
+[gd_scene load_steps=34 format=3 uid="uid://bf4br2af01xna"]
 
 [ext_resource type="Texture2D" uid="uid://b77miqdxm2fwx" path="res://assets/godot_autotiles/free_anim_autotile_2.png" id="1_177t4"]
-[ext_resource type="Texture2D" uid="uid://11pj53xag25l" path="res://assets/pixil-frame-0.png" id="2_rlfs8"]
 [ext_resource type="Texture2D" uid="uid://b3ywus8k4tp6x" path="res://assets/sprite/free_campfire.png" id="2_tgrx4"]
 [ext_resource type="Texture2D" uid="uid://dl2703664pfi1" path="res://assets/sprite/free_icons2.png" id="3_8k3nt"]
 [ext_resource type="Texture2D" uid="uid://funx3fyyikbi" path="res://assets/objects.png" id="3_arilg"]
@@ -212,21 +211,6 @@ texture = ExtResource("1_177t4")
 15:3/0 = 0
 15:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 15:3/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c10sb"]
-texture = ExtResource("2_rlfs8")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gb1qf"]
 texture = ExtResource("2_tgrx4")
@@ -3872,7 +3856,6 @@ sources/16 = SubResource("TileSetAtlasSource_6fndm")
 sources/9 = SubResource("TileSetAtlasSource_husmi")
 sources/11 = SubResource("TileSetAtlasSource_qqn00")
 sources/14 = SubResource("TileSetAtlasSource_c5n1o")
-sources/1 = SubResource("TileSetAtlasSource_c10sb")
 
 [node name="map" type="Node2D"]
 y_sort_enabled = true
@@ -3896,4 +3879,4 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(1245186, 11, 5, 1835014, 11, 5, 1638418, 524299, 6, 196618, 524299, 6, 1114171, 524299, 6, 2359363, 11, 5, 1769502, 11, 5, 393279, 11, 5, 131100, 11, 5, 1048600, 393227, 7, 720912, 393227, 7, 2490395, 393227, 7, 2424884, 393227, 7, 2424871, 524299, 6, 327697, 655371, 7, 2228238, 655371, 7, 1703960, 655371, 7, 2424876, 655371, 7, 2031684, 655371, 7, 131140, 655371, 7, 983060, 11, 1, 131106, 11, 1, 327737, 11, 1, 1441797, 11, 1, 2293764, 11, 1, 2031643, 11, 1, 2162745, 11, 1, 1179713, 11, 1, 852017, 11, 1, 589862, 393227, 7, 1310764, 393227, 7, 1572914, 11, 5, 1179701, 655371, 7, 458764, 11, 5, 786463, 524299, 6, 720917, 524299, 6, 1572877, 393227, 7, 1507361, 393227, 7, 2031637, 393227, 7, 1966114, 524299, 6, 1114159, 524299, 6, 786487, 393227, 7, 1441848, 393227, 7, 2293792, 11, 5, 2162697, 11, 5, 2490380, 524299, 6, 2293781, 524299, 6, 2097213, 524299, 6, 1638469, 524299, 6, 1900610, 393227, 7, 2293808, 11, 5, 196610, 11, 5, 393223, 11, 1, 1703981, 11, 1, 524319, 655371, 7, 917571, 11, 5, 2424890, 524299, 6)
+layer_2/tile_data = PackedInt32Array(1245186, 11, 5, 1835014, 11, 5, 1638418, 524299, 6, 196618, 524299, 6, 1114171, 524299, 6, 2359363, 11, 5, 1769502, 11, 5, 393279, 11, 5, 131100, 11, 5, 1048600, 393227, 7, 720912, 393227, 7, 2490395, 393227, 7, 2424884, 393227, 7, 2424871, 524299, 6, 327697, 655371, 7, 2228238, 655371, 7, 1703960, 655371, 7, 2424876, 655371, 7, 2031684, 655371, 7, 131140, 655371, 7, 983060, 11, 1, 131106, 11, 1, 327737, 11, 1, 1441797, 11, 1, 2293764, 11, 1, 2031643, 11, 1, 2162745, 11, 1, 1179713, 11, 1, 1179685, 11, 0, 852017, 11, 1, 589862, 393227, 7, 1310764, 393227, 7, 1572914, 11, 5, 1179701, 655371, 7, 458764, 11, 5, 786463, 524299, 6, 720917, 524299, 6, 1572877, 393227, 7, 1507361, 393227, 7, 2031637, 393227, 7, 1966114, 524299, 6, 1114159, 524299, 6, 786487, 393227, 7, 1441848, 393227, 7, 2293792, 11, 5, 2162697, 11, 5, 2490380, 524299, 6, 2293781, 524299, 6, 2097213, 524299, 6, 1638469, 524299, 6, 1900610, 393227, 7, 2293808, 11, 5, 196610, 11, 5, 393223, 11, 1, 1703981, 11, 1, 524319, 655371, 7, 917571, 11, 5, 2424890, 524299, 6)
