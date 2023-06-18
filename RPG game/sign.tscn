@@ -28,3 +28,5 @@ scale = Vector2(0.175741, 41.2169)
 position = Vector2(-2.71329e-06, -0.327536)
 scale = Vector2(2.07829, -0.947683)
 shape = SubResource("RectangleShape2D_wa8sv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
