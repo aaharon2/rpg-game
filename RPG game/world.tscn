@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://d3kugfuw7ljoy" path="res://assets/pixil-frame-0.png" id="2_rlfs8"]
 [ext_resource type="Texture2D" uid="uid://b3ywus8k4tp6x" path="res://assets/sprite/free_campfire.png" id="2_tgrx4"]
 [ext_resource type="Texture2D" uid="uid://dl2703664pfi1" path="res://assets/sprite/free_icons2.png" id="3_8k3nt"]
-[ext_resource type="Texture2D" uid="uid://funx3fyyikbi" path="res://assets/objects.png" id="3_arilg"]
 [ext_resource type="Texture2D" uid="uid://m731tvw80hs1" path="res://assets/sprite/free_icons1.png" id="4_obs57"]
 [ext_resource type="Texture2D" uid="uid://g5r7gv3q0603" path="res://assets/terrain_tiles_v2.png" id="5_jffmk"]
 [ext_resource type="Texture2D" uid="uid://byuname7xcvco" path="res://assets/chest_01.png" id="6_gu5d3"]
@@ -267,8 +266,11 @@ texture = ExtResource("2_tgrx4")
 2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:5/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_whef7"]
+load_path = "res://.godot/imported/objects.png-70e7284227060a3ae74917640f1e1f26.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqn00"]
-texture = ExtResource("3_arilg")
+texture = SubResource("CompressedTexture2D_whef7")
 0:0/0 = 0
 0:0/0/y_sort_origin = -8
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
