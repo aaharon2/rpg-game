@@ -34,7 +34,7 @@ polygon = PackedVector2Array(-7, 1, 667, 2, 667, -60, 773, -60, 775, 3, 1145, 2,
 [node name="Town Transition" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Town Transition"]
-position = Vector2(720.5, -29)
+position = Vector2(721, 11)
 shape = SubResource("RectangleShape2D_eplrt")
 
 [connection signal="body_entered" from="Town Transition" to="." method="_on_town_transition_body_entered"]

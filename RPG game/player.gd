@@ -82,3 +82,4 @@ func _on_detection_area_body_exited(body):
 
 func player():
 	pass
+
