@@ -11,7 +11,7 @@ size = Vector2(109, 62)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
-position = Vector2(7, -2)
+position = Vector2(7, -1)
 script = ExtResource("1_fukq0")
 
 [node name="Player" parent="." instance=ExtResource("3_de6nf")]
@@ -29,12 +29,13 @@ position = Vector2(593, 309)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-7, 1, 667, 2, 667, -60, 773, -60, 775, 3, 1145, 2, 1145, 273, 1204, 273, 1204, 380, 1143, 382, 1145, 657, -7, 656, -7, -8, -87, 46, -261, 479, -101, 821, 619, 867, 1281, 771, 1495, 109, 1048, -325, 92, -273, -63, -58, -7, -8)
+polygon = PackedVector2Array(-7, 1, 667, 2, 667, -60, 773, -60, 775, 3, 1142, 2, 1137, 274, 1204, 273, 1204, 380, 1136, 382, 1136, 656, -7, 656, -7, -8, -87, 46, -261, 479, -101, 821, 619, 867, 1281, 771, 1495, 109, 1048, -325, 92, -273, -63, -58, -7, -8)
 
 [node name="Town Transition" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Town Transition"]
-position = Vector2(721, 11)
+position = Vector2(721, -17)
 shape = SubResource("RectangleShape2D_eplrt")
 
 [connection signal="body_entered" from="Town Transition" to="." method="_on_town_transition_body_entered"]

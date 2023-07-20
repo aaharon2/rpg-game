@@ -2,14 +2,8 @@ extends Node
 
 
 func _ready():
-	var inventory = {
-		0: {
-			"Name": "Coffee",
-			"Des": "Warm coffee for cold days",
-			"Icon": preload("res://assets/Coffee Mug 001 16x161.png"),
-			"Count": 1
-			},
-		}
+	pass
+
 func _process(delta):
 	change_scene()
 
@@ -23,6 +17,8 @@ func _on_town_transition_body_exited(body):
 		
 func change_scene():
 	if Global.transition_scene == true:
-		if Global.current_scene == "map":
-			get_tree().change_scene_to_file("res://.godot/calcaire_town.tscn")
+		if Global.current_scene == "world":
+			get_tree().change_scene_to_file("res://calcaire_town.tscn")
+			Global.player_exit_town_posx = 720
+			Global.player_exit_town_posy = 608
 			Global.finish_changescenes()

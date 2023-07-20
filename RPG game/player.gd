@@ -13,8 +13,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main")
 			return
-			
 	player_movement(delta)
+	current_camera()
 			
 func player_movement(_delta):
 	if Input.is_action_pressed("ui_right"):
@@ -83,3 +83,15 @@ func _on_detection_area_body_exited(body):
 func player():
 	pass
 
+func current_camera():
+	var anim = $AnimatedSprite2D
+	var dir = current_dir
+	if Global.current_scene == "world":
+		$WorldCamera.enabled = true
+		$CalcairetownCamera.enabled = false
+	elif Global.current_scene == "calcaire_town":
+		$WorldCamera.enabled = false
+		$CalcairetownCamera.enabled = true
+		anim.play("back_idle")
+		
+	

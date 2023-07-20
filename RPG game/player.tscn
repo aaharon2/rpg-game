@@ -367,7 +367,17 @@ collision_layer = 3
 collision_mask = 5
 script = ExtResource("1_e7vw2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="WorldCamera" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 1144
+limit_bottom = 653
+limit_smoothed = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="CalcairetownCamera" type="Camera2D" parent="."]
 limit_left = 0
 limit_top = 0
 limit_right = 1144

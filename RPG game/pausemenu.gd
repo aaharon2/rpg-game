@@ -1,6 +1,6 @@
 extends Control
 
-@onready var pause = $PauseMenu
+var pause = false
 
 func _ready():
 	if Input.is_action_pressed("ui_cancel"):
