@@ -17,60 +17,61 @@ func _physics_process(delta):
 	current_camera()
 			
 func player_movement(_delta):
-	if Input.is_action_pressed("ui_right"):
-		play_anim(1)
-		current_dir = "right"
-		velocity.x = speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_left"):
-		play_anim(1)
-		current_dir = "left"
-		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_down"):
-		play_anim(1)
-		current_dir = "down"
-		velocity.y = speed
-		velocity.x = 0
-	elif Input.is_action_pressed("ui_up"):
-		play_anim(1)
-		current_dir = "up"
-		velocity.y = -speed
-		velocity.x = 0
-	else:
-		play_anim(0)
-		velocity. x = 0
-		velocity.y = 0
-	move_and_slide()
+	if Global.current_scene == "world" or Global.current_scene == "calcaire_town":
+		if Input.is_action_pressed("ui_right"):
+			play_anim(1)
+			current_dir = "right"
+			velocity.x = speed
+			velocity.y = 0
+		elif Input.is_action_pressed("ui_left"):
+			play_anim(1)
+			current_dir = "left"
+			velocity.x = -speed
+			velocity.y = 0
+		elif Input.is_action_pressed("ui_down"):
+			play_anim(1)
+			current_dir = "down"
+			velocity.y = speed
+			velocity.x = 0
+		elif Input.is_action_pressed("ui_up"):
+			play_anim(1)
+			current_dir = "up"
+			velocity.y = -speed
+			velocity.x = 0
+		else:
+			play_anim(0)
+			velocity. x = 0
+			velocity.y = 0
+		move_and_slide()
 
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
-	
-	if dir == "right":
-		anim.flip_h = true
-		if movement == 1:
-			anim.play("side_walk")
-		elif movement == 0:
-			anim.play("side_idle") 
-	if dir == "left":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("side_walk")
-		elif movement == 0:
-			anim.play("side_idle")
-	if dir == "down":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("front_walk")
-		elif movement == 0:
-			anim.play("front_idle")
-	if dir == "up":
-		anim.flip_h = false
-		if movement == 1:
-			anim.play("back_walk")
-		elif movement == 0:
-			anim.play("back_idle")
+	if Global.current_scene == "world" or Global.current_scene == "calcaire_town":
+		if dir == "right":
+			anim.flip_h = true
+			if movement == 1:
+				anim.play("side_walk")
+			elif movement == 0:
+				anim.play("side_idle") 
+		if dir == "left":
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("side_walk")
+			elif movement == 0:
+				anim.play("side_idle")
+		if dir == "down":
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("front_walk")
+			elif movement == 0:
+				anim.play("front_idle")
+		if dir == "up":
+			anim.flip_h = false
+			if movement == 1:
+				anim.play("back_walk")
+			elif movement == 0:
+				anim.play("back_idle")
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("cashier"):
@@ -84,14 +85,11 @@ func player():
 	pass
 
 func current_camera():
-	var anim = $AnimatedSprite2D
-	var dir = current_dir
 	if Global.current_scene == "world":
 		$WorldCamera.enabled = true
 		$CalcairetownCamera.enabled = false
 	elif Global.current_scene == "calcaire_town":
 		$WorldCamera.enabled = false
 		$CalcairetownCamera.enabled = true
-		anim.play("back_idle")
 		
 	
