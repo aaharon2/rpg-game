@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbglqetr2h2ed"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_gflcx"]
+[ext_resource type="PackedScene" uid="uid://ds0so60rt0x5o" path="res://player.tscn" id="2_56822"]
+[ext_resource type="PackedScene" uid="uid://d1syayclmuj30" path="res://inventory.tscn" id="3_q0c7u"]
+[ext_resource type="PackedScene" uid="uid://cicx0mb5cndwj" path="res://world.tscn" id="4_o5xre"]
+[ext_resource type="PackedScene" uid="uid://ydyicm10p5x" path="res://sign.tscn" id="5_ytist"]
+[ext_resource type="PackedScene" uid="uid://bmqjduv84a7so" path="res://calcaire_town_level.tscn" id="6_lkioh"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(7, -1)
+script = ExtResource("1_gflcx")
+level_name = "game"
+
+[node name="Player" parent="." instance=ExtResource("2_56822")]
+y_sort_enabled = false
+position = Vector2(40, 153)
+
+[node name="Inventory" parent="." instance=ExtResource("3_q0c7u")]
+
+[node name="Map" parent="." instance=ExtResource("4_o5xre")]
+position = Vector2(-7, 0)
+
+[node name="Sign" parent="." instance=ExtResource("5_ytist")]
+position = Vector2(593, 309)
+
+[node name="Calcaire Town" parent="." instance=ExtResource("6_lkioh")]
+position = Vector2(-8, -652)
+
+[connection signal="level_changed" from="." to="." method="_on_level_changed"]

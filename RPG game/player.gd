@@ -14,10 +14,9 @@ func _physics_process(delta):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main")
 			return
 	player_movement(delta)
-	current_camera()
 			
 func player_movement(_delta):
-	if Global.current_scene == "world" or Global.current_scene == "calcaire_town":
+	if Global.current_scene == "game_level":
 		if Input.is_action_pressed("ui_right"):
 			play_anim(1)
 			current_dir = "right"
@@ -43,11 +42,11 @@ func player_movement(_delta):
 			velocity. x = 0
 			velocity.y = 0
 		move_and_slide()
-
+	
 func play_anim(movement):
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
-	if Global.current_scene == "world" or Global.current_scene == "calcaire_town":
+	if Global.current_scene == "game_level":
 		if dir == "right":
 			anim.flip_h = true
 			if movement == 1:
@@ -84,12 +83,6 @@ func _on_detection_area_body_exited(body):
 func player():
 	pass
 
-func current_camera():
-	if Global.current_scene == "world":
-		$WorldCamera.enabled = true
-		$CalcairetownCamera.enabled = false
-	elif Global.current_scene == "calcaire_town":
-		$WorldCamera.enabled = false
-		$CalcairetownCamera.enabled = true
+
 		
 	
