@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://tcswukau8egt" path="res://assets/RPGMCharacter_v1.0/_side walk.png" id="10_voxl6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fk7le"]
-radius = 7.0
+radius = 9.05539
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04q38"]
 atlas = ExtResource("2_loq1t")
@@ -379,7 +379,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 23)
+position = Vector2(0, 20)
 shape = SubResource("CircleShape2D_fk7le")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
