@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://tcswukau8egt" path="res://assets/RPGMCharacter_v1.0/_side walk.png" id="10_voxl6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fk7le"]
-radius = 9.05539
+radius = 7.07107
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04q38"]
 atlas = ExtResource("2_loq1t")
@@ -357,8 +357,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_waoy6"]
-radius = 23.0
-height = 64.0
+radius = 15.0
+height = 44.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -368,10 +368,11 @@ collision_mask = 5
 script = ExtResource("1_e7vw2")
 
 [node name="WorldCamera" type="Camera2D" parent="."]
-position = Vector2(54, 90)
+position = Vector2(0, 26)
+zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = -656
-limit_right = 1144
+limit_right = 1998
 limit_bottom = 653
 limit_smoothed = true
 rotation_smoothing_enabled = true
@@ -379,12 +380,13 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(0, 24)
 shape = SubResource("CircleShape2D_fk7le")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.00001, 6)
-scale = Vector2(1.43359, 1.28516)
+z_index = 1
+position = Vector2(-4.76837e-07, 14)
+scale = Vector2(1.06152, 0.91504)
 sprite_frames = SubResource("SpriteFrames_nbwnt")
 animation = &"front_idle"
 autoplay = "front_idle"
@@ -392,7 +394,7 @@ autoplay = "front_idle"
 [node name="Detection Area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Area"]
-position = Vector2(-1, -2)
+position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_waoy6")
 
 [connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]
