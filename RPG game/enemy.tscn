@@ -359,7 +359,7 @@ script = ExtResource("1_ecwmk")
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_66vcl")
 animation = &"idle"
-frame_progress = 0.365609
+frame_progress = 0.0247285
 offset = Vector2(0, -14)
 
 [node name="detection_area" type="Area2D" parent="."]
