@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbglqetr2h2ed"]
+[gd_scene load_steps=8 format=3 uid="uid://dbglqetr2h2ed"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_gflcx"]
 [ext_resource type="PackedScene" uid="uid://ds0so60rt0x5o" path="res://player.tscn" id="2_56822"]
 [ext_resource type="PackedScene" uid="uid://cicx0mb5cndwj" path="res://world.tscn" id="4_o5xre"]
 [ext_resource type="PackedScene" uid="uid://ydyicm10p5x" path="res://sign.tscn" id="5_ytist"]
 [ext_resource type="PackedScene" uid="uid://bmqjduv84a7so" path="res://calcaire_town_level.tscn" id="6_lkioh"]
+[ext_resource type="PackedScene" uid="uid://cwswodormumb3" path="res://enemy.tscn" id="7_iqfes"]
 [ext_resource type="PackedScene" uid="uid://djgj15xgslgdk" path="res://dungeon.tscn" id="7_wda17"]
 
 [node name="Game" type="Node2D"]
@@ -28,5 +29,8 @@ position = Vector2(-8, -652)
 
 [node name="Dungeon" parent="." instance=ExtResource("7_wda17")]
 position = Vector2(1145, 0)
+
+[node name="enemy" parent="." instance=ExtResource("7_iqfes")]
+position = Vector2(1453, 329)
 
 [connection signal="level_changed" from="." to="." method="_on_level_changed"]
