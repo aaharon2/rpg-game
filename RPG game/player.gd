@@ -2,8 +2,12 @@ extends CharacterBody2D
 
 const speed = 100
 var current_dir = "none"
-
 var cashier_in_range = false
+var enemy_inattack_range = false
+var enemy_attack_cooldown = true
+var health = 100
+var player_alive = true
+
  
 func _read():
 	$AnimatedSprite2D.play("front_idle")
@@ -14,6 +18,13 @@ func _physics_process(delta):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main")
 			return
 	player_movement(delta)
+	enemy_attack()
+	
+	if health <= 0:
+		player_alive = false #add death animation and respawn screen
+		health = 0
+		print("Player died")
+		$AnimatedSprite2D.play()
 			
 func player_movement(_delta):
 	if Global.current_scene == "game_level":
@@ -83,6 +94,20 @@ func _on_detection_area_body_exited(body):
 func player():
 	pass
 
+func _on_player_hitbox_body_entered(body):
+	if body.has_method("enemy"):
+		enemy_inattack_range = true
 
-		
-	
+func _on_player_hitbox_body_exited(body):
+	if body.has_method("enemy"):
+		enemy_inattack_range = false
+
+func enemy_attack():
+	if enemy_inattack_range and enemy_attack_cooldown == true:
+		health = health - 10
+		enemy_attack_cooldown = false
+		$Attack_Cooldown.start()
+		print(health)
+
+func _on_attack_cooldown_timeout():
+	enemy_attack_cooldown = true

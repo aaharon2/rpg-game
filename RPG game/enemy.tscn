@@ -1,7 +1,9 @@
-[gd_scene load_steps=51 format=3 uid="uid://cwswodormumb3"]
+[gd_scene load_steps=52 format=3 uid="uid://cwswodormumb3"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_ecwmk"]
 [ext_resource type="Texture2D" uid="uid://cox24qbkl347b" path="res://assets/Skeleton enemy.png" id="2_b6cps"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lmjt4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3sehr"]
 atlas = ExtResource("2_b6cps")
@@ -347,19 +349,28 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_phfro"]
-radius = 78.0064
+radius = 68.0074
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lmjt4"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_37go7"]
+radius = 20.025
 
 [node name="enemy" type="CharacterBody2D"]
 y_sort_enabled = true
+collision_layer = 3
 script = ExtResource("1_ecwmk")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-3, -7)
+shape = SubResource("CircleShape2D_lmjt4")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_66vcl")
 animation = &"idle"
-frame_progress = 0.0247285
+autoplay = "idle"
+frame_progress = 0.83509
 offset = Vector2(0, -14)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -370,9 +381,11 @@ collision_mask = 2
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_phfro")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -7)
-shape = SubResource("CircleShape2D_lmjt4")
+[node name="Enemy Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Hitbox"]
+position = Vector2(-3, -16)
+shape = SubResource("CircleShape2D_37go7")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

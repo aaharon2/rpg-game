@@ -13,15 +13,20 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite2D.flip_h = false
 		move_and_collide(Vector2(0,0))
-	else:
+	elif player_chase == false:
 		$AnimatedSprite2D.play("idle")
 
 
 func _on_detection_area_body_entered(body):
-	player = body
-	player_chase = true
+	if body.has_method("player"):
+		player = body
+		player_chase = true
 
 
 func _on_detection_area_body_exited(body):
-	player = null
-	player_chase = false
+	if body.has_method("player"):
+		player = null
+		player_chase = false
+
+func enemy():
+	pass

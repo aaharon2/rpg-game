@@ -1,7 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcxv0o4uyi6qh"]
+[gd_scene load_steps=14 format=3 uid="uid://bcxv0o4uyi6qh"]
 
 [ext_resource type="Texture2D" uid="uid://cpuga4d6fo5dy" path="res://assets/door.png" id="1_necs2"]
 [ext_resource type="Script" path="res://door.gd" id="1_p2ycs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gg2i"]
+atlas = ExtResource("1_necs2")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq44s"]
+atlas = ExtResource("1_necs2")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih3fp"]
+atlas = ExtResource("1_necs2")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wvms"]
+atlas = ExtResource("1_necs2")
+region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8j6q2"]
 atlas = ExtResource("1_necs2")
@@ -23,6 +39,23 @@ region = Rect2(48, 0, 16, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5gg2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq44s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih3fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wvms")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8j6q2")
 }, {
 "duration": 1.0,
@@ -35,7 +68,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_n78tt")
 }],
 "loop": false,
-"name": &"default",
+"name": &"open",
 "speed": 3.0
 }]
 
@@ -52,6 +85,7 @@ script = ExtResource("1_p2ycs")
 position = Vector2(9, 5.625)
 scale = Vector2(1.46875, 1.41406)
 sprite_frames = SubResource("SpriteFrames_ywnrb")
+animation = &"open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6, -0.6875)
