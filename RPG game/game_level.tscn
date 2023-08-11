@@ -31,6 +31,15 @@ position = Vector2(-8, -652)
 position = Vector2(1145, 0)
 
 [node name="enemy" parent="." instance=ExtResource("7_iqfes")]
-position = Vector2(1453, 329)
+position = Vector2(1399, 349)
+
+[node name="enemy2" parent="." instance=ExtResource("7_iqfes")]
+position = Vector2(2671, 96)
+
+[node name="enemy3" parent="." instance=ExtResource("7_iqfes")]
+position = Vector2(2196, 47)
+
+[node name="enemy4" parent="." instance=ExtResource("7_iqfes")]
+position = Vector2(2226, 504)
 
 [connection signal="level_changed" from="." to="." method="_on_level_changed"]
