@@ -79,6 +79,7 @@ size = Vector2(17.5, 32.625)
 size = Vector2(12, 33.125)
 
 [node name="door" type="AnimatableBody2D"]
+z_index = -1
 script = ExtResource("1_p2ycs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

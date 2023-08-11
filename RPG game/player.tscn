@@ -364,6 +364,7 @@ height = 44.0
 radius = 24.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 y_sort_enabled = true
 position = Vector2(0, -30)
 collision_layer = 3
@@ -375,8 +376,8 @@ position = Vector2(0, 26)
 zoom = Vector2(1.5, 1.5)
 limit_left = 0
 limit_top = -656
-limit_right = 1998
-limit_bottom = 653
+limit_right = 3354
+limit_bottom = 1360
 limit_smoothed = true
 rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -387,11 +388,11 @@ position = Vector2(0, 24)
 shape = SubResource("CircleShape2D_fk7le")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-z_index = 1
+y_sort_enabled = true
 position = Vector2(-4.76837e-07, 14)
 scale = Vector2(1.06152, 0.91504)
 sprite_frames = SubResource("SpriteFrames_nbwnt")
-animation = &"front_idle"
+animation = &"side_attack"
 autoplay = "front_idle"
 
 [node name="Detection Area" type="Area2D" parent="."]
