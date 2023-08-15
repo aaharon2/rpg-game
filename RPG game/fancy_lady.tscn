@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkudmitm3g2pk"]
+
+[ext_resource type="Script" path="res://fancy_lady.gd" id="1_8cd2x"]
+[ext_resource type="Texture2D" uid="uid://bgk87s3qqh7u" path="res://assets/npcs/npc1-fancy-lady.png" id="1_rov4q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihls7"]
+radius = 35.0143
+
+[node name="Fancy Lady" type="CharacterBody2D"]
+script = ExtResource("1_8cd2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+texture = ExtResource("1_rov4q")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ihls7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx8nvgulnpei4"
-path="res://.godot/imported/npc2-emo-teen.png-7331e47f98c14c48ea2fb01a62f172dd.ctex"
+uid="uid://dg05phgbub8x7"
+path="res://.godot/imported/npc6-hat-man.png-0a6630d5d35eb81b3b7c87ab1d726788.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New folder/npc2-emo-teen.png"
-dest_files=["res://.godot/imported/npc2-emo-teen.png-7331e47f98c14c48ea2fb01a62f172dd.ctex"]
+source_file="res://assets/npcs/npc6-hat-man.png"
+dest_files=["res://.godot/imported/npc6-hat-man.png-0a6630d5d35eb81b3b7c87ab1d726788.ctex"]
 
 [params]
 

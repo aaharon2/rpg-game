@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1efxq1yxvwge"
-path="res://.godot/imported/ncp5-twins.png-f62597690b48bb763c67d03148328677.ctex"
+uid="uid://b03cdoxv54ssx"
+path="res://.godot/imported/npc5-twins.png-879fa166f496e73de42a2a7ecc2709ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New folder/ncp5-twins.png"
-dest_files=["res://.godot/imported/ncp5-twins.png-f62597690b48bb763c67d03148328677.ctex"]
+source_file="res://assets/npcs/npc5-twins.png"
+dest_files=["res://.godot/imported/npc5-twins.png-879fa166f496e73de42a2a7ecc2709ee.ctex"]
 
 [params]
 

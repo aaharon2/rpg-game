@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbmutnbcalgvi"
-path="res://.godot/imported/npc4-mother.png-04b9a4777b9f85c37807ef58aaa21798.ctex"
+uid="uid://bc1lii68nw1c3"
+path="res://.godot/imported/npc4-mother.png-03996b4f0174fc9d7e0c8811e08057f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New folder/npc4-mother.png"
-dest_files=["res://.godot/imported/npc4-mother.png-04b9a4777b9f85c37807ef58aaa21798.ctex"]
+source_file="res://assets/npcs/npc4-mother.png"
+dest_files=["res://.godot/imported/npc4-mother.png-03996b4f0174fc9d7e0c8811e08057f6.ctex"]
 
 [params]
 

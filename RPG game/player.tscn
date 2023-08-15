@@ -392,7 +392,7 @@ y_sort_enabled = true
 position = Vector2(-4.76837e-07, 14)
 scale = Vector2(1.06152, 0.91504)
 sprite_frames = SubResource("SpriteFrames_nbwnt")
-animation = &"side_attack"
+animation = &"front_idle"
 autoplay = "front_idle"
 
 [node name="Detection Area" type="Area2D" parent="."]
@@ -409,6 +409,13 @@ shape = SubResource("CircleShape2D_0xcji")
 
 [node name="Attack_Cooldown" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -58.0
+offset_top = 39.0
+offset_right = 58.0
+offset_bottom = 66.0
+value = 100.0
 
 [connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection Area" to="." method="_on_detection_area_body_exited"]

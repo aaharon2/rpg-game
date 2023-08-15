@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 const speed = 100
 var current_dir = "none"
-var cashier_in_range = false
+var lady_in_range = false
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 100
+var max_health = 100
+var cur_health = 100
 var player_alive = true
 
  
@@ -13,16 +14,16 @@ func _read():
 	$AnimatedSprite2D.play("front_idle")
 
 func _physics_process(delta):
-	if cashier_in_range == true:
+	if lady_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
-			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main")
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "fancy_lady")
 			return
 	player_movement(delta)
 	enemy_attack()
 	
-	if health <= 0:
+	if cur_health <= 0:
 		player_alive = false #add death animation and respawn screen
-		health = 0
+		cur_health = 0
 		print("Player died")
 		$AnimatedSprite2D.play()
 			
@@ -84,12 +85,12 @@ func play_anim(movement):
 				anim.play("back_idle")
 
 func _on_detection_area_body_entered(body):
-	if body.has_method("cashier"):
-		cashier_in_range = true
+	if body.has_method("fancy_lady"):
+		lady_in_range = true
 
 func _on_detection_area_body_exited(body):
-	if body.has_method("cashier"):
-		cashier_in_range = false
+	if body.has_method("fancy_lady"):
+		lady_in_range = false
 
 func player():
 	pass
@@ -104,10 +105,12 @@ func _on_player_hitbox_body_exited(body):
 
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 10
+		cur_health = cur_health - 10
 		enemy_attack_cooldown = false
 		$Attack_Cooldown.start()
-		print(health)
+		$ProgressBar.max_value = max_health
+		$ProgressBar.value = cur_health
+		print(cur_health)
 
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true

@@ -1,23 +1,70 @@
-~ main
+~ fancy_lady
 
-if ordered_coffee == false:
-	Cashier: [[How can I help you?|What would you like today?|Hi, what would you like?]]
-	- Could I have a latte please
-		Cashier: Here you go!
-		set ordered_coffee = true
-		=> END
-	- I would like a long black
-		Cashier: Of course!
-		set ordered_coffee = true
-		=> END
-	- An iced coffee
-		Cashier: Coming right up!
-		set ordered_coffee = true
-		=> END
-	- Goodbye => END
-if ordered_coffee == true:
-	Cashier: [[You again! You just ordered coffee right?|Oh, hello again! I already gave you your coffee.|Hiya, didn't you just order a coffee?|]]
-	Cashier: You can open your inventory using 'e' then select your coffee to drink it.
+if Global.fancy_lady_talked == false:
+	Fancy Lady: [[Hello?|What do you want?|Hi?]]
+	- What are you doing?
+		Fancy Lady: Drinking my tea. Why do you ask?
+		- Everyone here seems to be on edge but you
+			Fancy Lady: I suppose it's because of that monster.
+			- Monster?
+				Fancy Lady: Haven't you heard? Theres a monster in the dungeon southeast of this town.
+				Fancy Lady: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
+				Fancy Lady: Apparently the seal is going to break soon.
+				Fancy Lady: But to be honest, I don't think we need to worry.
+				- Why is that?
+					Fancy Lady: Well, the town is quite far away, and this monster is no big deal.
+					Fancy Lady: I bet I could take it down faster than that adventurer did.
+				- Oh?
+					Fancy Lady: I'm sure it won't bother us for a while.
+					Fancy Lady: Everyone is over exaggerating.
+				set Global.fancy_lady_talked = true
+				=> END
+			- What is a monster doing in this area?
+				Fancy Lady: Haven't you heard? Theres a monster in the dungeon southeast of this town.
+				Fancy Lady: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
+				Fancy Lady: Apparently the seal is going to break soon.
+				Fancy Lady: But to be honest, I don't think we need to worry.
+				- Why is that?
+					Fancy Lady: Well, the town is quite far away, and this monster is no big deal.
+					Fancy Lady: I bet I could take it down faster than that adventurer did.
+				- Oh?
+					Fancy Lady: I'm sure it won't bother us for a while.
+					Fancy Lady: Everyone is over exaggerating.
+				set Global.fancy_lady_talked = true
+				=> END
+	- Who are you?
+		Fancy Lady: Merida
+		- Why is everyone here so anxious?
+			Fancy Lady: I suppose it's because of that monster.
+			- Monster?
+				Fancy Lady: Haven't you heard? Theres a monster in the dungeon southeast of this town.
+				Fancy Lady: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
+				Fancy Lady: Apparently the seal is going to break soon.
+				Fancy Lady: But to be honest, I don't think we need to worry.
+				- Why is that?
+					Fancy Lady: Well, the town is quite far away, and this monster is no big deal.
+					Fancy Lady: I bet I could take it down faster than that adventurer did.
+				- Oh?
+					Fancy Lady: I'm sure it won't bother us for a while.
+					Fancy Lady: Everyone is over exaggerating.
+				set Global.fancy_lady_talked = true
+				=> END
+			- There's a monster near here?
+				Fancy Lady: Haven't you heard? Theres a monster in the dungeon southeast of this town.
+				Fancy Lady: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
+				Fancy Lady: Apparently the seal is going to break soon.
+				Fancy Lady: But to be honest, I don't think we need to worry.
+				- Why is that?
+					Fancy Lady: Well, the town is quite far away, and this monster is no big deal.
+					Fancy Lady: I bet I could take it down faster than that adventurer did.
+				- Oh?
+					Fancy Lady: I'm sure it won't bother us for a while.
+					Fancy Lady: Everyone is over exaggerating.
+				set Global.fancy_lady_talked = true
+				=> END
+	- Sorry for bothering you => END
+if Global.fancy_lady_talked == true:
+	Cashier: [[I just talked to you, leave me alone.|You again?|Can I drink my tea in peace?]]
 	=> END
 => END
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx1urr41gjc10"
-path="res://.godot/imported/npc3-nature-girl.png-b45e4fa900e7ca01603df17ba57ee1cf.ctex"
+uid="uid://bgk87s3qqh7u"
+path="res://.godot/imported/npc1-fancy-lady.png-2e4ebc01fe96c789c156edbc008e1f49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New folder/npc3-nature-girl.png"
-dest_files=["res://.godot/imported/npc3-nature-girl.png-b45e4fa900e7ca01603df17ba57ee1cf.ctex"]
+source_file="res://assets/npcs/npc1-fancy-lady.png"
+dest_files=["res://.godot/imported/npc1-fancy-lady.png-2e4ebc01fe96c789c156edbc008e1f49.ctex"]
 
 [params]
 

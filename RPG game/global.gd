@@ -1,6 +1,6 @@
 extends Node
 
-var ordered_coffee = false
+var fancy_lady_talked = false
 var current_scene = "game_level"
 
 var player_enter_town_posx = 0
