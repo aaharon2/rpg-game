@@ -413,26 +413,14 @@ wait_time = 2.0
 [node name="Deal_attack_timer" type="Timer" parent="."]
 wait_time = 0.3
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -384.0
-offset_top = -192.0
-offset_right = 384.0
-offset_bottom = 240.0
-
-[node name="Label" type="Label" parent="TextureRect"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Health:
-"
-
-[node name="HealthBar" type="ProgressBar" parent="TextureRect"]
+[node name="HealthBar" type="ProgressBar" parent="."]
 modulate = Color(0.172549, 0.74902, 0.282353, 1)
-offset_left = 60.0
-offset_top = 4.0
-offset_right = 200.0
-offset_bottom = 41.0
-scale = Vector2(0.5, 0.5)
+offset_left = -10.0
+offset_top = 33.0
+offset_right = 95.0
+offset_bottom = 60.0
+scale = Vector2(0.2, 0.2)
+value = 100.0
 show_percentage = false
 
 [connection signal="body_entered" from="Detection Area" to="." method="_on_detection_area_body_entered"]

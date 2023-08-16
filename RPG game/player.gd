@@ -21,6 +21,7 @@ func _physics_process(delta):
 	player_movement(delta)
 	enemy_attack()
 	attack()
+	update_health()
 	
 	if health <= 0:
 		player_alive = false #add death animation and respawn screen
@@ -68,7 +69,7 @@ func play_anim(movement):
 				anim.play("side_walk")
 			elif movement == 0:
 				if attack_ip == false:
-					anim.play("side_idle") 
+					anim.play("side_idle")
 		if dir == "left":
 			anim.flip_h = false
 			if movement == 1:
@@ -145,3 +146,17 @@ func _on_deal_attack_timer_timeout():
 	$Deal_attack_timer.stop()
 	Global.player_cur_attack = false
 	attack_ip = false
+
+func update_health():
+	var healthbar = $HealthBar
+	healthbar.value = health
+	
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+		
+		
+		
+		
+		

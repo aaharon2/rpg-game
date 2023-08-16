@@ -8,10 +8,11 @@ var health = 100
 var player_inattack_zone = false
 var can_take_damage = true
 var can_pause = false
+var took_dmg = false
 
 func _physics_process(_delta):
 	deal_with_damage()
-	
+	update_health()
 	if player_chase == true and health >= 1:
 		position += (player.position - position)/speed
 		$AnimatedSprite2D.play("walk")
@@ -22,6 +23,8 @@ func _physics_process(_delta):
 		move_and_collide(Vector2(0,0))
 	elif player_chase == false and health >= 1:
 		$AnimatedSprite2D.play("idle")
+	if took_dmg == true:
+		$AnimatedSprite2D.play("hit")
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):
@@ -39,6 +42,7 @@ func enemy():
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
 		player_inattack_zone = true
+		$AnimatedSprite2D.play("attack")
 
 func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
@@ -48,6 +52,7 @@ func deal_with_damage():
 	if player_inattack_zone and Global.player_cur_attack == true:
 		if can_take_damage == true:
 			health = health - 20
+			took_dmg = true
 			$Damage_cooldown.start()
 			can_take_damage = false
 			print("enemy health = ", health)
@@ -63,3 +68,15 @@ func pause():
 	if can_pause == true:
 		process_mode = Node.PROCESS_MODE_DISABLED
 
+func update_health():
+	var healthbar = $HealthBar
+	healthbar.value = health
+	
+	if health >= 100:
+		healthbar.visible = false
+	elif health >= 1 or health < 100:
+		healthbar.visible = true
+	elif health <= 0:
+		healthbar.visible = false
+	
+	

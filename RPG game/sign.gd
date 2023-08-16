@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var player_in_range = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "sign")
