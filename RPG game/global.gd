@@ -3,9 +3,5 @@ extends Node
 var fancy_lady_talked = false
 var current_scene = "game_level"
 
-var player_enter_town_posx = 0
-var player_enter_town_posy = 0
-var player_exit_town_posx = 0
-var player_exit_town_posy = 0
-
+var player_cur_attack = false
 

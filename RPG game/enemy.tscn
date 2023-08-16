@@ -227,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q7jnt")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 9.0
 }, {
@@ -271,9 +271,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7ntbb")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -285,7 +285,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rlp6s")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 6.0
 }, {
@@ -351,8 +351,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_phfro"]
 radius = 85.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_37go7"]
-radius = 20.025
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqddq"]
+size = Vector2(46, 51)
 
 [node name="enemy" type="CharacterBody2D"]
 z_index = 1
@@ -370,8 +370,6 @@ y_sort_enabled = true
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_66vcl")
 animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.943905
 offset = Vector2(0, -14)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -383,10 +381,21 @@ position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_phfro")
 
 [node name="Enemy Hitbox" type="Area2D" parent="."]
+position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy Hitbox"]
-position = Vector2(-3, -16)
-shape = SubResource("CircleShape2D_37go7")
+position = Vector2(-5, -15.5)
+shape = SubResource("RectangleShape2D_hqddq")
 
+[node name="Damage_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="Enemy Hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="Enemy Hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="timeout" from="Damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
