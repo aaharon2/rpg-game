@@ -17,7 +17,7 @@ level_name = "game"
 
 [node name="Player" parent="." instance=ExtResource("2_56822")]
 y_sort_enabled = false
-position = Vector2(1182, 324)
+position = Vector2(37, 144)
 
 [node name="Map" parent="." instance=ExtResource("4_o5xre")]
 position = Vector2(-7, 0)
