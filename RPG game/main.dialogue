@@ -64,7 +64,7 @@ if Global.fancy_lady_talked == false:
 				=> END
 	- Sorry for bothering you => END
 if Global.fancy_lady_talked == true:
-	Fancy Lady: [[I just talked to you, leave me alone.|You again?|Can I drink my tea in peace?]]
+	Fancy Lady: [[I just talked to you, leave me alone.|You again?|Can I drink my tea in peace?|I literally just spoke to you.|Can you leave me alone?|I already spoke to you.|Stop talking to me, I want to drink my tea alone.|Why are you still talking to me?]]
 	=> END
 => END
 

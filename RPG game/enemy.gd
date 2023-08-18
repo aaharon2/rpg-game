@@ -7,7 +7,6 @@ var player = null
 var health = 100
 var player_inattack_zone = false
 var can_take_damage = true
-var can_pause = false
 var took_dmg = false
 
 func _physics_process(_delta):
@@ -25,6 +24,8 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play("idle")
 	if took_dmg == true:
 		$AnimatedSprite2D.play("hit")
+		$AnimTimer.start()
+		took_dmg = false
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):
@@ -42,7 +43,6 @@ func enemy():
 func _on_enemy_hitbox_body_entered(body):
 	if body.has_method("player"):
 		player_inattack_zone = true
-		$AnimatedSprite2D.play("attack")
 
 func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
@@ -56,17 +56,15 @@ func deal_with_damage():
 			$Damage_cooldown.start()
 			can_take_damage = false
 			print("enemy health = ", health)
-			if health <= 0 and can_pause == false:
-				$AnimatedSprite2D.play("death")
-				can_pause = true
-				pause()
+			if health <= 0:
+				self.queue_free()
+#				$AnimatedSprite2D.play("death")
 
 func _on_damage_cooldown_timeout():
 	can_take_damage = true
 
 func pause():
-	if can_pause == true:
-		process_mode = Node.PROCESS_MODE_DISABLED
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 func update_health():
 	var healthbar = $HealthBar
@@ -78,5 +76,4 @@ func update_health():
 		healthbar.visible = true
 	elif health <= 0:
 		healthbar.visible = false
-	
 	

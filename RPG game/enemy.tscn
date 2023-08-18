@@ -287,7 +287,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 6.0
+"speed": 63.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -355,7 +355,7 @@ radius = 85.0
 size = Vector2(46, 51)
 
 [node name="enemy" type="CharacterBody2D"]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_ecwmk")
@@ -392,8 +392,8 @@ shape = SubResource("RectangleShape2D_hqddq")
 [node name="Damage_cooldown" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 1.2
+[node name="AnimTimer" type="Timer" parent="."]
+wait_time = 0.7
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 modulate = Color(0.172549, 0.74902, 0.282353, 1)

@@ -9,7 +9,7 @@ var health = 100
 var player_alive = true
 var attack_ip = false
 
- 
+
 func _read():
 	$AnimatedSprite2D.play("front_idle")
 
@@ -27,8 +27,10 @@ func _physics_process(delta):
 		player_alive = false #add death animation and respawn screen
 		health = 0
 		print("Player died")
-		self.queue_free()
-		$AnimatedSprite2D.play()
+		position.x = 1289
+		position.y = 323
+		player_alive = true
+		health = 100
 			
 func player_movement(_delta):
 	if Global.current_scene == "game_level":
@@ -113,7 +115,7 @@ func _on_player_hitbox_body_exited(body):
 
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 10
+		health = health - 20
 		enemy_attack_cooldown = false
 		$Attack_Cooldown.start()
 		print(health)
@@ -156,7 +158,16 @@ func update_health():
 	else:
 		healthbar.visible = true
 		
-		
-		
-		
-		
+
+func _on_collectables_area_entered(area):
+	if area.has_method("collect"):
+		area.collect()
+		if health < 100:
+			health += 20
+			print(health)
+			if health > 100:
+				health = 100
+				print(health)
+		if health <= 0:
+			health = 0
+			print(health)
