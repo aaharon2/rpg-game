@@ -15,13 +15,13 @@ z_index = 2
 y_sort_enabled = true
 script = ExtResource("1_8cd2x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_djddc")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -18)
 texture = ExtResource("1_rov4q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_djddc")
 
 [node name="Area2D" type="Area2D" parent="."]
 

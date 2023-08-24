@@ -3,6 +3,7 @@ extends CharacterBody2D
 const speed = 100
 var current_dir = "none"
 var lady_in_range = false
+var emoteen_in_range = false
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
@@ -18,6 +19,12 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "fancy_lady")
 			return
+			lady_in_range = false
+	if emoteen_in_range == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen")
+			return
+			emoteen_in_range = false
 	player_movement(delta)
 	enemy_attack()
 	attack()
@@ -97,10 +104,14 @@ func play_anim(movement):
 func _on_detection_area_body_entered(body):
 	if body.has_method("fancy_lady"):
 		lady_in_range = true
+	if body.has_method("emo_teen"):
+		emoteen_in_range = true
 
 func _on_detection_area_body_exited(body):
 	if body.has_method("fancy_lady"):
 		lady_in_range = false
+	if body.has_method("emo_teen"):
+		emoteen_in_range = false
 
 func player():
 	pass
