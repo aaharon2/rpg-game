@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 
+
 func _physics_process(_delta):
 	pass
 
-func nature_girl():
+func mother():
 	pass
 
 
@@ -13,4 +14,4 @@ func _on_area_2d_area_entered(area):
 	var player_area = get_node("/root/Game/Player/Detection Area")
 	
 	if area == player_area:
-		player.girl_in_range = true
+		player.mother_in_range = true

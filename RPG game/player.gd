@@ -4,6 +4,7 @@ const speed = 100
 var current_dir = "none"
 var lady_in_range = false
 var emoteen_in_range = false
+var girl_in_range = false
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
@@ -18,13 +19,33 @@ func _physics_process(delta):
 	if lady_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "fancy_lady")
+			$AnimatedSprite2D.play("back_idle")
 			return
 			lady_in_range = false
-	if emoteen_in_range == true:
+	if emoteen_in_range == true and Global.alphy_talked == false and Global.alphy_talk == false:
 		if Input.is_action_just_pressed("ui_accept"):
-			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen")
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_1")
+			$AnimatedSprite2D.play("back_idle")
 			return
 			emoteen_in_range = false
+	if emoteen_in_range == true and Global.alphy_talk == true and Global.alphy_talked == false:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_2")
+			$AnimatedSprite2D.play("back_idle")
+			return
+			emoteen_in_range = false
+	if emoteen_in_range == true and Global.alphy_talked == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_3")
+			$AnimatedSprite2D.play("back_idle")
+			return
+			emoteen_in_range = false
+	if girl_in_range == true and Global.fancy_lady_talked == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "nature_girl")
+			$AnimatedSprite2D.play("back_idle")
+			return
+			girl_in_range = false
 	player_movement(delta)
 	enemy_attack()
 	attack()
@@ -106,12 +127,16 @@ func _on_detection_area_body_entered(body):
 		lady_in_range = true
 	if body.has_method("emo_teen"):
 		emoteen_in_range = true
+	if body.has_method("nature_girl"):
+		girl_in_range = true
 
 func _on_detection_area_body_exited(body):
 	if body.has_method("fancy_lady"):
 		lady_in_range = false
 	if body.has_method("emo_teen"):
 		emoteen_in_range = false
+	if body.has_method("nature_girl"):
+		girl_in_range = false
 
 func player():
 	pass

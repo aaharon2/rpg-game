@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbglqetr2h2ed"]
+[gd_scene load_steps=13 format=3 uid="uid://dbglqetr2h2ed"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_gflcx"]
 [ext_resource type="PackedScene" uid="uid://ds0so60rt0x5o" path="res://player.tscn" id="2_56822"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://djgj15xgslgdk" path="res://dungeon.tscn" id="7_wda17"]
 [ext_resource type="PackedScene" uid="uid://dkudmitm3g2pk" path="res://fancy_lady.tscn" id="8_0tcgq"]
 [ext_resource type="PackedScene" uid="uid://rxje0prssbsy" path="res://emo_teen.tscn" id="9_ea7hc"]
+[ext_resource type="PackedScene" uid="uid://2lane7tdp0j4" path="res://nature_girl.tscn" id="10_dde3x"]
+[ext_resource type="PackedScene" uid="uid://cybbuhljg2oi3" path="res://mother.tscn" id="11_d7mwc"]
+[ext_resource type="PackedScene" uid="uid://lgtulxjoi6xj" path="res://twins.tscn" id="12_jcsbb"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -49,5 +52,14 @@ position = Vector2(703, -276)
 
 [node name="Emo Teen" parent="." instance=ExtResource("9_ea7hc")]
 position = Vector2(1057, -368)
+
+[node name="Nature Girl" parent="." instance=ExtResource("10_dde3x")]
+position = Vector2(439, -422)
+
+[node name="Mother" parent="." instance=ExtResource("11_d7mwc")]
+position = Vector2(347, -546)
+
+[node name="Twins" parent="." instance=ExtResource("12_jcsbb")]
+position = Vector2(410, -566)
 
 [connection signal="level_changed" from="." to="." method="_on_level_changed"]

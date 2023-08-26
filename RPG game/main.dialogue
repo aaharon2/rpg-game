@@ -68,115 +68,194 @@ if Global.fancy_lady_talked == true:
 	=> END
 => END
 
-~ emo_teen
+~ emo_teen_1
 
-if Global.emo_teen_talked == false and Global.alphy_talk == false:
-	- Hiya!
-		Emo Teen: H..Hi?
-		Emo Teen: What do you want?
+if Global.emo_teen_talked == false and Global.alphy_talked == false:
+	Emo Teen: H..Hi?
+	Emo Teen: What do you want?
 	- Who are you?
 		Alphy: Uh m-m-my name is A-Alphy. I-I don't know who you are, s-so please leave me alone.
 		set Global.alphy_talk = true
-		=> END 
-	- Have you heard of the monster near this town?
-		Emo Teen: M-M-M-MONSTER?!?
-		Emo Teen: N-No! I-I just moved here recently. No one t-t-told me about it??
-		Emo Teen: A-A-Am I going to d-d-d-die?!?!??
-		- Woah nono don't worry, I'm an experienced adventurer. I can save this town!
-			Emo Teen: A-Are you sure? W-W-What if you're lying?
-			- Why would I lie about that?
-				Emo Teen: I-I-I'm not sure, b-b-but I can't trust you just like that.
-				- Please, just trust me.
-					Emo Teen: U-Um, o-o-okay?
-					set Global.emo_teen_talked == true
-					=> END
-			- Just trust me.
-				Emo Teen: U-Um, o-o-okay?
-				set Global.emo_teen_talked == true
-				=> END
-		- No! Of course not, this town is safe as long as I'm here!
-			Emo Teen: O-O-Okay? B-But how can you be so sure?
-			- My fighting skills are top notch!
-				Emo Teen: I-If you say so...
-				- No, really! I am an experienced adventurer.
-					Emo Teen: U-Um, o-o-okay?
-					set Global.emo_teen_talked == true
-					=> END
-			- I have a lot of experience with this kind of thing!
-				Emo Teen: O-Oh, if you say so I g-guess?
-				set Global.emo_teen_talked == true
-				=> END
-		- Uhhh if you can trust me then I'm sure I can defeat it!
-			Emo Teen: O-Okay. W-Who are you anyway?
-			- I'm an adventurer! Nice to meet you ... sorry I don't think I got your name?
-				Alphy: Uh m-m-my name is A-Alphy.
-				- Nice to meet you Alphy!
-					Alphy: A-Ah, h-hi! S-So, you said you can defeat the m-m-m-monster?
-					- Yes! Trust in my abilities!
-						Alphy: I-If you say so...
-						set Global.alphy_talked == true
-						=> END
-				- Hi Alphy! I'm sure I can keep you and this town safe!
-					Alphy: O-O-Okay then. I-I'm counting on you...
-					set Global.alphy_talked == true
-					=> END
-				- Alphy! This town is safe as long as I'm here!
-					Alphy: O-O-Okay? B-But how can you be so sure?
-					- My fighting skills are top notch!
-						Alphy: I-If you say so...
-						- No, really! I am an experienced adventurer.
-							Alphy: U-Um, o-o-okay then.
-							set Global.alphy_talked == true
-	- 
-if Global.alphy_talk == true:
-	Alphy: H-Hi? I don't really know w-who you are.
-	- I'm an adventurer! Nice to meet you Alphy!
-		Alphy: A-Ah, h-hi! S-So, what do you want?
-		- Have you heard of the monster near this town?
-			Alphy: M-M-M-MONSTER?!?
-			Alphy: N-No! I-I just moved here recently. No one t-t-told me about it??
-			Alphy: A-A-Am I going to d-d-d-die?!?!??
-			- Woah nono don't worry, I'm an experienced adventurer. I can save this town!
-				Alphy: A-Are you sure? W-W-What if you're lying?
-				- Why would I lie about that?
-					Alphy: I-I-I'm not sure, b-b-but I can't trust you just like that.
-					- Please, just trust me.
-						Alphy: U-Um, o-o-okay?
-						set Global.alphy_talked == true
-						=> END
-				- Just trust me.
-					Alphy: O-O-Okay?
-					set Global.alphy_talked == true
-					=> END
-			- No! Of course not, this town is safe as long as I'm here!
-				Alphy: O-Okay? B-But how can you be so sure?
-				- My fighting skills are top notch!
-					Alphy: I-If you say so...
-					- No, really! I am an experienced adventurer.
-						Alphy: U-Um, o-o-okay?
-						set Global.alphy_talked == true
-						=> END
-				- I have a lot of experience with this kind of thing!
-					Alphy: O-Oh, if you say so I g-guess?
-					set Global.alphy_talked == true
-					=> END
-			- Uhhh if you can trust me then I'm sure I can defeat it!
-				Alphy: O-Okay then...
-				set Global.emo_teen_talked == true
-				=> END
-			- Yes! Trust in my abilities!
-				Alphy: I-If you say so...
-				set Global.alphy_talked == true
-				=> END
-if Global.emo_teen_talked == true:
-	Emo Teen: [[I-I guess I can trust you..|G-G-Good luck defeating the m-m-monster?|A-Ah u-u-umm I'm going to go back home...|I-I-I hope you can s-s-save us...|I think I have f-f-faith in you?|Y-Y-You can defeat the m-m-monster?|P-P-Please save us...]]
-	=> END	
-if Global.alphy_talked == true:
-	Emo Teen: [[I-I guess I can trust you..|G-G-Good luck defeating the m-m-monster?|A-Ah u-u-umm I'm going to go back home...|I-I-I hope you can s-s-save us...|I think I have f-f-faith in you?|Y-Y-You can defeat the m-m-monster?|P-P-Please save us...]]
-	=> END
+		=> END
 => END
 
+~ emo_teen_2
 
+if Global.alphy_talk == true:
+	Alphy: H-H-Hi again...
+	- Have you heard of the monster near this town?
+		Alphy: M-M-M-MONSTER?!?
+		Alphy: N-No! I-I just moved here recently. No one t-t-told me about it??
+		Alphy: A-A-Am I going to d-d-d-die?!?!??
+		- Woah nono don't worry, I'm an experienced adventurer. I can save this town!
+			Alphy: A-Are you sure? W-W-What if you're lying?
+			- Why would I lie about that?
+				Alphy: I-I-I'm not sure, b-b-but I can't trust you just like that.
+				- Please, just trust me.
+					Alphy: U-Um, o-o-okay?
+					set Global.alphy_talked = true
+					=> END
+			- Just trust me.
+				Alphy: U-Um, o-o-okay?
+				set Global.alphy_talked = true
+				=> END
+		- No! Of course not, this town is safe as long as I'm here!
+			Alphy: O-O-Okay? B-But how can you be so sure?
+			- My fighting skills are top notch!
+				Alphy: I-If you say so...
+				- No, really! I am an experienced adventurer.
+					Alphy: U-Um, o-o-okay?
+					set Global.alphy_talked = true
+					=> END
+			- I have a lot of experience with this kind of thing!
+				Alphy: O-Oh, if you say so I g-guess?
+				set Global.alphy_talked = true
+				=> END
+		- Uhhh if you can trust me then I'm sure I can defeat it!
+			Alphy: O-Okay. W-Who are you anyway?
+			- I'm an adventurer!
+					Alphy: A-Ah, o-okay! S-So, you said you can defeat the m-m-m-monster?
+					- Yes! Trust in my abilities!
+						Alphy: I-If you say so...
+						set Global.alphy_talked = true
+						=> END
+					- I'm sure I can keep you and this town safe!
+						Alphy: O-O-Okay then. I-I'm counting on you...
+						set Global.alphy_talked = true
+						=> END
+					- This town is safe as long as I'm here!
+						Alphy: O-O-Okay? B-But how can you be so sure?
+						- My fighting skills are top notch!
+							Alphy: I-If you say so...
+							set Global.alphy_talked = true
+							=> END
+=> END
+
+~ emo_teen_3
+
+Alphy: [[I-I guess I can trust you..|G-G-Good luck defeating the m-m-monster?|A-Ah u-u-umm I'm going to go back home...|I-I-I hope you can s-s-save us...|I think I have f-f-faith in you?|Y-Y-You can defeat the m-m-monster?|P-P-Please save us...]]
+
+=> END
+
+~ nature_girl
+if Global.fauna_talked == false:
+	Nature Girl: Hi! I haven't seen you around here before.
+	- I'm an adventurer from afar!
+		Fauna: Oooh cool! I'm Fauna, nice to meet you!
+		- Nice to meet you!
+			Fauna: Yeah! so what brings you here?
+			- I heard there was a monster, so I'm going to defeat it!
+				Fauna: Oh, thank you! you are doing our environment a big favour!
+				- Why is that?
+					Fauna: Before it was sealed away it destroyed majority of the forests here. 
+					Fauna: Thats why I'm taking such great care of the nature!
+					- That's very kind of you!
+						Fauna: Looking after the environment is my passion, so it's only natural!
+						set Global.fauna_talked = true
+						=> END
+					- Oh no! I hope I can prevent that from happening again
+						Fauna: I'm rooting for you!
+						set Global.fauna_talked = true
+						=> END
+			- I'm just exploring
+				Fauna: I see, well if you have the time and abilities please stop by the dungeon
+				- Is this about that monster?
+					Fauna: Yes! I'm surprised you knew about it!
+					Fauna: Before it was sealed away it destroyed majority of the forests here. 
+					Fauna: Thats why I'm taking such great care of the nature!
+					- That's very kind of you!
+						Fauna: Looking after the environment is my passion, so it's only natural!
+						set Global.fauna_talked = true
+						=> END
+					- Oh no! I hope I can prevent that from happening again
+						Fauna: I'm rooting for you!
+						set Global.fauna_talked = true
+						=> END
+				- Ah, you want me to defeat the monster!
+					Fauna: Yes! I'm surprised you knew about it!
+					Fauna: Before it was sealed away it destroyed majority of the forests here. 
+					Fauna: Thats why I'm taking such great care of the nature!
+					- That's very kind of you!
+						Fauna: Looking after the environment is my passion, so it's only natural!
+						set Global.fauna_talked = true
+						=> END
+					- Oh no! I hope I can prevent that from happening again
+						Fauna: I'm rooting for you!
+						set Global.fauna_talked = true
+						=> END
+	- I'm here to explore this town.
+		Fauna: Ah, I see! I'm Fauna, nice to meet you!
+		- Nice to meet you!
+			Fauna: Yeah! so what brings you here?
+			- I heard there was a monster, so I'm going to defeat it!
+				Fauna: Oh, thank you! you are doing our environment a big favour!
+				- Why is that?
+					Fauna: Before it was sealed away it destroyed majority of the forests here. 
+					Fauna: Thats why I'm taking such great care of the nature!
+					- That's very kind of you!
+						Fauna: Looking after the environment is my passion, so it's only natural!
+						set Global.fauna_talked = true
+						=> END
+					- Oh no! I hope I can prevent that from happening again
+						Fauna: I'm rooting for you!
+						set Global.fauna_talked = true
+						=> END
+			- I'm just exploring
+				Fauna: I see, well if you have the time and abilities please stop by the dungeon
+				- Is this about that monster?
+					Fauna: Yes! I'm surprised you knew about it!
+					Fauna: Before it was sealed away it destroyed majority of the forests here. 
+					Fauna: Thats why I'm taking such great care of the nature!
+					- That's very kind of you!
+						Fauna: Looking after the environment is my passion, so it's only natural!
+						set Global.fauna_talked = true
+						=> END
+					- Oh no! I hope I can prevent that from happening again
+						Fauna: I'm rooting for you!
+						set Global.fauna_talked = true
+						=> END
+				- Ah, you want me to defeat the monster!
+					Fauna: Yes! I'm surprised you knew about it!
+					Fauna: Before it was sealed away it destroyed majority of the forests here. 
+					Fauna: Thats why I'm taking such great care of the nature!
+					- That's very kind of you!
+						Fauna: Looking after the environment is my passion, so it's only natural!
+						set Global.fauna_talked = true
+						=> END
+					- Oh no! I hope I can prevent that from happening again
+						Fauna: I'm rooting for you!
+						set Global.fauna_talked = true
+						=> END
+	- I came here and found out about a monster nearby, have you heard of it?
+		Fauna: You know about the monster?
+		- Yeah, Merida told me about it
+			Fauna: Ah, Merida...
+			Fauna: I see, well anyhow, that monster destroyed majority of the forests here. 
+			Fauna: Thats why I'm taking such great care of the nature.
+			- That's very kind of you!
+				Fauna: Looking after the environment is my passion, so it's only natural!
+				set Global.fauna_talked = true
+				=> END
+			- Oh no! I hope I can prevent that from happening again
+				Fauna: I'm rooting for you!
+				set Global.fauna_talked = true
+				=> END
+		- Yeah, I'm hoping I can save this town!
+			Fauna: Please do your best!
+			Fauna: That monster destroyed majority of the forests here.
+			Fauna: Thats why I'm taking such great care of the nature!
+			- That's very kind of you!
+				Fauna: Looking after the environment is my passion, so it's only natural!
+				set Global.fauna_talked = true
+				=> END
+			- Oh no! I hope I can prevent that from happening again
+				Fauna: I'm rooting for you!
+				set Global.fauna_talked = true
+				=> END
+if Global.fauna_talked == true:
+	Fauna: [[Good luck fighting the monster!|I'm rooting for you!|I'm sure you can defeat the monster!|Please save our environment!|I really appreciate your effort!]]
+	=> END
+=>END
 
 ~ sign
 
