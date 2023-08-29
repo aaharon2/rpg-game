@@ -23,10 +23,10 @@ texture = ExtResource("2_cfdj6")
 position = Vector2(1, -8)
 shape = SubResource("CapsuleShape2D_ajepr")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Fauna Area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fauna Area"]
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_xhi5i")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Fauna Area" to="." method="_on_fauna_area_area_entered"]

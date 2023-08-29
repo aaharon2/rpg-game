@@ -275,7 +275,7 @@ if Global.mother_talked == false:
 			Mother: I see, who are you anyway?
 			- I'm an adventurer!
 				Mother: An adventurer?
-				Mother: Wait a second... are you able to defeat that monster nearby
+				Mother: Wait a second... are you able to defeat that monster nearby?
 				Mother: I heard it's going to go on a rampage soon
 				Mother: I'm also worried sick about my children.
 				- Don't worry! I'll be sure to save this town!
@@ -309,7 +309,7 @@ if Global.mother_talked == false:
 			Mother: Ah, by the way, who are you?
 			- I'm an adventurer!
 				Mother: An adventurer?
-				Mother: Wait a second... are you able to defeat that monster nearby
+				Mother: Wait a second... are you able to defeat that monster nearby?
 				Mother: I heard it's going to go on a rampage soon
 				Mother: I'm also worried sick about my children.
 				- Don't worry! I'll be sure to save this town!
@@ -422,7 +422,7 @@ if Global.nerd_talked == false:
 					Olivia: Well please be careful, the last adventurer he uh..
 					Olivia: Didn't succeed.
 					Olivia: Keep in mind though, this monster is locked in a room in the dungeon.
-					Olivia: To get inside it's room you need to find the key in a chest.
+					Olivia: To get inside it's room, you need to find the key in a chest.
 					Olivia: But rumor has it, there are way more monsters in that dungeon now.
 					Olivia: So please, be careful.
 					- You can count on me.
@@ -433,7 +433,7 @@ if Global.nerd_talked == false:
 			Olivia: The last adventurer he uh...
 			Olivia: Didn't succeed.
 			Olivia: Keep in mind though, this monster is locked in a room in the dungeon.
-			Olivia: To get inside it's room you need to find the key in a chest.
+			Olivia: To get inside it's room, you need to find the key in a chest.
 			Olivia: But rumor has it, there are way more monsters in that dungeon now.
 			Olivia: So please, be careful.
 			- You can count on me.
@@ -456,7 +456,7 @@ if Global.nerd_talked == false:
 					Olivia: Well please be careful, the last adventurer he uh..
 					Olivia: Didn't succeed.
 					Olivia: Keep in mind though, this monster is locked in a room in the dungeon.
-					Olivia: To get inside it's room you need to find the key in a chest.
+					Olivia: To get inside it's room, you need to find the key in a chest.
 					Olivia: But rumor has it, there are way more monsters in that dungeon now.
 					Olivia: So please, be careful.
 					- You can count on me.
@@ -467,7 +467,7 @@ if Global.nerd_talked == false:
 			Olivia: The last adventurer he uh...
 			Olivia: Didn't succeed.
 			Olivia: Keep in mind though, this monster is locked in a room in the dungeon.
-			Olivia: To get inside it's room you need to find the key in a chest.
+			Olivia: To get inside it's room, you need to find the key in a chest.
 			Olivia: But rumor has it, there are way more monsters in that dungeon now.
 			Olivia: So please, be careful.
 			- You can count on me.

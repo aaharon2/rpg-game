@@ -7,7 +7,7 @@ func nerd():
 	pass
 
 
-func _on_area_2d_area_entered(area):
+func _on_nerd_area_area_entered(area):
 	var player = get_node("/root/Game/Player")
 	var player_area = get_node("/root/Game/Player/Detection Area")
 	

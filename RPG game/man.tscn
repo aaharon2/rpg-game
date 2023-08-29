@@ -23,10 +23,10 @@ shape = SubResource("CapsuleShape2D_4lqvr")
 position = Vector2(0, -18)
 texture = ExtResource("2_700fr")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Man Area" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Man Area"]
 position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_hlr7a")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Man Area" to="." method="_on_man_area_area_entered"]

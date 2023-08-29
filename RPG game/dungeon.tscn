@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://djgj15xgslgdk"]
+[gd_scene load_steps=29 format=3 uid="uid://djgj15xgslgdk"]
 
 [ext_resource type="Texture2D" uid="uid://b7vqc1x1tm0od" path="res://assets/RF_Catacombs_v1.0/decorative.png" id="1_4o240"]
 [ext_resource type="Texture2D" uid="uid://d31trv6xgih30" path="res://assets/RF_Catacombs_v1.0/mainlevbuild.png" id="1_xn3op"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://m1jhwv0s08c4" path="res://assets/RF_Catacombs_v1.0/torch_3.png" id="9_44fvj"]
 [ext_resource type="Texture2D" uid="uid://crpwx2nwlsfdo" path="res://assets/RF_Catacombs_v1.0/torch_4.png" id="10_0pawg"]
 [ext_resource type="Script" path="res://Candle.gd" id="11_3vjp7"]
+[ext_resource type="PackedScene" uid="uid://hmlaod2xhpj4" path="res://chest.tscn" id="14_oadgp"]
+[ext_resource type="PackedScene" uid="uid://cadpkjnic3i8d" path="res://key_chest.tscn" id="15_8iflj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5wc6"]
 texture = ExtResource("1_4o240")
@@ -6740,3 +6742,15 @@ position = Vector2(1081, -8)
 scale = Vector2(0.761707, 0.651369)
 sprite_frames = SubResource("SpriteFrames_0niy7")
 animation = &"light"
+
+[node name="Chest" parent="." instance=ExtResource("14_oadgp")]
+position = Vector2(1225, 355)
+
+[node name="Chest3" parent="." instance=ExtResource("14_oadgp")]
+position = Vector2(1722, 40)
+
+[node name="Chest4" parent="." instance=ExtResource("14_oadgp")]
+position = Vector2(808, 33)
+
+[node name="KeyChest" parent="." instance=ExtResource("15_8iflj")]
+position = Vector2(1032, -190)
