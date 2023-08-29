@@ -35,36 +35,37 @@ if Global.fancy_lady_talked == false:
 	- Who are you?
 		Fancy Lady: Merida
 		- Why is everyone here so anxious?
-			Fancy Lady: I suppose it's because of that monster.
+			Merida: I suppose it's because of that monster.
 			- Monster?
-				Fancy Lady: Haven't you heard? Theres a monster in the dungeon southeast of this town.
-				Fancy Lady: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
-				Fancy Lady: Apparently the seal is going to break soon.
-				Fancy Lady: But to be honest, I don't think we need to worry.
+				Merida: Haven't you heard? Theres a monster in the dungeon southeast of this town.
+				Merida: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
+				Merida: Apparently the seal is going to break soon.
+				Merida: But to be honest, I don't think we need to worry.
 				- Why is that?
-					Fancy Lady: Well, the town is quite far away, and this monster is no big deal.
-					Fancy Lady: I bet I could take it down faster than that adventurer did.
+					Merida: Well, the town is quite far away, and this monster is no big deal.
+					Merida: I bet I could take it down faster than that adventurer did.
 				- Oh?
-					Fancy Lady: I'm sure it won't bother us for a while.
-					Fancy Lady: Everyone is over exaggerating.
+					Merida: I'm sure it won't bother us for a while.
+					Merida: Everyone is over exaggerating.
 				set Global.fancy_lady_talked = true
 				=> END
 			- There's a monster near here?
-				Fancy Lady: Haven't you heard? Theres a monster in the dungeon southeast of this town.
-				Fancy Lady: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
-				Fancy Lady: Apparently the seal is going to break soon.
-				Fancy Lady: But to be honest, I don't think we need to worry.
+				Merida: Haven't you heard? Theres a monster in the dungeon southeast of this town.
+				Merida: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
+				Merida: Apparently the seal is going to break soon.
+				Merida: But to be honest, I don't think we need to worry.
 				- Why is that?
-					Fancy Lady: Well, the town is quite far away, and this monster is no big deal.
-					Fancy Lady: I bet I could take it down faster than that adventurer did.
+					Merida: Well, the town is quite far away, and this monster is no big deal.
+					Merida: I bet I could take it down faster than that adventurer did.
 				- Oh?
-					Fancy Lady: I'm sure it won't bother us for a while.
-					Fancy Lady: Everyone is over exaggerating.
+					Merida: I'm sure it won't bother us for a while.
+					Merida: Everyone is over exaggerating.
 				set Global.fancy_lady_talked = true
 				=> END
-	- Sorry for bothering you => END
+	- Sorry for bothering you 
+	=> END
 if Global.fancy_lady_talked == true:
-	Fancy Lady: [[I just talked to you, leave me alone.|You again?|Can I drink my tea in peace?|I literally just spoke to you.|Can you leave me alone?|I already spoke to you.|Stop talking to me, I want to drink my tea alone.|Why are you still talking to me?]]
+	Merida: [[I just talked to you, leave me alone.|You again?|Can I drink my tea in peace?|I literally just spoke to you.|Can you leave me alone?|I already spoke to you.|Stop talking to me, I want to drink my tea alone.|Why are you still talking to me?]]
 	=> END
 => END
 
@@ -77,6 +78,8 @@ if Global.emo_teen_talked == false and Global.alphy_talked == false:
 		Alphy: Uh m-m-my name is A-Alphy. I-I don't know who you are, s-so please leave me alone.
 		set Global.alphy_talk = true
 		=> END
+	- Sorry for bothering you 
+	=> END
 => END
 
 ~ emo_teen_2
@@ -129,6 +132,8 @@ if Global.alphy_talk == true:
 							Alphy: I-If you say so...
 							set Global.alphy_talked = true
 							=> END
+	- Sorry for bothering you 
+	=> END
 => END
 
 ~ emo_teen_3
@@ -252,10 +257,333 @@ if Global.fauna_talked == false:
 				Fauna: I'm rooting for you!
 				set Global.fauna_talked = true
 				=> END
+	- Sorry for bothering you.
+	=> END
 if Global.fauna_talked == true:
 	Fauna: [[Good luck fighting the monster!|I'm rooting for you!|I'm sure you can defeat the monster!|Please save our environment!|I really appreciate your effort!]]
 	=> END
 =>END
+
+~ mother
+if Global.mother_talked == false:
+	Mother: *On the phone*
+	Mother: Ugh I already booked for you to arrive today! Why are you cancelling on me so last minute!
+	Mother: Who am I supposed to get to look after my kids now!?!? *Hangs up*
+	- ... Are you alright?
+		Mother: My babysitter just cancelled her plans to come today, I don't know what I'm supposed to do!
+		- I would offer to help, but I'm a little busy right now.
+			Mother: I see, who are you anyway?
+			- I'm an adventurer!
+				Mother: An adventurer?
+				Mother: Wait a second... are you able to defeat that monster nearby
+				Mother: I heard it's going to go on a rampage soon
+				Mother: I'm also worried sick about my children.
+				- Don't worry! I'll be sure to save this town!
+					Mother: You have my thanks!
+					set Global.mother_talked = true
+					=> END
+			- I'm just passing by
+				Mother: I see...
+				Mother: Wait a second... are you by any chance..
+				Mother: An adventurer??
+				- Yes!
+					Mother: So... are you here to defeat that monster??
+					Mother: I heard it's going to go on a rampage soon
+					Mother: I'm also worried sick about my children.
+					- Don't worry! I'll be sure to save this town!
+						Mother: You have my thanks!
+						set Global.mother_talked = true
+						=> END
+				- How did you know?
+					Mother: Ah, experience I suppose. A while back there was one similar to you.
+					Mother: They came to deafeat that monster, but failed.
+					Mother: It's quite unfortunate.
+					Mother: You seem to be very prepared though. If possible could you go and visit the dungeon to try and save us?
+					Mother: I'm worried sick about my children.
+					- Don't worry! I'll be sure to save this town!
+						Mother: You have my thanks!
+						set Global.mother_talked = true
+						=> END
+		- You could ask someone else here?
+			Mother: I could... maybe Fauna is up for the task.
+			Mother: Ah, by the way, who are you?
+			- I'm an adventurer!
+				Mother: An adventurer?
+				Mother: Wait a second... are you able to defeat that monster nearby
+				Mother: I heard it's going to go on a rampage soon
+				Mother: I'm also worried sick about my children.
+				- Don't worry! I'll be sure to save this town!
+					Mother: You have my thanks!
+					set Global.mother_talked = true
+					=> END
+			- I'm just passing by
+				Mother: I see...
+				Mother: Wait a second... are you by any chance..
+				Mother: An adventurer??
+				- Yes!
+					Mother: So... are you here to defeat that monster??
+					Mother: I heard it's going to go on a rampage soon
+					Mother: I'm also worried sick about my children.
+					- Don't worry! I'll be sure to save this town!
+						Mother: You have my thanks!
+						set Global.mother_talked = true
+						=> END
+				- How did you know?
+					Mother: Ah, experience I suppose. A while back there was one similar to you.
+					Mother: They came to deafeat that monster, but failed.
+					Mother: It's quite unfortunate.
+					Mother: You seem to be very prepared though. If possible could you go and visit the dungeon to try and save us?
+					Mother: I'm worried sick about my children.
+					- Don't worry! I'll be sure to save this town!
+						Mother: You have my thanks!
+						set Global.mother_talked = true
+						=> END
+	- Sorry for bothering you 
+	=> END
+if Global.mother_talked == true:
+	Mother: [[Please, I don't want this town to disappear..|Please save us!|Me and my children will be eternally grateful if you save this town|I don't want to lose my only home..|Good luck in the dungeon!|I'm sure you can defeat the monster!]]
+	=> END
+=> END
+
+~ twins
+Bessy: WAAAH I WANT FOOD
+Betty: SHUSH BESSY MY EARS HURT
+Bessy: B-B-But I'm hungwyy and mummy said she was going shopping after Lydia gets heree...
+Betty: Did you not just hear her on the phone? Lydia can't come today.
+Bessy: But I'm hungwyyy...
+Betty: Bessy, if you keep complaining mum will be mad.
+Betty: You know how much she hates when you complain
+Bessy: Ugh. You're so annoying.
+Bessy: I just want her attention
+Betty: You could be getting her attention without making her angry
+Bessy: Hmph.
+Bessy: ...
+Bessy: ...
+Bessy: MUMMY I'M HUNGRY. GIBE FOOD.
+=> END
+
+~ man
+if Global.man_talked == false:
+	Man: Good day young adventurer.
+	Man: I would be glad to help guide you around this town although I am only visiting here too.
+	- Ah... that's alright, I'm just exploring
+		Man: I see, well if you have the chance please talk to Olivia if you haven't.
+		Man: She seems to be the most sensible one in this town.
+		- If I can find her!
+			Man: She should be near the small __ in the bottom left of the town.
+			Man: I'm sure she is capable of answering any questions you may come to have during your stay here.
+			set Global.man_talked = true
+			=> END
+		- Hmm I'll try find her.
+			Man: She should be near the small __ in the bottom left of the town.
+			Man: I'm sure she is capable of answering any questions you may come to have during your stay here.
+			set Global.man_talked = true
+			=> END
+		- I already spoke to her
+			Man: That must mean you'
+	- Don't worry about me, I'm only taking a look around
+		Man: I see, well if you have the chance please talk to Olivia if you haven't.
+		Man: She seems to be the most sensible one in this town.
+		- If I can find her!
+			Man: She should be near the small __  in the bottom left of the town.
+			Man: I'm sure she is capable of answering any questions you may come to have during your stay here.
+			set Global.man_talked = true
+			=> END
+		- Hmm I'll try find her.
+			Man: She should be near the small __ in the bottom left of the town.
+			Man: I'm sure she is capable of answering any questions you may come to have during your stay here.
+			set Global.man_talked = true
+			=> END
+		- I already spoke to her
+			Man: That must mean you'
+			=> END
+	- Sorry for bothering you 
+	=> END
+if Global.man_talked == true:
+	Man: [[Olivia sure is knowledgable|I would help you, but I'm only a visitor here|I don't know much about this town|I wish I could help you]]
+	=> END
+=> END
+
+~ nerd
+if Global.nerd_talked == false:
+	Nerdy Girl: Hi! I haven't seen you here before. Are you an adventurer?
+	- Yep!
+		Olivia: Just like the last one... Well nice to meet you, I'm Olivia!
+		- I hear you are the most sensible one in this town?
+			Olivia: Oh, I suppose you could say that..
+			Olivia: Although, I believe Fauna could be considered as knowledgable too.
+			Olivia: Anyhow, if you have any questions, feel free to ask away!
+			Olivia: This town doesn't have the most... positive history.
+			- Ah, you mean the monster right?
+				Olivia: Yeah...
+				Olivia: I would ask of you to defeat it but that may be quite selfish of me.
+				- I can do it, it was my plan anyway!
+					Olivia: Really?
+					Olivia: Well please be careful, the last adventurer he uh..
+					Olivia: Didn't succeed.
+					Olivia: Keep in mind though, this monster is locked in a room in the dungeon.
+					Olivia: To get inside it's room you need to find the key in a chest.
+					Olivia: But rumor has it, there are way more monsters in that dungeon now.
+					Olivia: So please, be careful.
+					- You can count on me.
+					set Global.nerd_talked = true
+					=> END
+		- Are you aware of the moster in the dungeon?
+			Olivia: Ah yes. Are you also here to defeat it? If so please be careful.
+			Olivia: The last adventurer he uh...
+			Olivia: Didn't succeed.
+			Olivia: Keep in mind though, this monster is locked in a room in the dungeon.
+			Olivia: To get inside it's room you need to find the key in a chest.
+			Olivia: But rumor has it, there are way more monsters in that dungeon now.
+			Olivia: So please, be careful.
+			- You can count on me.
+			set Global.nerd_talked = true
+			=> END	
+	- How did you know?
+		Nerdy Girl: Ah... we had one similar to you not too long ago.
+		Nerdy Girl: It didn't end well...
+		Olivia: Anyhow, I'm Olivia, nice to meet you!
+		- I hear you are the most sensible on in this town?
+			Olivia: Oh, I suppose you could say that..
+			Olivia: Although, I believe Fauna could be considered as knowledgable too.
+			Olivia: Anyhow, if you have any questions, feel free to ask away!
+			Olivia: This town doesn't have the most... positive history.
+			- Ah, you mean the monster right?
+				Olivia: Yeah...
+				Olivia: I would ask of you to defeat it but that may be quite selfish of me.
+				- I can do it, it was my plan anyway!
+					Olivia: Really?
+					Olivia: Well please be careful, the last adventurer he uh..
+					Olivia: Didn't succeed.
+					Olivia: Keep in mind though, this monster is locked in a room in the dungeon.
+					Olivia: To get inside it's room you need to find the key in a chest.
+					Olivia: But rumor has it, there are way more monsters in that dungeon now.
+					Olivia: So please, be careful.
+					- You can count on me.
+					set Global.nerd_talked = true
+					=> END
+		- Are you aware of the moster in the dungeon?
+			Olivia: Ah yes. Are you also here to defeat it? If so please be careful.
+			Olivia: The last adventurer he uh...
+			Olivia: Didn't succeed.
+			Olivia: Keep in mind though, this monster is locked in a room in the dungeon.
+			Olivia: To get inside it's room you need to find the key in a chest.
+			Olivia: But rumor has it, there are way more monsters in that dungeon now.
+			Olivia: So please, be careful.
+			- You can count on me.
+			set Global.nerd_talked = true
+			=> END	
+	- Sorry for bothering you
+	=> END
+
+if Global.nerd_talked == true:
+	Olivia: If you have any questions, feel free to ask me!
+	- How do I get to the monster again?
+		Olivia: The monster is in the dungeon southeast of this town. 
+		Olivia: It's in a room which requires a key to be unlocked.
+		Olivia: Be careful of the monsters though!
+		Olivia: Any other questions?
+		- Where is the dungeon?
+			Olivia: It's southeast of this town.
+			Olivia: If you are still unsure, go to the crossroad south of the town
+			Olivia: Theres a sign there which will show you the way around here.
+			Olivia: Any other questions?
+			- Do you have any tips to defeat the monster?
+				Olivia: I'm currently unaware of how to deafeat the monster as all those who went in...
+				Olivia: Haven't came back out...
+				Olivia: Before you go, seriously consider that you may not make it out alive
+				Olivia: Any other questions?
+				- Not at the moment.
+				=> END
+		- Do you have any tips to defeat the monster?
+			Olivia: I'm currently unaware of how to deafeat the monster as all those who went in...
+			Olivia: Haven't came back out...
+			Olivia: Before you go, seriously consider that you may not make it out alive
+			Olivia: Any other questions?
+			- Where is the dungeon?
+				Olivia: It's southeast of this town.
+				Olivia: If you are still unsure, go to the crossroad south of the town
+				Olivia: Theres a sign there which will show you the way around here.
+				Olivia: Any other questions?
+				- Not at the moment.
+				=> END
+		- Not at the moment.
+		=> END
+	- Where is the dungeon?
+		Olivia: It's southeast of this town.
+		Olivia: If you are still unsure, go to the crossroad south of the town
+		Olivia: Theres a sign there which will show you the way around here.
+		Olivia: Any other questions?
+		- How do I get to the monster again?
+			Olivia: The monster is in the dungeon southeast of this town. 
+			Olivia: It's in a room which requires a key to be unlocked.
+			Olivia: Be careful of the monsters though!
+			Olivia: Any other questions?
+			- Do you have any tips to defeat the monster?
+				Olivia: I'm currently unaware of how to deafeat the monster as all those who went in...
+				Olivia: Haven't came back out...
+				Olivia: Before you go, seriously consider that you may not make it out alive
+				Olivia: Any other questions?
+				- Not at the moment.
+				=> END
+			- Not at the moment.
+				=> END
+		- Do you have any tips to defeat the monster?
+			Olivia: I'm currently unaware of how to deafeat the monster as all those who went in...
+			Olivia: Haven't came back out...
+			Olivia: Before you go, seriously consider that you may not make it out alive
+			Olivia: Any other questions?
+			- How do I get to the monster again?
+				Olivia: The monster is in the dungeon southeast of this town. 
+				Olivia: It's in a room which requires a key to be unlocked.
+				Olivia: Be careful of the monsters though!
+				Olivia: Any other questions?
+				- Not at the moment.
+				=> END
+			- Not at the moment.
+				=> END
+		- Not at the moment.
+		=> END
+	- Do you have any tips to defeat the monster?
+		Olivia: I'm currently unaware of how to deafeat the monster as all those who went in...
+		Olivia: Haven't came back out...
+		Olivia: Before you go, seriously consider that you may not make it out alive
+		Olivia: Any other questions?
+		- How do I get to the monster again?
+			Olivia: The monster is in the dungeon southeast of this town. 
+			Olivia: It's in a room which requires a key to be unlocked.
+			Olivia: Be careful of the monsters though!
+			Olivia: Any other questions?
+			- Where is the dungeon?
+				Olivia: It's southeast of this town.
+				Olivia: If you are still unsure, go to the crossroad south of the town
+				Olivia: Theres a sign there which will show you the way around here.
+				Olivia: Any other questions?
+				- Not at the moment.
+				=> END
+			- Not at the moment.
+				=> END
+		- Where is the dungeon?
+			Olivia: It's southeast of this town.
+			Olivia: If you are still unsure, go to the crossroad south of the town
+			Olivia: Theres a sign there which will show you the way around here.
+			Olivia: Any other questions?
+			- How do I get to the monster again?
+				Olivia: The monster is in the dungeon southeast of this town. 
+				Olivia: It's in a room which requires a key to be unlocked.
+				Olivia: Be careful of the monsters though!
+				Olivia: Any other questions?
+				- Not at the moment.
+				=> END
+			- Not at the moment.
+				=> END
+		- Not at the moment.
+				=> END
+	- Not at the moment.
+	set Global.nerd_talked = true
+	=> END
+
+=> END
 
 ~ sign
 

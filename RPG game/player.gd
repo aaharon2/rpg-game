@@ -5,6 +5,10 @@ var current_dir = "none"
 var lady_in_range = false
 var emoteen_in_range = false
 var girl_in_range = false
+var mother_in_range = false
+var twins_in_range = false
+var man_in_range = false
+var nerd_in_range = false
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
 var health = 100
@@ -20,32 +24,57 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "fancy_lady")
 			$AnimatedSprite2D.play("back_idle")
-			return
 			lady_in_range = false
+			return
 	if emoteen_in_range == true and Global.alphy_talked == false and Global.alphy_talk == false:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_1")
 			$AnimatedSprite2D.play("back_idle")
-			return
 			emoteen_in_range = false
+			return
 	if emoteen_in_range == true and Global.alphy_talk == true and Global.alphy_talked == false:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_2")
 			$AnimatedSprite2D.play("back_idle")
-			return
 			emoteen_in_range = false
+			return
 	if emoteen_in_range == true and Global.alphy_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_3")
 			$AnimatedSprite2D.play("back_idle")
-			return
 			emoteen_in_range = false
+			return
 	if girl_in_range == true and Global.fancy_lady_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "nature_girl")
 			$AnimatedSprite2D.play("back_idle")
-			return
 			girl_in_range = false
+			return
+	if mother_in_range == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "mother")
+			$AnimatedSprite2D.play("back_idle")
+			mother_in_range = false
+			return
+	if twins_in_range == true and Global.mother_talked == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "twins")
+			$AnimatedSprite2D.play("back_idle")
+			twins_in_range = false
+			return
+	if man_in_range == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "man")
+			$AnimatedSprite2D.play("back_idle")
+			man_in_range = false
+			return
+	if nerd_in_range == true:
+		if Input.is_action_just_pressed("ui_accept"):
+			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "nerd")
+			$AnimatedSprite2D.play("back_idle")
+			nerd_in_range = false
+			return
+			
 	player_movement(delta)
 	enemy_attack()
 	attack()
@@ -129,6 +158,14 @@ func _on_detection_area_body_entered(body):
 		emoteen_in_range = true
 	if body.has_method("nature_girl"):
 		girl_in_range = true
+	if body.has_method("mother"):
+		mother_in_range = true
+	if body.has_method("twins"):
+		twins_in_range = true
+	if body.has_method("man"):
+		man_in_range = true
+	if body.has_method("nerd"):
+		nerd_in_range = true
 
 func _on_detection_area_body_exited(body):
 	if body.has_method("fancy_lady"):
@@ -137,6 +174,15 @@ func _on_detection_area_body_exited(body):
 		emoteen_in_range = false
 	if body.has_method("nature_girl"):
 		girl_in_range = false
+	if body.has_method("mother"):
+		mother_in_range = false
+	if body.has_method("twins"):
+		twins_in_range = false
+	if body.has_method("man"):
+		man_in_range = false
+	if body.has_method("nerd"):
+		nerd_in_range = false
+
 
 func player():
 	pass

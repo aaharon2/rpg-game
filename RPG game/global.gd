@@ -5,6 +5,9 @@ var emo_teen_talked = false
 var alphy_talk = false #while talking
 var alphy_talked = false #finished talking
 var fauna_talked = false
+var mother_talked = false
+var man_talked = false
+var nerd_talked = false
 var current_scene = "game_level"
 
 var player_cur_attack = false
