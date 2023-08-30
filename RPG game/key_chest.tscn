@@ -76,7 +76,7 @@ animations = [{
 size = Vector2(14, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nr5tk"]
-radius = 15.0
+radius = 21.0
 
 [node name="KeyChest" type="AnimatableBody2D"]
 z_index = 2

@@ -76,7 +76,7 @@ animations = [{
 size = Vector2(14, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nr5tk"]
-radius = 15.0
+radius = 21.0
 
 [node name="Chest" type="AnimatableBody2D"]
 z_index = 2
@@ -97,14 +97,14 @@ shape = SubResource("RectangleShape2D_w4f5e")
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_nr5tk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="F" type="VBoxContainer" parent="."]
 visible = false
 offset_left = -15.0
 offset_top = -26.0
 offset_right = 87.0
 scale = Vector2(0.3, 0.3)
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="F"]
 layout_mode = 2
 text = "[F]"
 horizontal_alignment = 1

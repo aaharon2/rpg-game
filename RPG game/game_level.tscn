@@ -35,7 +35,7 @@ level_name = "game"
 
 [node name="Player" parent="." instance=ExtResource("2_56822")]
 y_sort_enabled = false
-position = Vector2(1971, 74)
+position = Vector2(2220, 439)
 
 [node name="Map" parent="." instance=ExtResource("4_o5xre")]
 position = Vector2(-7, 0)
@@ -56,10 +56,10 @@ position = Vector2(1399, 349)
 position = Vector2(2671, 96)
 
 [node name="enemy3" parent="." instance=ExtResource("7_iqfes")]
-position = Vector2(2196, 47)
+position = Vector2(2198, 50)
 
 [node name="enemy4" parent="." instance=ExtResource("7_iqfes")]
-position = Vector2(2226, 504)
+position = Vector2(2045, 431)
 
 [node name="Fancy Lady" parent="." instance=ExtResource("8_0tcgq")]
 position = Vector2(703, -276)

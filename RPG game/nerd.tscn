@@ -11,7 +11,7 @@ height = 18.0
 radius = 27.0
 
 [node name="Nerd" type="CharacterBody2D"]
-z_index = 2
+z_index = 3
 y_sort_enabled = true
 script = ExtResource("1_hey0c")
 

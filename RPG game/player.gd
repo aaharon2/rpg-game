@@ -24,55 +24,46 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "fancy_lady")
 			$AnimatedSprite2D.play("back_idle")
-			lady_in_range = false
 			return
 	if emoteen_in_range == true and Global.alphy_talked == false and Global.alphy_talk == false:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_1")
 			$AnimatedSprite2D.play("back_idle")
-			emoteen_in_range = false
 			return
 	if emoteen_in_range == true and Global.alphy_talk == true and Global.alphy_talked == false:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_2")
 			$AnimatedSprite2D.play("back_idle")
-			emoteen_in_range = false
 			return
 	if emoteen_in_range == true and Global.alphy_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_3")
 			$AnimatedSprite2D.play("back_idle")
-			emoteen_in_range = false
 			return
 	if girl_in_range == true and Global.fancy_lady_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "nature_girl")
 			$AnimatedSprite2D.play("back_idle")
-			girl_in_range = false
 			return
 	if mother_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "mother")
 			$AnimatedSprite2D.play("back_idle")
-			mother_in_range = false
 			return
 	if twins_in_range == true and Global.mother_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "twins")
 			$AnimatedSprite2D.play("back_idle")
-			twins_in_range = false
 			return
 	if man_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "man")
 			$AnimatedSprite2D.play("back_idle")
-			man_in_range = false
 			return
 	if nerd_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "nerd")
 			$AnimatedSprite2D.play("back_idle")
-			nerd_in_range = false
 			return
 			
 	player_movement(delta)

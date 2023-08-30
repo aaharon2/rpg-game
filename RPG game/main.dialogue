@@ -4,7 +4,8 @@ if Global.fancy_lady_talked == false:
 	Fancy Lady: [[Hello?|What do you want?|Hi?]]
 	- What are you doing?
 		Fancy Lady: Drinking my tea. Why do you ask?
-		- Everyone here seems to be on edge but you
+		- Where are all the people in this town?
+			Fancy Lady: A lot of people left not too long ago. But there are still a few living people here.
 			Fancy Lady: I suppose it's because of that monster.
 			- Monster?
 				Fancy Lady: Haven't you heard? Theres a monster in the dungeon southeast of this town.
@@ -34,8 +35,9 @@ if Global.fancy_lady_talked == false:
 				=> END
 	- Who are you?
 		Fancy Lady: Merida
-		- Why is everyone here so anxious?
-			Merida: I suppose it's because of that monster.
+		- Where are all the people in this town?
+			Fancy Lady: A lot of people left not too long ago. But there are still a few living people here.
+			Fancy Lady: I suppose it's because of that monster.
 			- Monster?
 				Merida: Haven't you heard? Theres a monster in the dungeon southeast of this town.
 				Merida: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
@@ -352,10 +354,10 @@ Bessy: B-B-But I'm hungwyy and mummy said she was going shopping after Lydia get
 Betty: Did you not just hear her on the phone? Lydia can't come today.
 Bessy: But I'm hungwyyy...
 Betty: Bessy, if you keep complaining mum will be mad.
-Betty: You know how much she hates when you complain
+Betty: You know how much she hates when you complain.
 Bessy: Ugh. You're so annoying.
 Bessy: I just want her attention
-Betty: You could be getting her attention without making her angry
+Betty: You could be getting her attention without making her angry.
 Bessy: Hmph.
 Bessy: ...
 Bessy: ...
@@ -370,12 +372,12 @@ if Global.man_talked == false:
 		Man: I see, well if you have the chance please talk to Olivia if you haven't.
 		Man: She seems to be the most sensible one in this town.
 		- If I can find her!
-			Man: She should be near the small __ in the bottom left of the town.
+			Man: She should be studying in the bottom left of the town.
 			Man: I'm sure she is capable of answering any questions you may come to have during your stay here.
 			set Global.man_talked = true
 			=> END
 		- Hmm I'll try find her.
-			Man: She should be near the small __ in the bottom left of the town.
+			Man: She should be studying in the bottom left of the town.
 			Man: I'm sure she is capable of answering any questions you may come to have during your stay here.
 			set Global.man_talked = true
 			=> END
@@ -385,12 +387,12 @@ if Global.man_talked == false:
 		Man: I see, well if you have the chance please talk to Olivia if you haven't.
 		Man: She seems to be the most sensible one in this town.
 		- If I can find her!
-			Man: She should be near the small __  in the bottom left of the town.
+			Man: She should be studying in the bottom left of the town.
 			Man: I'm sure she is capable of answering any questions you may come to have during your stay here.
 			set Global.man_talked = true
 			=> END
 		- Hmm I'll try find her.
-			Man: She should be near the small __ in the bottom left of the town.
+			Man: She should be studying in the bottom left of the town.
 			Man: I'm sure she is capable of answering any questions you may come to have during your stay here.
 			set Global.man_talked = true
 			=> END

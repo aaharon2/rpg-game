@@ -1,6 +1,11 @@
 extends AnimatableBody2D
 
 var player_in_range = false
+var chest_open = false
+var chest_closed = false
+var shown = false
+var opened = false
+var obtained_key = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,16 +17,33 @@ func _process(delta):
 	var anim = $AnimatedSprite2D
 	if player_in_range == true:
 		$F.show()
-		if Input.is_action_just_pressed("openchest") and $AnimatedSprite2D.animation == "close":
-			anim.play("open")
-			$"Key Obtained".show()
-			$Timer.start()
-			$"Key Obtained".hide()
-		elif Input.is_action_just_pressed("openchest") and $AnimatedSprite2D.animation == "open":
-			anim.play("close")
-	elif player_in_range == false:
-		$F.hide()
+		if chest_open:
+			if Input.is_action_just_pressed("openchest"):
+				anim.play("close")
+				chest_open = false
+				chest_closed = true
+				obtained_key = true
+				$"Key Obtained".hide()
+		elif chest_closed:
+			if Input.is_action_just_pressed("openchest"):
+				anim.play("open")
+				chest_open = true
+				chest_closed = false
+				$"Key Obtained".hide()
+		else:
+			if Input.is_action_just_pressed("openchest"):
+				anim.play("open")
+				chest_open = true
+				chest_closed = false
+				show_text()
+				opened = true
+				obtained_key = true
+				if shown == true:
+					$F.hide()
 
+func show_text():
+	var shown = true
+	$"Key Obtained".show()
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("player"):
@@ -34,4 +56,4 @@ func _on_area_2d_body_exited(body):
 
 
 func _on_timer_timeout():
-	$"Key Obtained".show()
+	$"Key Obtained".hide()
