@@ -52,6 +52,7 @@ func deal_with_damage():
 	if player_inattack_zone and Global.player_cur_attack == true:
 		if can_take_damage == true:
 			health = health - 20
+			$CPUParticles2D.restart()
 			took_dmg = true
 			$Damage_cooldown.start()
 			can_take_damage = false

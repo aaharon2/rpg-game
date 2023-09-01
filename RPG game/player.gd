@@ -24,46 +24,55 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "fancy_lady")
 			$AnimatedSprite2D.play("back_idle")
+			lady_in_range = false
 			return
 	if emoteen_in_range == true and Global.alphy_talked == false and Global.alphy_talk == false:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_1")
 			$AnimatedSprite2D.play("back_idle")
+			emoteen_in_range = false
 			return
 	if emoteen_in_range == true and Global.alphy_talk == true and Global.alphy_talked == false:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_2")
 			$AnimatedSprite2D.play("back_idle")
+			emoteen_in_range = false
 			return
 	if emoteen_in_range == true and Global.alphy_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "emo_teen_3")
 			$AnimatedSprite2D.play("back_idle")
+			emoteen_in_range = false
 			return
 	if girl_in_range == true and Global.fancy_lady_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "nature_girl")
 			$AnimatedSprite2D.play("back_idle")
+			girl_in_range = false
 			return
 	if mother_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "mother")
 			$AnimatedSprite2D.play("back_idle")
+			mother_in_range = false
 			return
 	if twins_in_range == true and Global.mother_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "twins")
 			$AnimatedSprite2D.play("back_idle")
+			twins_in_range = false
 			return
 	if man_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "man")
 			$AnimatedSprite2D.play("back_idle")
+			man_in_range = false
 			return
 	if nerd_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "nerd")
 			$AnimatedSprite2D.play("back_idle")
+			nerd_in_range = false
 			return
 			
 	player_movement(delta)
@@ -71,17 +80,18 @@ func _physics_process(delta):
 	attack()
 	update_health()
 	
-	if health <= 0:
+	if health <= 0: #death
 		player_alive = false #add death animation and respawn screen
 		health = 0
 		print("Player died")
 		position.x = 1289
 		position.y = 323
+		$Respawn.emitting = true
 		player_alive = true
 		health = 100
-			
+
 func player_movement(_delta):
-	if Global.current_scene == "game_level":
+	if Global.current_scene == "game_level" and $Respawn.emitting == false:
 		if Input.is_action_pressed("ui_right"):
 			play_anim(1)
 			current_dir = "right"
@@ -174,7 +184,6 @@ func _on_detection_area_body_exited(body):
 	if body.has_method("nerd"):
 		nerd_in_range = false
 
-
 func player():
 	pass
 
@@ -188,7 +197,8 @@ func _on_player_hitbox_body_exited(body):
 
 func enemy_attack():
 	if enemy_inattack_range and enemy_attack_cooldown == true:
-		health = health - 20
+		health = health - 20 #gets hit
+		$Hit.emitting = true
 		enemy_attack_cooldown = false
 		$Attack_Cooldown.start()
 		print(health)
@@ -237,6 +247,7 @@ func _on_collectables_area_entered(area):
 		area.collect()
 		if health < 100:
 			health += 20
+			$Healthpotion.emitting = true
 			print(health)
 			if health > 100:
 				health = 100

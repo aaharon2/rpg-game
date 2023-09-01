@@ -1,6 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://bmqjduv84a7so"]
+[gd_scene load_steps=35 format=3 uid="uid://dsxu7w7uayik2"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_flrxv"]
+[ext_resource type="Script" path="res://maps/game.gd" id="1_flrxv"]
 [ext_resource type="Texture2D" uid="uid://3sumdhiyuf08" path="res://assets/Interior.png" id="2_e6rha"]
 [ext_resource type="Texture2D" uid="uid://wa45pqk63tmu" path="res://assets/fence_tiles.png" id="2_ucoya"]
 [ext_resource type="Texture2D" uid="uid://cgd2ytto552w4" path="res://assets/dirtpath_tiles.png" id="3_imurh"]

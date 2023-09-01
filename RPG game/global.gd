@@ -11,4 +11,4 @@ var nerd_talked = false
 var current_scene = "game_level"
 
 var player_cur_attack = false
-
+var has_key = false

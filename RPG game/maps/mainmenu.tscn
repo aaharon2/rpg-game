@@ -1,91 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6xhysxofnsw5"]
+[gd_scene load_steps=6 format=3 uid="uid://bobv8t2ft5ec3"]
 
-[ext_resource type="Texture2D" uid="uid://c51km211wbl50" path="res://assets/Clouds 7/1.png" id="1_wkiab"]
-[ext_resource type="Texture2D" uid="uid://dhtgjon471687" path="res://assets/Clouds 7/2.png" id="2_rpxof"]
-[ext_resource type="Texture2D" uid="uid://coyjou5aa1vvm" path="res://assets/Clouds 7/3.png" id="3_b8tkb"]
-[ext_resource type="Texture2D" uid="uid://bd1gw2ubw7q2l" path="res://assets/Clouds 7/4.png" id="4_0a1np"]
-
-[sub_resource type="GDScript" id="GDScript_7gh8x"]
-script/source = "extends Control
-
-@onready var menu = $Menu
-@onready var options = $Options
-@onready var video = $Video
-@onready var audio = $Audio
-@onready var controls = $Controls
-
-func _ready():
-	show()
-
-func toggle():
-	visible = !visible
-	get_tree().paused = visible
-
-func _on_play_pressed():
-	get_tree().change_scene_to_file(\"res://game_level.tscn\")
-
-func show_and_hide(first, second):
-	first.show()
-	second.hide()
-
-func _on_options_pressed():
-	show_and_hide(options, menu)
-	
-func _on_controls_pressed():
-	show_and_hide(controls, menu)
-	
-func _on_back_from_controls_pressed():
-	show_and_hide(menu, controls)
-
-func _on_exit_pressed():
-	get_tree().quit()
-
-func _on_video_pressed():
-	show_and_hide(video, options)
-
-func _on_audio_pressed():
-	show_and_hide(audio, options)
-
-func _on_back_from_options_pressed():
-	show_and_hide(menu, options)
-	
-func _on_fullscreen_toggled(button_pressed):
-	if button_pressed == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		
-func _on_borderless_toggled(button_pressed):
-	if button_pressed == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
-	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-
-func _on_v_sync_toggled(button_pressed):
-	if button_pressed == true:
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-	else:
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-		
-func _on_back_from_video_pressed():
-	show_and_hide(options, video)
-	
-func _on_master_value_changed(value):
-	volume(0, value)
-	
-func volume(bus_index, value):
-	AudioServer.set_bus_volume_db(bus_index, value)
-
-func _on_music_value_changed(value):
-	volume(1, value)
-	
-func _on_sound_fx_value_changed(value):
-	volume(2, value)
-
-func _on_back_from_audio_pressed():
-	show_and_hide(options, audio)
-
-"
+[ext_resource type="Script" path="res://maps/mainmenu.gd" id="1_hrj7j"]
+[ext_resource type="Texture2D" uid="uid://c51km211wbl50" path="res://assets/Clouds 7/1.png" id="2_vfato"]
+[ext_resource type="Texture2D" uid="uid://dhtgjon471687" path="res://assets/Clouds 7/2.png" id="3_yljp2"]
+[ext_resource type="Texture2D" uid="uid://coyjou5aa1vvm" path="res://assets/Clouds 7/3.png" id="4_entnh"]
+[ext_resource type="Texture2D" uid="uid://bd1gw2ubw7q2l" path="res://assets/Clouds 7/4.png" id="5_j6yqs"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -94,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_7gh8x")
+script = ExtResource("1_hrj7j")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -103,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_wkiab")
+texture = ExtResource("2_vfato")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 z_index = 1
@@ -113,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rpxof")
+texture = ExtResource("3_yljp2")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 z_index = 2
@@ -123,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_b8tkb")
+texture = ExtResource("4_entnh")
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 z_index = 3
@@ -133,7 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_0a1np")
+texture = ExtResource("5_j6yqs")
 
 [node name="Menu" type="VBoxContainer" parent="."]
 z_index = 4
