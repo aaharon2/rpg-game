@@ -87,6 +87,7 @@ func _physics_process(delta):
 		position.x = 1289
 		position.y = 323
 		$Respawn.emitting = true
+		$Hit.emitting = false
 		player_alive = true
 		health = 100
 
