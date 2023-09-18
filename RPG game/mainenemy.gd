@@ -1,28 +1,85 @@
 extends CharacterBody2D
 
+var speed = 35
+var player_chase = false
+var player = null
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var health = 200
+var player_inattack_zone = false
+var can_take_damage = true
+var took_dmg = false
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+func _physics_process(_delta):
+	deal_with_damage()
+	update_health()
+	if player_chase == true and health >= 1:
+		position += (player.position - position)/speed
+		$AnimatedSprite2D.play("walk1")
+		if(player.position.x - position.x) < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
+		move_and_collide(Vector2(0,0))
+	elif player_chase == false and health >= 1:
+		$AnimatedSprite2D.play("idle1")
+	if took_dmg == true:
+		$AnimatedSprite2D.play("hit1")
+		$AnimTimer.start()
+		took_dmg = false
+
+func _enemy():
+	pass
 
 
-func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+func _on_detection_area_body_entered(body):
+	if body.has_method("player"):
+		player = body
+		player_chase = true
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+func _on_detection_area_body_exited(body):
+	if body.has_method("player"):
+		player = null
+		player_chase = false
 
-	move_and_slide()
+
+func _on_main_enemy_hitbox_body_entered(body):
+	if body.has_method("player"):
+		player_inattack_zone = true
+
+
+func _on_main_enemy_hitbox_body_exited(body):
+	if body.has_method("player"):
+		player_inattack_zone = false
+
+func deal_with_damage():
+	if player_inattack_zone and Global.player_cur_attack == true:
+		if can_take_damage == true:
+			health = health - 20
+			$CPUParticles2D.restart()
+			took_dmg = true
+			$Damage_cooldown.start()
+			can_take_damage = false
+			print("enemy health = ", health)
+			if health <= 0:
+				self.queue_free()
+#				$AnimatedSprite2D.play("death")
+
+
+func _on_damage_cooldown_timeout():
+	can_take_damage = true
+
+func pause():
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
+func update_health():
+	var healthbar = $HealthBar
+	healthbar.value = health
+	
+	if health >= 200:
+		healthbar.visible = false
+	elif health >= 1 or health < 200:
+		healthbar.visible = true
+	elif health <= 0:
+		healthbar.visible = false
+

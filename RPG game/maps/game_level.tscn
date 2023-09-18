@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bsxoc8k55drst"]
+[gd_scene load_steps=19 format=3 uid="uid://bsxoc8k55drst"]
 
 [ext_resource type="Script" path="res://maps/game.gd" id="1_4nqot"]
 [ext_resource type="PackedScene" uid="uid://ds0so60rt0x5o" path="res://player.tscn" id="2_y725h"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bloyqjilrwnmu" path="res://nerd.tscn" id="13_b3g4k"]
 [ext_resource type="PackedScene" uid="uid://cicx0mb5cndwj" path="res://maps/world.tscn" id="14_f135b"]
 [ext_resource type="PackedScene" uid="uid://djgj15xgslgdk" path="res://maps/dungeon.tscn" id="14_flo2g"]
+[ext_resource type="PackedScene" uid="uid://bqfegf8n7p1xv" path="res://main_enemy.tscn" id="15_q80jh"]
 
 [sub_resource type="Curve" id="Curve_5vik3"]
 _data = [Vector2(0.0872093, 0.127273), 0.0, 0.0, 0, 0, Vector2(0.430233, 0.254545), 0.0, 0.0, 0, 0, Vector2(0.732558, 0.472727), 0.0, 0.0, 0, 0]
@@ -105,5 +106,8 @@ position = Vector2(1144, 0)
 
 [node name="Map" parent="." instance=ExtResource("14_f135b")]
 position = Vector2(-7, 0)
+
+[node name="MainEnemy" parent="." instance=ExtResource("15_q80jh")]
+position = Vector2(2234, 883)
 
 [connection signal="level_changed" from="." to="." method="_on_level_changed"]
