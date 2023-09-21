@@ -35,7 +35,7 @@ script = ExtResource("1_4nqot")
 level_name = "game"
 
 [node name="Player" parent="." instance=ExtResource("2_y725h")]
-position = Vector2(2366, 789)
+position = Vector2(1185, 318)
 
 [node name="Sign" parent="." instance=ExtResource("4_ddxgw")]
 position = Vector2(593, 309)

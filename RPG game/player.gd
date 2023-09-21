@@ -198,8 +198,6 @@ func _on_player_hitbox_body_entered(body):
 		enemy_inattack_range = true
 	if body.has_method("monster"):
 		monster_inattack_range = true
-		print("can take dmg")
-
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = false
@@ -207,7 +205,7 @@ func _on_player_hitbox_body_exited(body):
 		monster_inattack_range = false
 
 func enemy_attack(): #when the enemy attacks
-	if enemy_inattack_range and enemy_attack_cooldown == true:
+	if Global.enemy_alive and enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 20 #gets hit
 		$Hit.emitting = true
 		enemy_attack_cooldown = false
@@ -215,7 +213,7 @@ func enemy_attack(): #when the enemy attacks
 		print(health)
 	
 func monster_attack(): #when the monster attacks
-	if monster_inattack_range and monster_attack_cooldown == true:
+	if Global.monster_alive and monster_inattack_range and monster_attack_cooldown == true:
 		print("took dmg")
 		health = health - 20 #gets hit
 		$Hit.emitting = true
@@ -226,7 +224,7 @@ func monster_attack(): #when the monster attacks
 func attack(): #attack animations
 	var dir = current_dir
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and Global.in_dungeon == true:
 		Global.player_cur_attack = true
 		attack_ip = true
 		if dir == "right":

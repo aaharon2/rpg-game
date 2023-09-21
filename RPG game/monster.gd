@@ -52,9 +52,11 @@ func deal_with_damage():
 			can_take_damage = false
 			print("enemy health = ", health)
 			if health <= 0:
-				self.queue_free()
-#				$AnimatedSprite2D.play("death")
-
+				$AnimatedSprite2D.play("death1")
+				Global.monster_alive = false
+				can_take_damage = false
+				await get_tree().create_timer(3).timeout
+				queue_free()
 
 func _on_damage_cooldown_timeout():
 	can_take_damage = true

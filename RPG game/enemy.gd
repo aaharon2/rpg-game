@@ -45,7 +45,7 @@ func _on_enemy_hitbox_body_exited(body):
 		player_inattack_zone = false
 
 func deal_with_damage():
-	if player_inattack_zone and Global.player_cur_attack == true:
+	if player_inattack_zone and Global.player_cur_attack == true and health > 0:
 		if can_take_damage == true:
 			health = health - 20
 			$CPUParticles2D.restart()
@@ -54,8 +54,11 @@ func deal_with_damage():
 			can_take_damage = false
 			print("enemy health = ", health)
 			if health <= 0:
-				self.queue_free()
-#				$AnimatedSprite2D.play("death")
+				$AnimatedSprite2D.play("death")
+				Global.enemy_alive = false
+				can_take_damage = false
+				await get_tree().create_timer(3).timeout
+				queue_free()
 
 func _on_damage_cooldown_timeout():
 	can_take_damage = true
@@ -74,3 +77,5 @@ func update_health():
 	elif health <= 0:
 		healthbar.visible = false
 	
+
+

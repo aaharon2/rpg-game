@@ -12,3 +12,6 @@ var current_scene = "game_level"
 
 var player_cur_attack = false
 var has_key = false
+var enemy_alive = true
+var monster_alive = true
+var in_dungeon = false

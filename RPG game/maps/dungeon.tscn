@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://djgj15xgslgdk"]
+[gd_scene load_steps=32 format=3 uid="uid://djgj15xgslgdk"]
 
 [ext_resource type="Texture2D" uid="uid://b7vqc1x1tm0od" path="res://assets/RF_Catacombs_v1.0/decorative.png" id="1_4o240"]
+[ext_resource type="Script" path="res://maps/dungeon.gd" id="1_ilc0w"]
 [ext_resource type="Texture2D" uid="uid://d31trv6xgih30" path="res://assets/RF_Catacombs_v1.0/mainlevbuild.png" id="1_xn3op"]
 [ext_resource type="Texture2D" uid="uid://dt8qresf1tcdg" path="res://assets/grass.png" id="2_nk43l"]
 [ext_resource type="Texture2D" uid="uid://g5r7gv3q0603" path="res://assets/terrain_tiles_v2.png" id="3_7fa0n"]
@@ -6557,8 +6558,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyuxh"]
+size = Vector2(2000, 1419)
+
 [node name="Dungeon" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_ilc0w")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -6761,3 +6766,12 @@ position = Vector2(1030, -184)
 
 [node name="Monstdoor" parent="." instance=ExtResource("16_hjvyd")]
 position = Vector2(1080, 678)
+
+[node name="Dungeon" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon"]
+position = Vector2(1114, 376.5)
+shape = SubResource("RectangleShape2D_dyuxh")
+
+[connection signal="body_entered" from="Dungeon" to="." method="_on_dungeon_body_entered"]
+[connection signal="body_exited" from="Dungeon" to="." method="_on_dungeon_body_exited"]
