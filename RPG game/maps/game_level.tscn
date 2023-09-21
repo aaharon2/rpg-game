@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsxoc8k55drst"]
+[gd_scene load_steps=19 format=3 uid="uid://b8wwd0fk3dhiy"]
 
 [ext_resource type="Script" path="res://maps/game.gd" id="1_4nqot"]
 [ext_resource type="PackedScene" uid="uid://ds0so60rt0x5o" path="res://player.tscn" id="2_y725h"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bloyqjilrwnmu" path="res://nerd.tscn" id="13_b3g4k"]
 [ext_resource type="PackedScene" uid="uid://cicx0mb5cndwj" path="res://maps/world.tscn" id="14_f135b"]
 [ext_resource type="PackedScene" uid="uid://djgj15xgslgdk" path="res://maps/dungeon.tscn" id="14_flo2g"]
-[ext_resource type="PackedScene" uid="uid://bqfegf8n7p1xv" path="res://main_enemy.tscn" id="15_q80jh"]
+[ext_resource type="PackedScene" uid="uid://chy3eesxu2i1v" path="res://monster.tscn" id="15_vlilf"]
 
 [sub_resource type="Curve" id="Curve_5vik3"]
 _data = [Vector2(0.0872093, 0.127273), 0.0, 0.0, 0, 0, Vector2(0.430233, 0.254545), 0.0, 0.0, 0, 0, Vector2(0.732558, 0.472727), 0.0, 0.0, 0, 0]
@@ -35,14 +35,16 @@ script = ExtResource("1_4nqot")
 level_name = "game"
 
 [node name="Player" parent="." instance=ExtResource("2_y725h")]
-y_sort_enabled = false
-position = Vector2(64, 166)
+position = Vector2(2366, 789)
 
 [node name="Sign" parent="." instance=ExtResource("4_ddxgw")]
 position = Vector2(593, 309)
 
 [node name="Calcaire Town" parent="." instance=ExtResource("5_xne1l")]
 position = Vector2(-8, -652)
+
+[node name="monster" parent="." instance=ExtResource("15_vlilf")]
+position = Vector2(2137, 954)
 
 [node name="enemy" parent="." instance=ExtResource("6_wji4t")]
 position = Vector2(1399, 349)
@@ -106,8 +108,5 @@ position = Vector2(1144, 0)
 
 [node name="Map" parent="." instance=ExtResource("14_f135b")]
 position = Vector2(-7, 0)
-
-[node name="MainEnemy" parent="." instance=ExtResource("15_q80jh")]
-position = Vector2(2234, 883)
 
 [connection signal="level_changed" from="." to="." method="_on_level_changed"]

@@ -24,10 +24,9 @@ func _physics_process(_delta):
 		$AnimatedSprite2D.play("idle1")
 	if took_dmg == true:
 		$AnimatedSprite2D.play("hit1")
-		$AnimTimer.start()
 		took_dmg = false
 
-func _enemy():
+func monster():
 	pass
 
 
@@ -36,24 +35,15 @@ func _on_detection_area_body_entered(body):
 		player = body
 		player_chase = true
 
-
 func _on_detection_area_body_exited(body):
 	if body.has_method("player"):
 		player = null
 		player_chase = false
 
 
-func _on_main_enemy_hitbox_body_entered(body):
-	if body.has_method("player"):
-		player_inattack_zone = true
-
-
-func _on_main_enemy_hitbox_body_exited(body):
-	if body.has_method("player"):
-		player_inattack_zone = false
 
 func deal_with_damage():
-	if player_inattack_zone and Global.player_cur_attack == true:
+	if player_inattack_zone == true and Global.player_cur_attack == true:
 		if can_take_damage == true:
 			health = health - 20
 			$CPUParticles2D.restart()
@@ -83,3 +73,12 @@ func update_health():
 	elif health <= 0:
 		healthbar.visible = false
 
+
+func _on_monster_hitbox_body_entered(body):
+	if body.has_method("player"):
+		player_inattack_zone = true
+
+
+func _on_monster_hitbox_body_exited(body):
+	if body.has_method("player"):
+		player_inattack_zone = false

@@ -11,19 +11,28 @@ var man_in_range = false
 var nerd_in_range = false
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
+var monster_inattack_range = false
+var monster_attack_cooldown = true
 var health = 100
 var player_alive = true
 var attack_ip = false
+var talking = false
 
 
 func _read():
 	$AnimatedSprite2D.play("front_idle")
 
 func _physics_process(delta):
+	player_movement(delta)
+	enemy_attack()
+	monster_attack()
+	attack()
+	update_health()
 	if lady_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
+			talk_ip()
 			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "fancy_lady")
-			$AnimatedSprite2D.play("back_idle")
+			talk_not_ip()
 			lady_in_range = false
 			return
 	if emoteen_in_range == true and Global.alphy_talked == false and Global.alphy_talk == false:
@@ -74,14 +83,10 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("back_idle")
 			nerd_in_range = false
 			return
-			
-	player_movement(delta)
-	enemy_attack()
-	attack()
-	update_health()
+		
 	
 	if health <= 0: #death
-		player_alive = false #add death animation and respawn screen
+		player_alive = false #add death animation
 		health = 0
 		print("Player died")
 		position.x = 1289
@@ -91,7 +96,7 @@ func _physics_process(delta):
 		player_alive = true
 		health = 100
 
-func player_movement(_delta):
+func player_movement(_delta): #player movement
 	if Global.current_scene == "game_level" and $Respawn.emitting == false:
 		if Input.is_action_pressed("ui_right"):
 			play_anim(1)
@@ -119,7 +124,7 @@ func player_movement(_delta):
 			velocity.y = 0
 		move_and_slide()
 	
-func play_anim(movement):
+func play_anim(movement): #movement animation
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
 	
@@ -191,23 +196,34 @@ func player():
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = true
+	if body.has_method("monster"):
+		monster_inattack_range = true
+		print("can take dmg")
 
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		enemy_inattack_range = false
+	if body.has_method("monster"):
+		monster_inattack_range = false
 
-func enemy_attack():
+func enemy_attack(): #when the enemy attacks
 	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 20 #gets hit
 		$Hit.emitting = true
 		enemy_attack_cooldown = false
-		$Attack_Cooldown.start()
+		$Enemy_Attack_Cooldown.start()
+		print(health)
+	
+func monster_attack(): #when the monster attacks
+	if monster_inattack_range and monster_attack_cooldown == true:
+		print("took dmg")
+		health = health - 20 #gets hit
+		$Hit.emitting = true
+		monster_attack_cooldown = false
+		$Monster_Attack_Cooldown.start()
 		print(health)
 
-func _on_attack_cooldown_timeout():
-	enemy_attack_cooldown = true
-
-func attack():
+func attack(): #attack animations
 	var dir = current_dir
 	
 	if Input.is_action_just_pressed("attack"):
@@ -228,7 +244,7 @@ func attack():
 			$AnimatedSprite2D.play("front_attack")
 			$Deal_attack_timer.start()
 
-func _on_deal_attack_timer_timeout():
+func _on_deal_attack_timer_timeout(): #when the player attacks
 	$Deal_attack_timer.stop()
 	Global.player_cur_attack = false
 	attack_ip = false
@@ -256,3 +272,19 @@ func _on_collectables_area_entered(area):
 		if health <= 0:
 			health = 0
 			print(health)
+
+
+func _on_enemy_attack_cooldown_timeout():
+	enemy_attack_cooldown = true
+
+
+func _on_monster_attack_cooldown_timeout():
+	monster_attack_cooldown = true
+
+func talk_ip():
+	talking = true
+	set_process_input(false)
+	
+func talk_not_ip():
+	talking = false
+	set_process_input(true)

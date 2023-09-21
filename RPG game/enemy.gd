@@ -22,10 +22,6 @@ func _physics_process(_delta):
 		move_and_collide(Vector2(0,0))
 	elif player_chase == false and health >= 1:
 		$AnimatedSprite2D.play("idle")
-	if took_dmg == true:
-		$AnimatedSprite2D.play("hit")
-		$AnimTimer.start()
-		took_dmg = false
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):
