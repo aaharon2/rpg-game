@@ -173,7 +173,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death1",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -276,7 +276,9 @@ shape = SubResource("CircleShape2D_1tsov")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_r2bet")
-animation = &"walk1"
+animation = &"death1"
+frame = 5
+frame_progress = 1.0
 
 [node name="Detection_Area" type="Area2D" parent="."]
 visible = false
@@ -291,7 +293,6 @@ shape = SubResource("CircleShape2D_da7bh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monster Hitbox"]
 position = Vector2(-2.05882, -13.5294)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wxwqm")
 
 [node name="Damage_cooldown" type="Timer" parent="."]

@@ -16,7 +16,10 @@ func _ready():
 func _process(delta):
 	var anim = $AnimatedSprite2D
 	if player_in_range == true:
-		$F.show()
+		
+		if not $"Key Obtained".is_visible():
+			$F.show()
+		
 		if chest_open:
 			if Input.is_action_just_pressed("openchest"):
 				anim.play("close")

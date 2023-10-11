@@ -12,7 +12,7 @@ var took_dmg = false
 func _physics_process(_delta):
 	deal_with_damage()
 	update_health()
-	if player_chase == true and health >= 1:
+	if player_chase == true and health >= 1: #movement
 		position += (player.position - position)/speed
 		$AnimatedSprite2D.play("walk1")
 		if(player.position.x - position.x) < 0:
@@ -22,9 +22,6 @@ func _physics_process(_delta):
 		move_and_collide(Vector2(0,0))
 	elif player_chase == false and health >= 1:
 		$AnimatedSprite2D.play("idle1")
-	if took_dmg == true:
-		$AnimatedSprite2D.play("hit1")
-		took_dmg = false
 
 func monster():
 	pass
@@ -43,7 +40,7 @@ func _on_detection_area_body_exited(body):
 
 
 func deal_with_damage():
-	if player_inattack_zone == true and Global.player_cur_attack == true:
+	if player_inattack_zone and Global.player_cur_attack == true and health > 0:
 		if can_take_damage == true:
 			health = health - 20
 			$CPUParticles2D.restart()
@@ -55,15 +52,13 @@ func deal_with_damage():
 				$AnimatedSprite2D.play("death1")
 				Global.monster_alive = false
 				can_take_damage = false
+				$CollisionShape2D.disabled = true
 				await get_tree().create_timer(3).timeout
 				queue_free()
 
 func _on_damage_cooldown_timeout():
 	can_take_damage = true
 
-func pause():
-	process_mode = Node.PROCESS_MODE_DISABLED
-	
 func update_health():
 	var healthbar = $HealthBar
 	healthbar.value = health

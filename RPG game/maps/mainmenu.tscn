@@ -149,7 +149,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Video"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -199,7 +198,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="BackFromVideo" type="Button" parent="Video"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

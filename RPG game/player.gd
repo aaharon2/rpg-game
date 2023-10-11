@@ -205,7 +205,7 @@ func _on_player_hitbox_body_exited(body):
 		monster_inattack_range = false
 
 func enemy_attack(): #when the enemy attacks
-	if Global.enemy_alive and enemy_inattack_range and enemy_attack_cooldown == true:
+	if enemy_inattack_range and enemy_attack_cooldown == true:
 		health = health - 20 #gets hit
 		$Hit.emitting = true
 		enemy_attack_cooldown = false
@@ -213,8 +213,7 @@ func enemy_attack(): #when the enemy attacks
 		print(health)
 	
 func monster_attack(): #when the monster attacks
-	if Global.monster_alive and monster_inattack_range and monster_attack_cooldown == true:
-		print("took dmg")
+	if monster_inattack_range and monster_attack_cooldown == true:
 		health = health - 20 #gets hit
 		$Hit.emitting = true
 		monster_attack_cooldown = false
@@ -257,7 +256,7 @@ func update_health():
 		healthbar.visible = true
 		
 
-func _on_collectables_area_entered(area):
+func _on_collectables_area_entered(area): #collecting the health potions
 	if area.has_method("collect"):
 		area.collect()
 		if health < 100:
@@ -279,10 +278,10 @@ func _on_enemy_attack_cooldown_timeout():
 func _on_monster_attack_cooldown_timeout():
 	monster_attack_cooldown = true
 
-func talk_ip():
+func talk_ip(): #talking in progress
 	talking = true
 	set_process_input(false)
 	
-func talk_not_ip():
+func talk_not_ip(): #talking not in progress
 	talking = false
 	set_process_input(true)

@@ -12,7 +12,7 @@ var took_dmg = false
 func _physics_process(_delta):
 	deal_with_damage()
 	update_health()
-	if player_chase == true and health >= 1:
+	if player_chase == true and health >= 1: #movement
 		position += (player.position - position)/speed
 		$AnimatedSprite2D.play("walk")
 		if(player.position.x - position.x) < 0:
@@ -44,7 +44,7 @@ func _on_enemy_hitbox_body_exited(body):
 	if body.has_method("player"):
 		player_inattack_zone = false
 
-func deal_with_damage():
+func deal_with_damage(): #when the player attacks
 	if player_inattack_zone and Global.player_cur_attack == true and health > 0:
 		if can_take_damage == true:
 			health = health - 20
@@ -57,14 +57,12 @@ func deal_with_damage():
 				$AnimatedSprite2D.play("death")
 				Global.enemy_alive = false
 				can_take_damage = false
+				$CollisionShape2D.disabled = true
 				await get_tree().create_timer(3).timeout
 				queue_free()
 
 func _on_damage_cooldown_timeout():
 	can_take_damage = true
-
-func pause():
-	process_mode = Node.PROCESS_MODE_DISABLED
 
 func update_health():
 	var healthbar = $HealthBar
