@@ -1,20 +1,32 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8wwd0fk3dhiy"]
+[gd_scene load_steps=19 format=3 uid="uid://s5f2us6pht66"]
 
-[ext_resource type="Script" path="res://maps/game.gd" id="1_4nqot"]
-[ext_resource type="PackedScene" uid="uid://ds0so60rt0x5o" path="res://player.tscn" id="2_y725h"]
-[ext_resource type="PackedScene" uid="uid://ydyicm10p5x" path="res://sign.tscn" id="4_ddxgw"]
+[ext_resource type="PackedScene" uid="uid://cw7x2dw1su1df" path="res://miscellaneous/player.tscn" id="2_nq0y7"]
+[ext_resource type="PackedScene" path="res://objects/sign.tscn" id="4_ddxgw"]
 [ext_resource type="PackedScene" uid="uid://dsxu7w7uayik2" path="res://maps/calcaire_town_level.tscn" id="5_xne1l"]
-[ext_resource type="PackedScene" uid="uid://cwswodormumb3" path="res://enemy.tscn" id="6_wji4t"]
-[ext_resource type="PackedScene" uid="uid://dkudmitm3g2pk" path="res://fancy_lady.tscn" id="7_wno70"]
-[ext_resource type="PackedScene" uid="uid://rxje0prssbsy" path="res://emo_teen.tscn" id="8_fcy7m"]
-[ext_resource type="PackedScene" uid="uid://2lane7tdp0j4" path="res://nature_girl.tscn" id="9_5ompu"]
-[ext_resource type="PackedScene" uid="uid://cybbuhljg2oi3" path="res://mother.tscn" id="10_t0xx2"]
-[ext_resource type="PackedScene" uid="uid://lgtulxjoi6xj" path="res://twins.tscn" id="11_6c08o"]
-[ext_resource type="PackedScene" uid="uid://d1knp3m0t22jj" path="res://man.tscn" id="12_lh30e"]
-[ext_resource type="PackedScene" uid="uid://bloyqjilrwnmu" path="res://nerd.tscn" id="13_b3g4k"]
+[ext_resource type="PackedScene" path="res://npcs/fancy_lady.tscn" id="7_wno70"]
+[ext_resource type="PackedScene" path="res://npcs/emo_teen.tscn" id="8_fcy7m"]
+[ext_resource type="PackedScene" path="res://npcs/nature_girl.tscn" id="9_5ompu"]
+[ext_resource type="PackedScene" path="res://npcs/mother.tscn" id="10_t0xx2"]
+[ext_resource type="PackedScene" path="res://npcs/twins.tscn" id="11_6c08o"]
+[ext_resource type="PackedScene" uid="uid://blofj1pd5hwq5" path="res://npcs/man.tscn" id="12_lh30e"]
+[ext_resource type="PackedScene" path="res://npcs/nerd.tscn" id="13_b3g4k"]
+[ext_resource type="PackedScene" uid="uid://bhwold72orutr" path="res://enemies/enemy.tscn" id="14_7xyto"]
 [ext_resource type="PackedScene" uid="uid://cicx0mb5cndwj" path="res://maps/world.tscn" id="14_f135b"]
-[ext_resource type="PackedScene" uid="uid://djgj15xgslgdk" path="res://maps/dungeon.tscn" id="14_flo2g"]
-[ext_resource type="PackedScene" uid="uid://chy3eesxu2i1v" path="res://monster.tscn" id="15_vlilf"]
+[ext_resource type="PackedScene" path="res://maps/dungeon.tscn" id="14_flo2g"]
+[ext_resource type="PackedScene" uid="uid://u8sq2k4jdqbc" path="res://enemies/monster.tscn" id="15_rtymo"]
+
+[sub_resource type="GDScript" id="GDScript_owhhg"]
+script/source = "extends Node
+
+signal level_changed(level_name)
+
+@export var level_name = \"level\"
+
+func _ready():
+	pass
+
+func _process(_delta):
+	pass"
 
 [sub_resource type="Curve" id="Curve_5vik3"]
 _data = [Vector2(0.0872093, 0.127273), 0.0, 0.0, 0, 0, Vector2(0.430233, 0.254545), 0.0, 0.0, 0, 0, Vector2(0.732558, 0.472727), 0.0, 0.0, 0, 0]
@@ -31,32 +43,17 @@ point_count = 3
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(7, -1)
-script = ExtResource("1_4nqot")
+script = SubResource("GDScript_owhhg")
 level_name = "game"
 
-[node name="Player" parent="." instance=ExtResource("2_y725h")]
-position = Vector2(2225, 733)
+[node name="Player" parent="." instance=ExtResource("2_nq0y7")]
+position = Vector2(53, 158)
 
 [node name="Sign" parent="." instance=ExtResource("4_ddxgw")]
 position = Vector2(593, 309)
 
 [node name="Calcaire Town" parent="." instance=ExtResource("5_xne1l")]
 position = Vector2(-8, -652)
-
-[node name="monster" parent="." instance=ExtResource("15_vlilf")]
-position = Vector2(2137, 954)
-
-[node name="enemy" parent="." instance=ExtResource("6_wji4t")]
-position = Vector2(1399, 349)
-
-[node name="enemy2" parent="." instance=ExtResource("6_wji4t")]
-position = Vector2(2671, 96)
-
-[node name="enemy3" parent="." instance=ExtResource("6_wji4t")]
-position = Vector2(2198, 50)
-
-[node name="enemy4" parent="." instance=ExtResource("6_wji4t")]
-position = Vector2(2045, 431)
 
 [node name="Fancy Lady" parent="." instance=ExtResource("7_wno70")]
 position = Vector2(703, -276)
@@ -108,5 +105,20 @@ position = Vector2(1144, 0)
 
 [node name="Map" parent="." instance=ExtResource("14_f135b")]
 position = Vector2(-7, 0)
+
+[node name="enemy" parent="." instance=ExtResource("14_7xyto")]
+position = Vector2(1410, 346)
+
+[node name="enemy2" parent="." instance=ExtResource("14_7xyto")]
+position = Vector2(2227, 472)
+
+[node name="enemy3" parent="." instance=ExtResource("14_7xyto")]
+position = Vector2(2194, 100)
+
+[node name="enemy4" parent="." instance=ExtResource("14_7xyto")]
+position = Vector2(2830, 93)
+
+[node name="monster" parent="." instance=ExtResource("15_rtymo")]
+position = Vector2(2228, 974)
 
 [connection signal="level_changed" from="." to="." method="_on_level_changed"]

@@ -70,6 +70,11 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+custom_minimum_size = Vector2(85, 40)
+layout_mode = 2
+text = "	  Title"
+
 [node name="Play" type="Button" parent="Menu"]
 layout_mode = 2
 text = "Play"
@@ -94,8 +99,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 285.0
+offset_bottom = 161.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Options"]
 layout_mode = 1

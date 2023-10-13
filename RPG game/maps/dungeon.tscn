@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://djgj15xgslgdk"]
+[gd_scene load_steps=32 format=3]
 
 [ext_resource type="Texture2D" uid="uid://b7vqc1x1tm0od" path="res://assets/RF_Catacombs_v1.0/decorative.png" id="1_4o240"]
 [ext_resource type="Script" path="res://maps/dungeon.gd" id="1_ilc0w"]
@@ -6,17 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://dt8qresf1tcdg" path="res://assets/grass.png" id="2_nk43l"]
 [ext_resource type="Texture2D" uid="uid://g5r7gv3q0603" path="res://assets/terrain_tiles_v2.png" id="3_7fa0n"]
 [ext_resource type="Texture2D" uid="uid://ddpvwh0erdn4u" path="res://assets/dungeon door.png" id="4_d2jvs"]
-[ext_resource type="PackedScene" uid="uid://bcxv0o4uyi6qh" path="res://door.tscn" id="5_4ihbr"]
-[ext_resource type="PackedScene" uid="uid://cf8utgysvo56i" path="res://health_potion.tscn" id="5_7knnd"]
+[ext_resource type="PackedScene" path="res://objects/door.tscn" id="5_4ihbr"]
+[ext_resource type="PackedScene" path="res://objects/health_potion.tscn" id="5_7knnd"]
 [ext_resource type="Texture2D" uid="uid://erq3xmd7wbc1" path="res://assets/decorations.png" id="6_0r7b0"]
 [ext_resource type="Texture2D" uid="uid://le7djbhd60tf" path="res://assets/RF_Catacombs_v1.0/torch_1.png" id="7_c7njb"]
 [ext_resource type="Texture2D" uid="uid://dochjdjwmvm5x" path="res://assets/RF_Catacombs_v1.0/torch_2.png" id="8_caoac"]
 [ext_resource type="Texture2D" uid="uid://m1jhwv0s08c4" path="res://assets/RF_Catacombs_v1.0/torch_3.png" id="9_44fvj"]
 [ext_resource type="Texture2D" uid="uid://crpwx2nwlsfdo" path="res://assets/RF_Catacombs_v1.0/torch_4.png" id="10_0pawg"]
-[ext_resource type="Script" path="res://Candle.gd" id="11_3vjp7"]
-[ext_resource type="PackedScene" uid="uid://hmlaod2xhpj4" path="res://chest.tscn" id="14_oadgp"]
-[ext_resource type="PackedScene" uid="uid://cadpkjnic3i8d" path="res://key_chest.tscn" id="15_8iflj"]
-[ext_resource type="PackedScene" uid="uid://bnu3ugaufv68i" path="res://monstdoor.tscn" id="16_hjvyd"]
+[ext_resource type="Script" path="res://objects/Candle.gd" id="10_mhap1"]
+[ext_resource type="PackedScene" path="res://objects/chest.tscn" id="14_oadgp"]
+[ext_resource type="PackedScene" path="res://objects/key_chest.tscn" id="15_8iflj"]
+[ext_resource type="PackedScene" path="res://objects/monstdoor.tscn" id="16_hjvyd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5wc6"]
 texture = ExtResource("1_4o240")
@@ -6622,7 +6622,7 @@ position = Vector2(111, 337)
 z_index = 2
 position = Vector2(184.25, 254.688)
 scale = Vector2(0.84375, 0.710937)
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D"]
 sprite_frames = SubResource("SpriteFrames_0niy7")
@@ -6630,7 +6630,7 @@ animation = &"light"
 
 [node name="Node2D2" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D2"]
 position = Vector2(1047.63, 648.344)
@@ -6640,7 +6640,7 @@ animation = &"light"
 
 [node name="Node2D3" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D3"]
 position = Vector2(1113, 650)
@@ -6650,7 +6650,7 @@ animation = &"light"
 
 [node name="Node2D4" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D4"]
 position = Vector2(384, 439)
@@ -6660,7 +6660,7 @@ animation = &"light"
 
 [node name="Node2D5" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D5"]
 position = Vector2(576, 327)
@@ -6670,7 +6670,7 @@ animation = &"light"
 
 [node name="Node2D7" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D7"]
 position = Vector2(1264, 655)
@@ -6680,7 +6680,7 @@ animation = &"light"
 
 [node name="Node2D8" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D8"]
 position = Vector2(896, 655)
@@ -6690,7 +6690,7 @@ animation = &"light"
 
 [node name="Node2D9" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D9"]
 position = Vector2(1345, -1)
@@ -6700,7 +6700,7 @@ animation = &"light"
 
 [node name="Node2D6" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D6"]
 position = Vector2(1056, -225)
@@ -6710,7 +6710,7 @@ animation = &"light"
 
 [node name="Node2D10" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D10"]
 position = Vector2(1536, -2)
@@ -6720,7 +6720,7 @@ animation = &"light"
 
 [node name="Node2D12" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D12"]
 position = Vector2(1728, -2)
@@ -6730,7 +6730,7 @@ animation = &"light"
 
 [node name="Node2D13" type="Node2D" parent="."]
 z_index = 2
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D13"]
 position = Vector2(1015, -9)
@@ -6741,7 +6741,7 @@ animation = &"light"
 [node name="Node2D11" type="Node2D" parent="."]
 z_index = 2
 position = Vector2(0, 9.53674e-07)
-script = ExtResource("11_3vjp7")
+script = ExtResource("10_mhap1")
 
 [node name="Candle" type="AnimatedSprite2D" parent="Node2D11"]
 position = Vector2(1081, -8)

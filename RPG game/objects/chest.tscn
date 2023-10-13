@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://objects/chest.gd" id="1_b5a2h"]
+[ext_resource type="Texture2D" uid="uid://bxom53ld8r4hb" path="res://assets/sprite/free_chests.png" id="2_ipwov"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvpm1"]
+atlas = ExtResource("2_ipwov")
+region = Rect2(72, 224, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb22b"]
+atlas = ExtResource("2_ipwov")
+region = Rect2(72, 192, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkvef"]
+atlas = ExtResource("2_ipwov")
+region = Rect2(72, 160, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy846"]
+atlas = ExtResource("2_ipwov")
+region = Rect2(72, 128, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tjdu"]
+atlas = ExtResource("2_ipwov")
+region = Rect2(90, 128, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsyfa"]
+atlas = ExtResource("2_ipwov")
+region = Rect2(90, 160, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm7n8"]
+atlas = ExtResource("2_ipwov")
+region = Rect2(90, 192, 18, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unahq"]
+atlas = ExtResource("2_ipwov")
+region = Rect2(90, 224, 18, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbn8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvpm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qb22b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkvef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy846")
+}],
+"loop": false,
+"name": &"close",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tjdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsyfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm7n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unahq")
+}],
+"loop": false,
+"name": &"open",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4f5e"]
+size = Vector2(14, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nr5tk"]
+radius = 21.0
+
+[node name="Chest" type="AnimatableBody2D"]
+z_index = 2
+script = ExtResource("1_b5a2h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_bbn8l")
+animation = &"open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_w4f5e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_nr5tk")
+
+[node name="F" type="VBoxContainer" parent="."]
+visible = false
+offset_left = -15.0
+offset_top = -26.0
+offset_right = 87.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="F"]
+layout_mode = 2
+text = "[F]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

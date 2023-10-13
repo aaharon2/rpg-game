@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://npcs/mother.gd" id="1_c41w0"]
+[ext_resource type="Texture2D" uid="uid://bc1lii68nw1c3" path="res://assets/npcs/npc4-mother.png" id="1_ex3ri"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e87ht"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3wvhn"]
+radius = 28.1603
+
+[node name="Mother" type="CharacterBody2D"]
+z_index = 3
+y_sort_enabled = true
+script = ExtResource("1_c41w0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+texture = ExtResource("1_ex3ri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_e87ht")
+
+[node name="Mother Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mother Area"]
+position = Vector2(1, -11)
+shape = SubResource("CircleShape2D_3wvhn")
+
+[connection signal="area_entered" from="Mother Area" to="." method="_on_mother_area_area_entered"]

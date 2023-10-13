@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://npcs/emo_teen.gd" id="1_hrsbf"]
+[ext_resource type="Texture2D" uid="uid://m2pjuiea17ag" path="res://assets/npcs/npc2-emo-teen.png" id="2_apljt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xv0vr"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23ahk"]
+radius = 34.0147
+
+[node name="Emo Teen" type="CharacterBody2D"]
+z_index = 3
+y_sort_enabled = true
+script = ExtResource("1_hrsbf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+texture = ExtResource("2_apljt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_xv0vr")
+
+[node name="Alphys Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alphys Area"]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_23ahk")
+
+[connection signal="area_entered" from="Alphys Area" to="." method="_on_alphys_area_area_entered"]
