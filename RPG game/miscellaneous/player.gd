@@ -303,8 +303,8 @@ func talk_not_ip(): #talking not in progress
 	set_process_input(true)
 
 func quests(): #shows quests to complete
-	var q1 = $"WorldCamera/first quest"
-	var q2 = $"WorldCamera/second quest"
+	var q1 = $"WorldCamera/Control/first quest"
+	var q2 = $"WorldCamera/Control/second quest"
 	if Global.npcs_talked == true:
 		q1.show()
 	elif Global.monster_alive == false:
