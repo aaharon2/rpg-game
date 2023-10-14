@@ -11,19 +11,31 @@ length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Credits:position")
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mp0m5"]
+resource_name = "scroll"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(408, 650), Vector2(408, -250)]
+"values": [Vector2(0, 0), Vector2(0, -864)]
 }
-
-[sub_resource type="Animation" id="Animation_mp0m5"]
-resource_name = "scroll"
-length = 8.0
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6xv8w"]
 _data = {
@@ -80,37 +92,10 @@ grow_vertical = 2
 texture = ExtResource("5_h0gj5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "RESET"
+autoplay = "scroll"
 libraries = {
 "": SubResource("AnimationLibrary_6xv8w")
 }
-
-[node name="Credits" type="VBoxContainer" parent="."]
-z_index = 4
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = 326.0
-offset_right = 62.0
-offset_bottom = 526.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.5, 1.5)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
-custom_minimum_size = Vector2(230, 200)
-layout_mode = 2
-text = "  		Thanks for playing!
-
-					Credits:
-
-		Game Development:
-						Me"
-fit_content = true
 
 [node name="ExitBtn" type="VBoxContainer" parent="."]
 z_index = 4
@@ -121,5 +106,41 @@ offset_bottom = 33.0
 [node name="Exit" type="Button" parent="ExitBtn"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.431
+offset_right = -1.0
+offset_bottom = -279.288
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="VBoxContainer" parent="Control"]
+z_index = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.5
+offset_top = 332.0
+offset_right = 62.5
+offset_bottom = 532.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Credits"]
+custom_minimum_size = Vector2(230, 200)
+layout_mode = 2
+text = "  		Thanks for playing!
+
+					Credits:
+
+		Game Development:
+						Me"
+fit_content = true
 
 [connection signal="pressed" from="ExitBtn/Exit" to="." method="_on_exit_pressed"]
