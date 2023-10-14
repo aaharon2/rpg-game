@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3]
+[gd_scene load_steps=32 format=3 uid="uid://cpvt36lai44il"]
 
 [ext_resource type="Texture2D" uid="uid://b7vqc1x1tm0od" path="res://assets/RF_Catacombs_v1.0/decorative.png" id="1_4o240"]
 [ext_resource type="Script" path="res://maps/dungeon.gd" id="1_ilc0w"]
@@ -6559,7 +6559,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyuxh"]
-size = Vector2(2000, 1419)
+size = Vector2(2005, 1419)
 
 [node name="Dungeon" type="Node2D"]
 y_sort_enabled = true
@@ -6613,7 +6613,7 @@ layer_6/modulate = Color(1, 1, 1, 1)
 layer_6/y_sort_enabled = false
 layer_6/y_sort_origin = 0
 layer_6/z_index = 0
-layer_6/tile_data = PackedInt32Array(1966097, 4, 65536, 3080244, 4, 65536, 2949193, 4, 65536, 3407957, 4, 65536, 3801139, 4, 65536, 4063313, 4, 65536, -786364, 4, 65536, 524400, 4, 65536)
+layer_6/tile_data = PackedInt32Array(1966097, 4, 65536, 3080244, 4, 65536, 3407957, 4, 65536, 3801139, 4, 65536, 4063313, 4, 65536, -786364, 4, 65536, 524400, 4, 65536, 2883654, 4, 65536)
 
 [node name="door" parent="." instance=ExtResource("5_4ihbr")]
 position = Vector2(111, 337)
@@ -6770,7 +6770,7 @@ position = Vector2(1080, 678)
 [node name="Dungeon" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Dungeon"]
-position = Vector2(1114, 376.5)
+position = Vector2(1116.5, 376.5)
 shape = SubResource("RectangleShape2D_dyuxh")
 
 [connection signal="body_entered" from="Dungeon" to="." method="_on_dungeon_body_entered"]

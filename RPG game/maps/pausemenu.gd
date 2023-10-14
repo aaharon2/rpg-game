@@ -11,5 +11,5 @@ func _on_resume_game_pressed():
 	pause.visible = false
 	get_tree().paused = false
 
-func _on_quit_pressed():
+func _on_quit_pressed(): #closes game
 	get_tree().quit()

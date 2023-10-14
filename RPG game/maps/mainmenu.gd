@@ -21,7 +21,7 @@ func show_and_hide(first, second):
 	second.hide()
 
 func _on_options_pressed():
-	show_and_hide(options, menu)
+	show_and_hide(options, menu) #shows options and hides menu
 	
 func _on_controls_pressed():
 	show_and_hide(controls, menu)
@@ -43,15 +43,15 @@ func _on_back_from_options_pressed():
 	
 func _on_fullscreen_toggled(button_pressed):
 	if button_pressed == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) #sets fullscreen
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) #sets windowed
 		
 func _on_borderless_toggled(button_pressed):
 	if button_pressed == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED) #sets borederless
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED) #sets windowed
 
 func _on_v_sync_toggled(button_pressed):
 	if button_pressed == true:

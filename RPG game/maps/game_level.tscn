@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" path="res://npcs/nerd.tscn" id="13_b3g4k"]
 [ext_resource type="PackedScene" uid="uid://bhwold72orutr" path="res://enemies/enemy.tscn" id="14_7xyto"]
 [ext_resource type="PackedScene" uid="uid://cicx0mb5cndwj" path="res://maps/world.tscn" id="14_f135b"]
-[ext_resource type="PackedScene" path="res://maps/dungeon.tscn" id="14_flo2g"]
+[ext_resource type="PackedScene" uid="uid://cpvt36lai44il" path="res://maps/dungeon.tscn" id="14_flo2g"]
 [ext_resource type="PackedScene" uid="uid://u8sq2k4jdqbc" path="res://enemies/monster.tscn" id="15_rtymo"]
 
 [sub_resource type="GDScript" id="GDScript_owhhg"]
@@ -26,7 +26,8 @@ func _ready():
 	pass
 
 func _process(_delta):
-	pass"
+	pass
+"
 
 [sub_resource type="Curve" id="Curve_5vik3"]
 _data = [Vector2(0.0872093, 0.127273), 0.0, 0.0, 0, 0, Vector2(0.430233, 0.254545), 0.0, 0.0, 0, 0, Vector2(0.732558, 0.472727), 0.0, 0.0, 0, 0]
@@ -47,7 +48,7 @@ script = SubResource("GDScript_owhhg")
 level_name = "game"
 
 [node name="Player" parent="." instance=ExtResource("2_nq0y7")]
-position = Vector2(53, 158)
+position = Vector2(2303, 474)
 
 [node name="Sign" parent="." instance=ExtResource("4_ddxgw")]
 position = Vector2(593, 309)
@@ -110,7 +111,7 @@ position = Vector2(-7, 0)
 position = Vector2(1410, 346)
 
 [node name="enemy2" parent="." instance=ExtResource("14_7xyto")]
-position = Vector2(2227, 472)
+position = Vector2(2060, 434)
 
 [node name="enemy3" parent="." instance=ExtResource("14_7xyto")]
 position = Vector2(2194, 100)

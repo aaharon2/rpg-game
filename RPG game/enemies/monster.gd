@@ -33,14 +33,14 @@ func _on_detection_area_body_entered(body):
 
 func _on_detection_area_body_exited(body):
 	if body.has_method("player"):
-		player = null
+		player = null #empty (no player)
 		player_chase = false
 
 func deal_with_damage():
 	if player_inattack_zone and Global.player_cur_attack == true and health > 0:
 		if can_take_damage == true:
-			health = health - 20
-			$CPUParticles2D.restart()
+			health = health - 20 #takes dmg
+			$CPUParticles2D.restart() #plays hit particles
 			took_dmg = true
 			$Damage_cooldown.start()
 			can_take_damage = false
@@ -50,9 +50,8 @@ func deal_with_damage():
 				Global.monster_alive = false
 				can_take_damage = false
 				$CollisionShape2D.disabled = true
-				await get_tree().create_timer(3).timeout
+				await get_tree().create_timer(3).timeout #waits 3s until despawning
 				queue_free()
-				get_tree().change_scene_to_file("res://maps/game_completed")
 
 func _on_damage_cooldown_timeout():
 	can_take_damage = true

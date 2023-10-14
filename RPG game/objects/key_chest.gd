@@ -18,25 +18,25 @@ func _process(delta):
 			$F.show()
 		
 		if chest_open:
-			if Input.is_action_just_pressed("openchest"):
+			if Input.is_action_just_pressed("openchest"): #when f is pressed and the chest is open, close anim will play
 				anim.play("close")
 				chest_open = false
 				chest_closed = true
 				Global.has_key = true
 				$"Key Obtained".hide()
 		elif chest_closed:
-			if Input.is_action_just_pressed("openchest"):
+			if Input.is_action_just_pressed("openchest"): #when f is pressed and the chest is closed, open anim will play
 				anim.play("open")
 				chest_open = true
 				chest_closed = false
 				Global.has_key = true
 				$"Key Obtained".hide()
 		else:
-			if Input.is_action_just_pressed("openchest"):
+			if Input.is_action_just_pressed("openchest"): #when f is pressed and the chest is closed, open anim will play
 				anim.play("open")
 				chest_open = true
 				chest_closed = false
-				show_text()
+				show_text() #key obtained will show
 				opened = true
 				Global.has_key = true
 				if shown == true:

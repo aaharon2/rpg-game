@@ -4,7 +4,7 @@ var player_in_range = false
 var door_open = false
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func _process(_delta):
 	var anim = $AnimatedSprite2D

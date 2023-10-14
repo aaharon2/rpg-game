@@ -71,6 +71,24 @@ if Global.fancy_lady_talked == true:
 	=> END
 => END
 
+~ merida
+
+if Global.monster_alive == false:
+	Merida: What do you want?
+	- I defeated the monster
+		Merida: I knew you were capable of doing it.
+		set Global.town_saved = true
+		=> END
+	- Never mind.
+	set Global.town_saved = true
+	set Global.merida_saved = true
+	=> END
+if Global.town_saved == true:
+	Merida: ...
+	Merida: Thanks.
+	=> END
+=> END
+
 ~ emo_teen_1
 
 if Global.emo_teen_talked == false and Global.alphy_talked == false:
@@ -141,7 +159,24 @@ if Global.alphy_talk == true:
 ~ emo_teen_3
 
 Alphy: [[I-I guess I can trust you..|G-G-Good luck defeating the m-m-monster?|A-Ah u-u-umm I'm going to go back home...|I-I-I hope you can s-s-save us...|I think I have f-f-faith in you?|Y-Y-You can defeat the m-m-monster?|P-P-Please save us...]]
+=> END
 
+~ alphy
+
+if Global.monster_alive == false:
+	Alphy: H-H-Hello again..
+	- You don't have to be so nervous anymore, I defeated the monster!
+		Alphy: Y-Y-YOU DID IT??
+		Alphy: THANK YOU SO MUCH!!
+		set Global.town_saved = true
+		=> END
+	- Never mind.
+	set Global.town_saved = true
+	set Global.alphys_saved = true
+	=> END
+if Global.town_saved == true:
+	Alphy: Thank you...
+	=> END
 => END
 
 ~ nature_girl
@@ -264,6 +299,25 @@ if Global.fauna_talked == false:
 if Global.fauna_talked == true:
 	Fauna: [[Good luck fighting the monster!|I'm rooting for you!|I'm sure you can defeat the monster!|Please save our environment!|I really appreciate your effort!]]
 	=> END
+=> END
+
+~ fauna
+
+if Global.monster_alive == false:
+	Fauna: Hi again!!
+	- I defeated the monster!
+		Fauna: Wait really!? OMG I'm so proud of you!
+		Fauna: Thank you so much for risking your life for our little town!
+		Fauna: Some of us may not seem like it, but we all really appreciate your effort!
+		set Global.town_saved = true
+		=> END
+	- Never mind.
+	set Global.town_saved = true
+	set Global.fauna_saved = true
+	=> END
+if Global.town_saved == true:
+	Fauna: You really are a kind soul!
+	=> END
 =>END
 
 ~ mother
@@ -347,6 +401,25 @@ if Global.mother_talked == true:
 	=> END
 => END
 
+~ mother2
+
+if Global.monster_alive == false:
+	Mother: Have you been to the dungeon yet?
+	- Yes! I even defeated the monster!
+		Mother: No way?! You.. you saved us?
+		Mother: Thank you SO much!
+		set Global.town_saved = true
+		=> END
+	- Never mind.
+	set Global.town_saved = true
+	set Global.mother_saved = true
+	=> END
+if Global.town_saved == true:
+	Mother: Thanks for saving me and my family
+	Mother: I am forever in debt to you..
+	=> END
+=> END
+
 ~ twins
 Bessy: WAAAH I WANT FOOD
 Betty: SHUSH BESSY MY EARS HURT
@@ -397,12 +470,33 @@ if Global.man_talked == false:
 			set Global.man_talked = true
 			=> END
 		- I already spoke to her
-			Man: That must mean you'
+			Man: That must mean you know about the monster!
+			- Yep! I'm going to the dungeon to defeat it right now!
+			Man: Good luck.
+			set Global.man_talked = true
 			=> END
 	- Sorry for bothering you 
 	=> END
 if Global.man_talked == true:
 	Man: [[Olivia sure is knowledgable|I would help you, but I'm only a visitor here|I don't know much about this town|I wish I could help you]]
+	=> END
+=> END
+
+~ man2
+
+if Global.monster_alive == false:
+	Man: Have you spoken to them yet?
+	- Yeah! I even defeated the monster that was around in the dungeon!
+		Man: Wow you sure are a talented adventurer!
+		Man: I'm sure the residents are greatful for your deeds.
+		set Global.town_saved = true
+		=> END
+	- Never mind.
+	set Global.town_saved = true
+	set Global.man_saved = true
+	=> END
+if Global.town_saved == true:
+	Man: Thanks for saving the town!
 	=> END
 => END
 
@@ -584,7 +678,28 @@ if Global.nerd_talked == true:
 	- Not at the moment.
 	set Global.nerd_talked = true
 	=> END
+=> END
 
+~ olivia
+
+if Global.monster_alive == false:
+	Olivia: You're back? I'm assuming it went well!
+	- Yes, I defeated the monster!
+		Olivia: Wow, you sure are talented!
+		Olivia: Most adventurers would not even have the courage to enter the dungeon.
+		Olivia: When they did.. you know..
+		Olivia: Anyways, I'm so thankful that you went through all that trouble for our town!
+		- Of course! Thats basically my job as an adventurer!
+			Olivia: Haha, I guess so!
+			set Global.town_saved = true
+			=> END
+	- Never mind.
+	set Global.town_saved = true
+	set Global.olivia_saved = true
+	=> END
+if Global.town_saved == true:
+	Olivia: Thanks for saving us!
+	=> END
 => END
 
 ~ sign

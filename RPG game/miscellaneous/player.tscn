@@ -399,6 +399,25 @@ rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
+[node name="first quest" type="RichTextLabel" parent="WorldCamera"]
+visible = false
+top_level = true
+z_index = 4
+offset_top = 0.999998
+offset_right = 330.0
+offset_bottom = 89.0
+scale = Vector2(0.7, 0.7)
+text = "You've talked to all the residents, go to the dungeon and defeat the monster!"
+
+[node name="second quest" type="RichTextLabel" parent="WorldCamera"]
+visible = false
+top_level = true
+z_index = 4
+offset_left = 2.0
+offset_right = 303.0
+offset_bottom = 101.0
+text = "You defeated the monster! Go talk to the residents of Calcaire Town."
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 24)
 shape = SubResource("CircleShape2D_fk7le")

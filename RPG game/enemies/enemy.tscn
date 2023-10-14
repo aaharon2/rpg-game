@@ -373,9 +373,7 @@ shape = SubResource("CircleShape2D_lmjt4")
 y_sort_enabled = true
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_66vcl")
-animation = &"death"
-frame = 12
-frame_progress = 1.0
+animation = &"idle"
 offset = Vector2(0, -14)
 
 [node name="detection_area" type="Area2D" parent="."]
