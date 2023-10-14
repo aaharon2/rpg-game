@@ -104,14 +104,13 @@ scale = Vector2(1.5, 1.5)
 [node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
 custom_minimum_size = Vector2(230, 200)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "  		Thanks for playing!
 
 					Credits:
 
 		Game Development:
 						Me"
+fit_content = true
 
 [node name="ExitBtn" type="VBoxContainer" parent="."]
 z_index = 4

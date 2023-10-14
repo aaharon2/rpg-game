@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://g5r7gv3q0603" path="res://assets/terrain_tiles_v2.png" id="3_7fa0n"]
 [ext_resource type="Texture2D" uid="uid://ddpvwh0erdn4u" path="res://assets/dungeon door.png" id="4_d2jvs"]
 [ext_resource type="PackedScene" path="res://objects/door.tscn" id="5_4ihbr"]
-[ext_resource type="PackedScene" path="res://objects/health_potion.tscn" id="5_7knnd"]
+[ext_resource type="PackedScene" uid="uid://dy48hpsim0bnt" path="res://objects/health_potion.tscn" id="5_7knnd"]
 [ext_resource type="Texture2D" uid="uid://erq3xmd7wbc1" path="res://assets/decorations.png" id="6_0r7b0"]
 [ext_resource type="Texture2D" uid="uid://le7djbhd60tf" path="res://assets/RF_Catacombs_v1.0/torch_1.png" id="7_c7njb"]
 [ext_resource type="Texture2D" uid="uid://dochjdjwmvm5x" path="res://assets/RF_Catacombs_v1.0/torch_2.png" id="8_caoac"]

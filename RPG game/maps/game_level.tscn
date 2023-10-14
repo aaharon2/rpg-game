@@ -48,7 +48,7 @@ script = SubResource("GDScript_owhhg")
 level_name = "game"
 
 [node name="Player" parent="." instance=ExtResource("2_nq0y7")]
-position = Vector2(2303, 474)
+position = Vector2(2358, 977)
 
 [node name="Sign" parent="." instance=ExtResource("4_ddxgw")]
 position = Vector2(593, 309)

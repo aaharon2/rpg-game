@@ -29,6 +29,6 @@ var in_dungeon = false
 func _ready():
 	if merida_saved and alphy_saved and fauna_saved and mother_saved and man_saved and olivia_saved == true:
 		npcs_saved = true
-		get_tree().change_scene_to_file("res://maps/game_completed")
+		get_tree().change_scene_to_file("res://maps/game_completed.tscn")
 	if fancy_lady_talked and alphy_talked and fauna_talked and mother_talked and man_talked and nerd_talked == true:
 		npcs_talked = true

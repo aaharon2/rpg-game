@@ -313,4 +313,4 @@ func quests(): #shows quests to complete
 	elif Global.npcs_saved == true:
 		q1.hide()
 		q2.hide()
-		get_tree().change_scene_to_file("res://maps/game_completed")
+		get_tree().change_scene_to_file("res://maps/game_completed.tscn")

@@ -38,7 +38,9 @@ func _on_detection_area_body_exited(body):
 
 func deal_with_damage():
 	if player_inattack_zone and Global.player_cur_attack == true and health > 0:
+		get_tree().change_scene_to_file("res://maps/game_completed.tscn")
 		if can_take_damage == true:
+			get_tree().change_scene_to_file("res://maps/game_completed.tscn")
 			health = health - 20 #takes dmg
 			$CPUParticles2D.restart() #plays hit particles
 			took_dmg = true
@@ -52,6 +54,7 @@ func deal_with_damage():
 				$CollisionShape2D.disabled = true
 				await get_tree().create_timer(3).timeout #waits 3s until despawning
 				queue_free()
+				
 
 func _on_damage_cooldown_timeout():
 	can_take_damage = true
