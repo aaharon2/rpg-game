@@ -110,10 +110,8 @@ text = "Quit"
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchor_right = 1.0
-anchor_bottom = 1.431
-offset_bottom = 24.7119
-grow_horizontal = 2
-grow_vertical = 2
+anchor_bottom = 1.0
+offset_right = 2.0
 
 [node name="Credits" type="VBoxContainer" parent="Control"]
 z_index = 4
@@ -139,7 +137,7 @@ text = "  		Thanks for playing!
 					Credits:
 
 		Game Development:
-						Me"
+			   Agam Aharon"
 fit_content = true
 
 [connection signal="pressed" from="ExitBtn/Exit" to="." method="_on_exit_pressed"]

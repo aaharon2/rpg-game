@@ -24,11 +24,15 @@ func _read():
 
 func _physics_process(delta):
 	player_movement(delta)
-	quests()
 	enemy_attack()
 	monster_attack()
 	attack()
 	update_health()
+	
+	if Global.npcs_saved == true:
+		await get_tree().create_timer(5).timeout
+		get_tree().change_scene_to_file("res://maps/game_completed.tscn")
+	
 	if lady_in_range == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == true:
 			talk_ip()
@@ -38,6 +42,8 @@ func _physics_process(delta):
 			return
 		elif Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
 				DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "merida")
+				Global.merida_saved = true
+				lady_in_range = false
 				return
 	if emoteen_in_range and Global.monster_alive == true and Global.alphy_talked == false and Global.alphy_talk == false:
 		if Input.is_action_just_pressed("ui_accept"):
@@ -57,8 +63,10 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("back_idle")
 			emoteen_in_range = false
 			return
-		elif Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+	elif emoteen_in_range == true and Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "alphy")
+			Global.alphy_saved = true
+			emoteen_in_range = false
 			return
 	if girl_in_range == true and Global.fancy_lady_talked == true and Global.monster_alive == true:
 		if Input.is_action_just_pressed("ui_accept"):
@@ -66,17 +74,22 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("back_idle")
 			girl_in_range = false
 			return
-		elif Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
-			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "fauna")
-			return
+	elif girl_in_range == true and Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+		DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "fauna")
+		Global.fauna_saved = true
+		girl_in_range = false
+		return
 	if mother_in_range == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == true:
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "mother")
 			$AnimatedSprite2D.play("back_idle")
 			mother_in_range = false
 			return
-		elif Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
-			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "mother2")
+	if mother_in_range == true:
+		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "motherr")
+			Global.mother_saved = true
+			mother_in_range = false
 			return
 	if twins_in_range == true and Global.mother_talked == true:
 		if Input.is_action_just_pressed("ui_accept"):
@@ -90,8 +103,11 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("back_idle")
 			man_in_range = false
 			return
-		elif Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
-			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "man2")
+	if man_in_range == true:
+		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "mann")
+			Global.man_saved = true
+			man_in_range = false
 			return
 	if nerd_in_range == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == true:
@@ -99,8 +115,11 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("back_idle")
 			nerd_in_range = false
 			return
-		elif Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+	if nerd_in_range == true:
+		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "olivia")
+			Global.olivia_saved = true
+			nerd_in_range = false
 			return
 	
 	if health <= 0: #death
@@ -113,6 +132,7 @@ func _physics_process(delta):
 		$Hit.emitting = false #can't play hit particles
 		player_alive = true
 		health = 100
+		
 
 func player_movement(_delta): #player movement
 	if Global.current_scene == "game_level" and $Respawn.emitting == false: #doesn't let you move when respawn particles are playing
@@ -301,16 +321,3 @@ func talk_ip(): #talking in progress
 func talk_not_ip(): #talking not in progress
 	talking = false
 	set_process_input(true)
-
-func quests(): #shows quests to complete
-	var q1 = $"WorldCamera/Control/first quest"
-	var q2 = $"WorldCamera/Control/second quest"
-	if Global.npcs_talked == true:
-		q1.show()
-	elif Global.monster_alive == false:
-		q1.hide()
-		q2.show()
-	elif Global.npcs_saved == true:
-		q1.hide()
-		q2.hide()
-		get_tree().change_scene_to_file("res://maps/game_completed.tscn")

@@ -12,3 +12,5 @@ func _on_merida_area_area_entered(area):
 	
 	if area == player_area: #when player in meridas area
 		player.lady_in_range = true
+	if not area == player_area:
+		player.lady_in_range = false

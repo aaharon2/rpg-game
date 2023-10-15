@@ -10276,7 +10276,6 @@ sources/6 = SubResource("TileSetAtlasSource_gp3ji")
 [node name="Calcaire Town" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_flrxv")
-level_name = "calcaire_town"
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true

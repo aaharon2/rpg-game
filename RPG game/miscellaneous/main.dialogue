@@ -72,20 +72,18 @@ if Global.fancy_lady_talked == true:
 => END
 
 ~ merida
-
-if Global.monster_alive == false:
+if Global.monster_alive == false and Global.merida_saved == false:
 	Merida: What do you want?
 	- I defeated the monster
 		Merida: I knew you were capable of doing it.
-		set Global.town_saved = true
+		set Global.merida_saved = true
 		=> END
 	- Never mind.
-	set Global.town_saved = true
-	set Global.merida_saved = true
 	=> END
-if Global.town_saved == true:
+if Global.merida_saved == true:
 	Merida: ...
 	Merida: Thanks.
+	set Global.town_saved = true
 	=> END
 => END
 
@@ -162,20 +160,18 @@ Alphy: [[I-I guess I can trust you..|G-G-Good luck defeating the m-m-monster?|A-
 => END
 
 ~ alphy
-
-if Global.monster_alive == false:
+if Global.monster_alive == false and Global.alphy_saved == false:
 	Alphy: H-H-Hello again..
 	- You don't have to be so nervous anymore, I defeated the monster!
 		Alphy: Y-Y-YOU DID IT??
 		Alphy: THANK YOU SO MUCH!!
-		set Global.town_saved = true
+		set Global.alphy_saved = true
 		=> END
 	- Never mind.
-	set Global.town_saved = true
-	set Global.alphys_saved = true
 	=> END
-if Global.town_saved == true:
+if Global.alphy_saved == true:
 	Alphy: Thank you...
+	set Global.town_saved = true
 	=> END
 => END
 
@@ -302,21 +298,19 @@ if Global.fauna_talked == true:
 => END
 
 ~ fauna
-
-if Global.monster_alive == false:
+if Global.monster_alive == false and Global.fauna_saved == false:
 	Fauna: Hi again!!
 	- I defeated the monster!
 		Fauna: Wait really!? OMG I'm so proud of you!
 		Fauna: Thank you so much for risking your life for our little town!
 		Fauna: Some of us may not seem like it, but we all really appreciate your effort!
-		set Global.town_saved = true
+		set Global.fauna_saved = true
 		=> END
 	- Never mind.
-	set Global.town_saved = true
-	set Global.fauna_saved = true
 	=> END
-if Global.town_saved == true:
+if Global.fauna_saved == true:
 	Fauna: You really are a kind soul!
+	set Global.town_saved = true
 	=> END
 =>END
 
@@ -401,22 +395,20 @@ if Global.mother_talked == true:
 	=> END
 => END
 
-~ mother2
-
-if Global.monster_alive == false:
+~ motherr
+if Global.monster_alive == false and Global.mother_saved == false:
 	Mother: Have you been to the dungeon yet?
 	- Yes! I even defeated the monster!
 		Mother: No way?! You.. you saved us?
 		Mother: Thank you SO much!
-		set Global.town_saved = true
+		set Global.mother_saved = true
 		=> END
 	- Never mind.
-	set Global.town_saved = true
-	set Global.mother_saved = true
 	=> END
-if Global.town_saved == true:
+if Global.mother_saved == true:
 	Mother: Thanks for saving me and my family
 	Mother: I am forever in debt to you..
+	set Global.town_saved = true
 	=> END
 => END
 
@@ -482,21 +474,19 @@ if Global.man_talked == true:
 	=> END
 => END
 
-~ man2
-
-if Global.monster_alive == false:
+~ mann
+if Global.monster_alive == false and Global.man_saved == false:
 	Man: Have you spoken to them yet?
 	- Yeah! I even defeated the monster that was around in the dungeon!
 		Man: Wow you sure are a talented adventurer!
 		Man: I'm sure the residents are greatful for your deeds.
-		set Global.town_saved = true
+		set Global.man_saved = true
 		=> END
 	- Never mind.
-	set Global.town_saved = true
-	set Global.man_saved = true
 	=> END
-if Global.town_saved == true:
+if Global.man_saved == true:
 	Man: Thanks for saving the town!
+	set Global.town_saved = true
 	=> END
 => END
 
@@ -681,8 +671,7 @@ if Global.nerd_talked == true:
 => END
 
 ~ olivia
-
-if Global.monster_alive == false:
+if Global.monster_alive == false and Global.olivia_saved == false:
 	Olivia: You're back? I'm assuming it went well!
 	- Yes, I defeated the monster!
 		Olivia: Wow, you sure are talented!
@@ -691,13 +680,11 @@ if Global.monster_alive == false:
 		Olivia: Anyways, I'm so thankful that you went through all that trouble for our town!
 		- Of course! Thats basically my job as an adventurer!
 			Olivia: Haha, I guess so!
-			set Global.town_saved = true
+			set Global.olivia_saved = true
 			=> END
 	- Never mind.
-	set Global.town_saved = true
-	set Global.olivia_saved = true
 	=> END
-if Global.town_saved == true:
+if Global.olivia_saved == true:
 	Olivia: Thanks for saving us!
 	=> END
 => END

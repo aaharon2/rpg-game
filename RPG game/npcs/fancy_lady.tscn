@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://cj03lxtxwkg2s"]
 
 [ext_resource type="Script" path="res://npcs/fancy_lady.gd" id="1_8cd2x"]
 [ext_resource type="Texture2D" uid="uid://bgk87s3qqh7u" path="res://assets/npcs/npc1-fancy-lady.png" id="1_rov4q"]

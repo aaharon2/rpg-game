@@ -45,7 +45,7 @@ func _process(delta):
 		$F.hide()
 
 func show_text():
-	var shown = true
+	shown = true
 	$"Key Obtained".show()
 	
 func _on_area_2d_body_entered(body):

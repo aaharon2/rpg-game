@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cw7x2dw1su1df" path="res://miscellaneous/player.tscn" id="2_nq0y7"]
 [ext_resource type="PackedScene" path="res://objects/sign.tscn" id="4_ddxgw"]
 [ext_resource type="PackedScene" uid="uid://dsxu7w7uayik2" path="res://maps/calcaire_town_level.tscn" id="5_xne1l"]
-[ext_resource type="PackedScene" path="res://npcs/fancy_lady.tscn" id="7_wno70"]
+[ext_resource type="PackedScene" uid="uid://cj03lxtxwkg2s" path="res://npcs/fancy_lady.tscn" id="7_wno70"]
 [ext_resource type="PackedScene" path="res://npcs/emo_teen.tscn" id="8_fcy7m"]
 [ext_resource type="PackedScene" path="res://npcs/nature_girl.tscn" id="9_5ompu"]
 [ext_resource type="PackedScene" path="res://npcs/mother.tscn" id="10_t0xx2"]
@@ -111,7 +111,7 @@ position = Vector2(-7, 0)
 position = Vector2(1410, 346)
 
 [node name="enemy2" parent="." instance=ExtResource("14_7xyto")]
-position = Vector2(2060, 434)
+position = Vector2(2229, 498)
 
 [node name="enemy3" parent="." instance=ExtResource("14_7xyto")]
 position = Vector2(2194, 100)
