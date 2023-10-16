@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bd1gw2ubw7q2l" path="res://assets/Clouds 7/4.png" id="5_eakcq"]
 
 [node name="PauseMenu" type="Control"]
+z_index = 4
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

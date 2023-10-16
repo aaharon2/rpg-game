@@ -30,7 +30,7 @@ func _physics_process(delta):
 	update_health()
 	
 	if Global.npcs_saved == true:
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(10).timeout
 		get_tree().change_scene_to_file("res://maps/game_completed.tscn")
 	
 	if lady_in_range == true:

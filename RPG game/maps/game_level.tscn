@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://s5f2us6pht66"]
+[gd_scene load_steps=18 format=3 uid="uid://s5f2us6pht66"]
 
 [ext_resource type="PackedScene" uid="uid://cw7x2dw1su1df" path="res://miscellaneous/player.tscn" id="2_nq0y7"]
 [ext_resource type="PackedScene" path="res://objects/sign.tscn" id="4_ddxgw"]
@@ -15,20 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://cpvt36lai44il" path="res://maps/dungeon.tscn" id="14_flo2g"]
 [ext_resource type="PackedScene" uid="uid://u8sq2k4jdqbc" path="res://enemies/monster.tscn" id="15_rtymo"]
 
-[sub_resource type="GDScript" id="GDScript_owhhg"]
-script/source = "extends Node
-
-signal level_changed(level_name)
-
-@export var level_name = \"level\"
-
-func _ready():
-	pass
-
-func _process(_delta):
-	pass
-"
-
 [sub_resource type="Curve" id="Curve_5vik3"]
 _data = [Vector2(0.0872093, 0.127273), 0.0, 0.0, 0, 0, Vector2(0.430233, 0.254545), 0.0, 0.0, 0, 0, Vector2(0.732558, 0.472727), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -44,8 +30,6 @@ point_count = 3
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(7, -1)
-script = SubResource("GDScript_owhhg")
-level_name = "game"
 
 [node name="Player" parent="." instance=ExtResource("2_nq0y7")]
 position = Vector2(57, 163)
@@ -121,5 +105,3 @@ position = Vector2(2830, 93)
 
 [node name="monster" parent="." instance=ExtResource("15_rtymo")]
 position = Vector2(2228, 974)
-
-[connection signal="level_changed" from="." to="." method="_on_level_changed"]

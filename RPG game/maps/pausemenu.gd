@@ -1,14 +1,13 @@
 extends Control
 
-var pause = false
-
-func _ready():
-	if Input.is_action_pressed("ui_cancel"):
-		pause.visible = true
+func _physics_process(delta):
+	print("paused")
+	if Input.is_action_just_pressed("esc"):
+		show()
 		get_tree().paused = true	
 
 func _on_resume_game_pressed():
-	pause.visible = false
+	hide()
 	get_tree().paused = false
 
 func _on_quit_pressed(): #closes game

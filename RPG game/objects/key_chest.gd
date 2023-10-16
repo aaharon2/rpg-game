@@ -10,7 +10,7 @@ var press_f = false
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	var anim = $AnimatedSprite2D
 	if player_in_range == true:
 		

@@ -6,7 +6,7 @@ var chest_open = false
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	var anim = $AnimatedSprite2D
 	if player_in_range == true:
 		$F.show()
