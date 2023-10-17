@@ -276,16 +276,15 @@ shape = SubResource("CircleShape2D_1tsov")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_r2bet")
-animation = &"death1"
-frame = 5
-frame_progress = 1.0
+animation = &"idle1"
+autoplay = "idle1"
 
 [node name="Detection_Area" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_Area"]
+visible = false
 position = Vector2(0, -20)
 shape = SubResource("CircleShape2D_da7bh")
 

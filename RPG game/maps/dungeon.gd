@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	$Task.hide()
+	pass
 
 func _process(_delta):
 	if Global.monster_alive == false:

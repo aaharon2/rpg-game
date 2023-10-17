@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://s5f2us6pht66"]
+[gd_scene load_steps=20 format=3 uid="uid://s5f2us6pht66"]
 
 [ext_resource type="PackedScene" uid="uid://cw7x2dw1su1df" path="res://miscellaneous/player.tscn" id="2_nq0y7"]
 [ext_resource type="PackedScene" path="res://objects/sign.tscn" id="4_ddxgw"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bhwold72orutr" path="res://enemies/enemy.tscn" id="14_7xyto"]
 [ext_resource type="PackedScene" uid="uid://cicx0mb5cndwj" path="res://maps/world.tscn" id="14_f135b"]
 [ext_resource type="PackedScene" uid="uid://cpvt36lai44il" path="res://maps/dungeon.tscn" id="14_flo2g"]
+[ext_resource type="PackedScene" uid="uid://5gn1qyrfvg5k" path="res://maps/pause_menu.tscn" id="15_byqoa"]
+[ext_resource type="Script" path="res://maps/UI.gd" id="15_et4rj"]
 [ext_resource type="PackedScene" uid="uid://u8sq2k4jdqbc" path="res://enemies/monster.tscn" id="15_rtymo"]
 
 [sub_resource type="Curve" id="Curve_5vik3"]
@@ -105,3 +107,45 @@ position = Vector2(2830, 93)
 
 [node name="monster" parent="." instance=ExtResource("15_rtymo")]
 position = Vector2(2228, 974)
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("15_et4rj")
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("15_byqoa")]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="UI"]
+offset_left = 6.0
+offset_top = 11.0
+offset_right = 207.0
+offset_bottom = 86.0
+
+[node name="Quests" type="RichTextLabel" parent="UI"]
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 196.0
+offset_bottom = 86.0
+text = "Quests:"
+
+[node name="Quest1" type="RichTextLabel" parent="UI"]
+offset_left = 19.0
+offset_top = 32.0
+offset_right = 205.0
+offset_bottom = 107.0
+text = "Explore"
+
+[node name="Quest2" type="RichTextLabel" parent="UI"]
+visible = false
+offset_left = 19.0
+offset_top = 31.0
+offset_right = 205.0
+offset_bottom = 106.0
+text = "Talk to the residents of calcaire town"
+
+[node name="Quest3" type="RichTextLabel" parent="UI"]
+visible = false
+offset_left = 19.0
+offset_top = 31.0
+offset_right = 217.0
+offset_bottom = 82.0
+text = "Defeat the monster in the dungeon"

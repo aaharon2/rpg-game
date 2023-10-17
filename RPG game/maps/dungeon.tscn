@@ -6773,14 +6773,5 @@ position = Vector2(1080, 678)
 position = Vector2(1116.5, 376.5)
 shape = SubResource("RectangleShape2D_dyuxh")
 
-[node name="Task" type="RichTextLabel" parent="."]
-visible = false
-offset_left = 901.0
-offset_top = 734.0
-offset_right = 1259.0
-offset_bottom = 812.0
-text = "					You defeated the monster! 
-	Go talk to the residents of Calcaire Town."
-
 [connection signal="body_entered" from="Dungeon" to="." method="_on_dungeon_body_entered"]
 [connection signal="body_exited" from="Dungeon" to="." method="_on_dungeon_body_exited"]

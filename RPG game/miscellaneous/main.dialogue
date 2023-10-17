@@ -581,6 +581,8 @@ if Global.nerd_talked == true:
 				Olivia: Any other questions?
 				- Not at the moment.
 				=> END
+			- Not at the moment.
+			=> END
 		- Do you have any tips to defeat the monster?
 			Olivia: I'm currently unaware of how to deafeat the monster as all those who went in...
 			Olivia: Haven't came back out...
@@ -593,6 +595,8 @@ if Global.nerd_talked == true:
 				Olivia: Any other questions?
 				- Not at the moment.
 				=> END
+			- Not at the moment.
+			=> END
 		- Not at the moment.
 		=> END
 	- Where is the dungeon?
@@ -648,7 +652,7 @@ if Global.nerd_talked == true:
 				- Not at the moment.
 				=> END
 			- Not at the moment.
-				=> END
+			=> END
 		- Where is the dungeon?
 			Olivia: It's southeast of this town.
 			Olivia: If you are still unsure, go to the crossroad south of the town

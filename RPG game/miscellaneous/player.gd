@@ -133,7 +133,6 @@ func _physics_process(delta):
 		player_alive = true
 		health = 100
 		
-
 func player_movement(_delta): #player movement
 	if Global.current_scene == "game_level" and $Respawn.emitting == false: #doesn't let you move when respawn particles are playing
 		if Input.is_action_pressed("ui_right"):
@@ -156,9 +155,25 @@ func player_movement(_delta): #player movement
 			current_dir = "up"
 			velocity.y = -speed
 			velocity.x = 0
+		#if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
+		#	velocity.x = speed
+		#	velocity.y = -speed^2 / 2
+		#if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
+		#	velocity.x = -speed
+		#	velocity.y = -speed^2 / 2
+		#if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"):
+		#	velocity.x = -speed
+		#	velocity.y = speed^2 / 2
+		#if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"):
+		#	velocity.x = speed
+		#	velocity.y = speed^2 / 2
+		#if not Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
+		#	play_anim(0)
+		#	velocity.x = 0
+		#	velocity.y = 0
 		else:
 			play_anim(0)
-			velocity. x = 0
+			velocity.x = 0
 			velocity.y = 0
 		move_and_slide()
 	
@@ -194,7 +209,7 @@ func play_anim(movement): #movement animation
 				anim.play("back_walk")
 			elif movement == 0:
 				if attack_ip == false:
-					anim.play("back_idle") 
+					anim.play("back_idle")
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("fancy_lady"):
