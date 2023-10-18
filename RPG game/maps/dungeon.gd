@@ -4,8 +4,7 @@ func _ready():
 	pass
 
 func _process(_delta):
-	if Global.monster_alive == false:
-		$Task.show()
+	pass
 
 func _on_dungeon_body_entered(body):
 	if body.has_method("player"):
