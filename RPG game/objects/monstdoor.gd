@@ -12,11 +12,13 @@ func _process(_delta):
 		if door_open:
 			if Input.is_action_just_pressed("ui_accept"): #when f is pressed and the door is open, close anim will play
 				anim.play("close")
+				$FX.play()
 				$CollisionShape2D.disabled = false
 				door_open = false
 		else:
 			if Input.is_action_just_pressed("ui_accept"): #when f is pressed and the door is closed, open anim will play
 				anim.play("open")
+				$FX.play()
 				$CollisionShape2D.disabled = true
 				door_open = true
 	if player_in_range == true and Input.is_action_just_pressed("ui_accept") and Global.has_key == false:

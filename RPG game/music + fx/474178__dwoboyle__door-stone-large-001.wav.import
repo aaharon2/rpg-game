@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2s2ihwbt5qh5"
+path="res://.godot/imported/474178__dwoboyle__door-stone-large-001.wav-d3e23114642f65bbc206d2bb73beb1a7.sample"
+
+[deps]
+
+source_file="res://music + fx/474178__dwoboyle__door-stone-large-001.wav"
+dest_files=["res://.godot/imported/474178__dwoboyle__door-stone-large-001.wav-d3e23114642f65bbc206d2bb73beb1a7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

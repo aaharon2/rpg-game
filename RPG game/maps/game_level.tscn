@@ -1,13 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://s5f2us6pht66"]
+[gd_scene load_steps=21 format=3 uid="uid://s5f2us6pht66"]
 
+[ext_resource type="Script" path="res://maps/game_level.gd" id="1_a3mlu"]
 [ext_resource type="PackedScene" uid="uid://cw7x2dw1su1df" path="res://miscellaneous/player.tscn" id="2_nq0y7"]
-[ext_resource type="PackedScene" path="res://objects/sign.tscn" id="4_ddxgw"]
+[ext_resource type="PackedScene" uid="uid://dsn1egetnecb4" path="res://objects/sign.tscn" id="4_ddxgw"]
 [ext_resource type="PackedScene" uid="uid://dsxu7w7uayik2" path="res://maps/calcaire_town_level.tscn" id="5_xne1l"]
 [ext_resource type="PackedScene" uid="uid://cj03lxtxwkg2s" path="res://npcs/fancy_lady.tscn" id="7_wno70"]
 [ext_resource type="PackedScene" path="res://npcs/emo_teen.tscn" id="8_fcy7m"]
 [ext_resource type="PackedScene" path="res://npcs/nature_girl.tscn" id="9_5ompu"]
-[ext_resource type="PackedScene" path="res://npcs/mother.tscn" id="10_t0xx2"]
-[ext_resource type="PackedScene" path="res://npcs/twins.tscn" id="11_6c08o"]
+[ext_resource type="PackedScene" uid="uid://d0lclboinr4tn" path="res://npcs/mother.tscn" id="10_t0xx2"]
+[ext_resource type="PackedScene" uid="uid://crir23h1cp2j4" path="res://npcs/twins.tscn" id="11_6c08o"]
 [ext_resource type="PackedScene" uid="uid://blofj1pd5hwq5" path="res://npcs/man.tscn" id="12_lh30e"]
 [ext_resource type="PackedScene" path="res://npcs/nerd.tscn" id="13_b3g4k"]
 [ext_resource type="PackedScene" uid="uid://bhwold72orutr" path="res://enemies/enemy.tscn" id="14_7xyto"]
@@ -32,6 +33,7 @@ point_count = 3
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(7, -1)
+script = ExtResource("1_a3mlu")
 
 [node name="Player" parent="." instance=ExtResource("2_nq0y7")]
 position = Vector2(57, 163)
@@ -49,7 +51,7 @@ position = Vector2(703, -276)
 position = Vector2(1057, -368)
 
 [node name="Nature Girl" parent="." instance=ExtResource("9_5ompu")]
-position = Vector2(439, -422)
+position = Vector2(437, -405)
 
 [node name="Mother" parent="." instance=ExtResource("10_t0xx2")]
 position = Vector2(364, -556)
@@ -128,6 +130,7 @@ offset_bottom = 86.0
 text = "Quests:"
 
 [node name="Quest1" type="RichTextLabel" parent="UI"]
+visible = false
 offset_left = 19.0
 offset_top = 32.0
 offset_right = 205.0
@@ -135,12 +138,11 @@ offset_bottom = 107.0
 text = "Explore"
 
 [node name="Quest2" type="RichTextLabel" parent="UI"]
-visible = false
 offset_left = 19.0
 offset_top = 31.0
 offset_right = 205.0
 offset_bottom = 106.0
-text = "Talk to the residents of calcaire town"
+text = "Talk to the residents of Calcaire Town"
 
 [node name="Quest3" type="RichTextLabel" parent="UI"]
 visible = false
@@ -149,3 +151,12 @@ offset_top = 31.0
 offset_right = 217.0
 offset_bottom = 82.0
 text = "Defeat the monster in the dungeon"
+
+[node name="npc" type="Label" parent="UI"]
+offset_left = 167.0
+offset_top = 60.0
+offset_right = 207.0
+offset_bottom = 86.0
+text = "[0/6]"
+
+[connection signal="npc" from="Player" to="UI" method="npcs_talked"]

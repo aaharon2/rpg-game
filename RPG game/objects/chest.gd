@@ -13,13 +13,17 @@ func _process(_delta):
 		if chest_open:
 			if Input.is_action_just_pressed("openchest"): #when f is pressed and the chest is open, close anim will play
 				anim.play("close")
+				$FX.play()
 				chest_open = false
 		else:
 			if Input.is_action_just_pressed("openchest"): #when f is pressed and the chest is closed, open anim will play
 				anim.play("open")
+				$FX.play()
+				$Empty.show()
 				chest_open = true
 	elif player_in_range == false:
 		$F.hide()
+		$Empty.hide()
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("player"):

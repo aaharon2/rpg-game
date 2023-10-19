@@ -1,5 +1,4 @@
 ~ fancy_lady
-
 if Global.fancy_lady_talked == false:
 	Fancy Lady: [[Hello?|What do you want?|Hi?]]
 	- What are you doing?
@@ -36,8 +35,8 @@ if Global.fancy_lady_talked == false:
 	- Who are you?
 		Fancy Lady: Merida
 		- Where are all the people in this town?
-			Fancy Lady: A lot of people left not too long ago. But there are still a few living people here.
-			Fancy Lady: I suppose it's because of that monster.
+			Merida: A lot of people left not too long ago. But there are still a few living people here.
+			Merida: I suppose it's because of that monster.
 			- Monster?
 				Merida: Haven't you heard? Theres a monster in the dungeon southeast of this town.
 				Merida: It was sealed away 100 years ago by an adventurer, but it seems they didn't do a good job.
@@ -64,8 +63,9 @@ if Global.fancy_lady_talked == false:
 					Merida: Everyone is over exaggerating.
 				set Global.fancy_lady_talked = true
 				=> END
-	- Sorry for bothering you 
-	=> END
+=> END
+
+~ fancy_lady2
 if Global.fancy_lady_talked == true:
 	Merida: [[I just talked to you, leave me alone.|You again?|Can I drink my tea in peace?|I literally just spoke to you.|Can you leave me alone?|I already spoke to you.|Stop talking to me, I want to drink my tea alone.|Why are you still talking to me?]]
 	=> END
@@ -78,8 +78,6 @@ if Global.monster_alive == false and Global.merida_saved == false:
 		Merida: I knew you were capable of doing it.
 		set Global.merida_saved = true
 		=> END
-	- Never mind.
-	=> END
 if Global.merida_saved == true:
 	Merida: ...
 	Merida: Thanks.
@@ -88,7 +86,6 @@ if Global.merida_saved == true:
 => END
 
 ~ emo_teen_1
-
 if Global.emo_teen_talked == false and Global.alphy_talked == false:
 	Emo Teen: H..Hi?
 	Emo Teen: What do you want?
@@ -96,16 +93,13 @@ if Global.emo_teen_talked == false and Global.alphy_talked == false:
 		Alphy: Uh m-m-my name is A-Alphy. I-I don't know who you are, s-so please leave me alone.
 		set Global.alphy_talk = true
 		=> END
-	- Sorry for bothering you 
-	=> END
 => END
 
 ~ emo_teen_2
-
 if Global.alphy_talk == true:
 	Alphy: H-H-Hi again...
 	- Have you heard of the monster near this town?
-		Alphy: M-M-M-MONSTER?!?
+		Alphy: [shake rate=20 level=10]M-M-M-MONSTER?!?[/shake]
 		Alphy: N-No! I-I just moved here recently. No one t-t-told me about it??
 		Alphy: A-A-Am I going to d-d-d-die?!?!??
 		- Woah nono don't worry, I'm an experienced adventurer. I can save this town!
@@ -150,12 +144,9 @@ if Global.alphy_talk == true:
 							Alphy: I-If you say so...
 							set Global.alphy_talked = true
 							=> END
-	- Sorry for bothering you 
-	=> END
 => END
 
 ~ emo_teen_3
-
 Alphy: [[I-I guess I can trust you..|G-G-Good luck defeating the m-m-monster?|A-Ah u-u-umm I'm going to go back home...|I-I-I hope you can s-s-save us...|I think I have f-f-faith in you?|Y-Y-You can defeat the m-m-monster?|P-P-Please save us...]]
 => END
 
@@ -163,12 +154,10 @@ Alphy: [[I-I guess I can trust you..|G-G-Good luck defeating the m-m-monster?|A-
 if Global.monster_alive == false and Global.alphy_saved == false:
 	Alphy: H-H-Hello again..
 	- You don't have to be so nervous anymore, I defeated the monster!
-		Alphy: Y-Y-YOU DID IT??
+		Alphy: [shake rate=20 level=10]Y-Y-YOU DID IT??[/shake]
 		Alphy: THANK YOU SO MUCH!!
 		set Global.alphy_saved = true
 		=> END
-	- Never mind.
-	=> END
 if Global.alphy_saved == true:
 	Alphy: Thank you...
 	set Global.town_saved = true
@@ -289,9 +278,10 @@ if Global.fauna_talked == false:
 			- Oh no! I hope I can prevent that from happening again
 				Fauna: I'm rooting for you!
 				set Global.fauna_talked = true
-				=> END
-	- Sorry for bothering you.
-	=> END
+				=> END!
+=> END
+
+~ nature_girl2
 if Global.fauna_talked == true:
 	Fauna: [[Good luck fighting the monster!|I'm rooting for you!|I'm sure you can defeat the monster!|Please save our environment!|I really appreciate your effort!]]
 	=> END
@@ -306,8 +296,6 @@ if Global.monster_alive == false and Global.fauna_saved == false:
 		Fauna: Some of us may not seem like it, but we all really appreciate your effort!
 		set Global.fauna_saved = true
 		=> END
-	- Never mind.
-	=> END
 if Global.fauna_saved == true:
 	Fauna: You really are a kind soul!
 	set Global.town_saved = true
@@ -388,23 +376,22 @@ if Global.mother_talked == false:
 						Mother: You have my thanks!
 						set Global.mother_talked = true
 						=> END
-	- Sorry for bothering you 
-	=> END
+=> END
+
+~ mother2
 if Global.mother_talked == true:
 	Mother: [[Please, I don't want this town to disappear..|Please save us!|Me and my children will be eternally grateful if you save this town|I don't want to lose my only home..|Good luck in the dungeon!|I'm sure you can defeat the monster!]]
 	=> END
 => END
 
 ~ motherr
-if Global.monster_alive == false and Global.mother_saved == false:
+if Global.monster_alive == false and Global.mother_saved == false: 
 	Mother: Have you been to the dungeon yet?
 	- Yes! I even defeated the monster!
 		Mother: No way?! You.. you saved us?
 		Mother: Thank you SO much!
 		set Global.mother_saved = true
 		=> END
-	- Never mind.
-	=> END
 if Global.mother_saved == true:
 	Mother: Thanks for saving me and my family
 	Mother: I am forever in debt to you..
@@ -413,24 +400,27 @@ if Global.mother_saved == true:
 => END
 
 ~ twins
-Bessy: WAAAH I WANT FOOD
-Betty: SHUSH BESSY MY EARS HURT
-Bessy: B-B-But I'm hungwyy and mummy said she was going shopping after Lydia gets heree...
-Betty: Did you not just hear her on the phone? Lydia can't come today.
-Bessy: But I'm hungwyyy...
-Betty: Bessy, if you keep complaining mum will be mad.
-Betty: You know how much she hates when you complain.
-Bessy: Ugh. You're so annoying.
-Bessy: I just want her attention
-Betty: You could be getting her attention without making her angry.
-Bessy: Hmph.
-Bessy: ...
-Bessy: ...
-Bessy: MUMMY I'M HUNGRY. GIBE FOOD.
+if Global.twins_talked == false:
+	Bessy: WAAAH I WANT FOOD
+	Betty: SHUSH BESSY MY EARS HURT
+	Bessy: B-B-But I'm hungwyy and mummy said she was going shopping after Lydia gets heree...
+	Betty: Did you not just hear her on the phone? Lydia can't come today.
+	Bessy: But I'm hungwyyy...
+	Betty: Bessy, if you keep complaining mum will be mad.
+	Betty: You know how much she hates when you complain.
+	Bessy: Ugh. You're so annoying.
+	Bessy: I just want her attention
+	Betty: You could be getting her attention without making her angry.
+	Bessy: Hmph.
+	Bessy: ...
+	Bessy: ...
+	Bessy: MUMMY I'M HUNGRY. GIBE FOOD.
+	set Global.twins_talked == true
+	=> END
 => END
 
 ~ man
-if Global.man_talked == false:
+if Global.man_talked == false: 
 	Man: Good day young adventurer.
 	Man: I would be glad to help guide you around this town although I am only visiting here too.
 	- Ah... that's alright, I'm just exploring
@@ -467,8 +457,9 @@ if Global.man_talked == false:
 			Man: Good luck.
 			set Global.man_talked = true
 			=> END
-	- Sorry for bothering you 
-	=> END
+=> END
+
+~ man2
 if Global.man_talked == true:
 	Man: [[Olivia sure is knowledgable|I would help you, but I'm only a visitor here|I don't know much about this town|I wish I could help you]]
 	=> END
@@ -478,12 +469,10 @@ if Global.man_talked == true:
 if Global.monster_alive == false and Global.man_saved == false:
 	Man: Have you spoken to them yet?
 	- Yeah! I even defeated the monster that was around in the dungeon!
-		Man: Wow you sure are a talented adventurer!
+		Man: Wow you must be quite the experienced adventurer!
 		Man: I'm sure the residents are greatful for your deeds.
 		set Global.man_saved = true
 		=> END
-	- Never mind.
-	=> END
 if Global.man_saved == true:
 	Man: Thanks for saving the town!
 	set Global.town_saved = true
@@ -558,10 +547,10 @@ if Global.nerd_talked == false:
 			Olivia: So please, be careful.
 			- You can count on me.
 			set Global.nerd_talked = true
-			=> END	
-	- Sorry for bothering you
-	=> END
+			=> END
+=> END
 
+~ nerd2
 if Global.nerd_talked == true:
 	Olivia: If you have any questions, feel free to ask me!
 	- How do I get to the monster again?
@@ -686,8 +675,6 @@ if Global.monster_alive == false and Global.olivia_saved == false:
 			Olivia: Haha, I guess so!
 			set Global.olivia_saved = true
 			=> END
-	- Never mind.
-	=> END
 if Global.olivia_saved == true:
 	Olivia: Thanks for saving us!
 	=> END

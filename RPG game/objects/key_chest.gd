@@ -13,13 +13,12 @@ func _ready():
 func _process(_delta):
 	var anim = $AnimatedSprite2D
 	if player_in_range == true:
-		
 		if not $"Key Obtained".is_visible():
 			$F.show()
-		
 		if chest_open:
 			if Input.is_action_just_pressed("openchest"): #when f is pressed and the chest is open, close anim will play
 				anim.play("close")
+				$FX.play()
 				chest_open = false
 				chest_closed = true
 				Global.has_key = true
@@ -27,6 +26,7 @@ func _process(_delta):
 		elif chest_closed:
 			if Input.is_action_just_pressed("openchest"): #when f is pressed and the chest is closed, open anim will play
 				anim.play("open")
+				$FX.play()
 				chest_open = true
 				chest_closed = false
 				Global.has_key = true
@@ -34,6 +34,7 @@ func _process(_delta):
 		else:
 			if Input.is_action_just_pressed("openchest"): #when f is pressed and the chest is closed, open anim will play
 				anim.play("open")
+				$FX.play()
 				chest_open = true
 				chest_closed = false
 				show_text() #key obtained will show

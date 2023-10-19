@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://boi6u4p30jiom"]
 
 [ext_resource type="Script" path="res://objects/chest.gd" id="1_b5a2h"]
 [ext_resource type="Texture2D" uid="uid://bxom53ld8r4hb" path="res://assets/sprite/free_chests.png" id="2_ipwov"]
+[ext_resource type="AudioStream" uid="uid://cf5lxbq3bcvrd" path="res://music + fx/188606__timpryor__wood-creak.wav" id="3_j70mg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vvpm1"]
 atlas = ExtResource("2_ipwov")
@@ -109,6 +110,24 @@ layout_mode = 2
 text = "[F]"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Empty" type="VBoxContainer" parent="."]
+visible = false
+offset_left = -15.0
+offset_top = -26.0
+offset_right = 87.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="Empty"]
+layout_mode = 2
+text = "[Empty]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j70mg")
+pitch_scale = 1.15
+bus = &"Sound FX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

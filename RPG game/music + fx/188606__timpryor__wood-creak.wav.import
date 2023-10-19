@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cf5lxbq3bcvrd"
+path="res://.godot/imported/188606__timpryor__wood-creak.wav-234ef008de8551106538d8f4e707d699.sample"
+
+[deps]
+
+source_file="res://music + fx/188606__timpryor__wood-creak.wav"
+dest_files=["res://.godot/imported/188606__timpryor__wood-creak.wav-234ef008de8551106538d8f4e707d699.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

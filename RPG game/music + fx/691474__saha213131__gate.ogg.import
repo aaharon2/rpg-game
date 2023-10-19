@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cruy6h8tgi7f1"
+path="res://.godot/imported/691474__saha213131__gate.ogg-8c3c1ece527ca48c392ef6260ad368d3.oggvorbisstr"
+
+[deps]
+
+source_file="res://music + fx/691474__saha213131__gate.ogg"
+dest_files=["res://.godot/imported/691474__saha213131__gate.ogg-8c3c1ece527ca48c392ef6260ad368d3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

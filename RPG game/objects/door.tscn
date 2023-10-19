@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://l1a4v7a0qqfr"]
 
 [ext_resource type="Texture2D" uid="uid://cpuga4d6fo5dy" path="res://assets/door.png" id="1_necs2"]
 [ext_resource type="Script" path="res://objects/door.gd" id="1_p2ycs"]
+[ext_resource type="AudioStream" uid="uid://cruy6h8tgi7f1" path="res://music + fx/691474__saha213131__gate.ogg" id="3_uckit"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gg2i"]
 atlas = ExtResource("1_necs2")
@@ -99,6 +100,10 @@ shape = SubResource("RectangleShape2D_8d6vl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-3, -0.5625)
 shape = SubResource("RectangleShape2D_hvdqe")
+
+[node name="FX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uckit")
+bus = &"Sound FX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

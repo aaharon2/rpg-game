@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=15 format=3 uid="uid://cmqohgl877wok"]
 
 [ext_resource type="Script" path="res://objects/monstdoor.gd" id="1_r76pq"]
 [ext_resource type="Texture2D" uid="uid://dodgg78bpd86u" path="res://assets/monstdoor.png" id="2_7430a"]
+[ext_resource type="AudioStream" uid="uid://d2s2ihwbt5qh5" path="res://music + fx/474178__dwoboyle__door-stone-large-001.wav" id="3_sy455"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7m37u"]
 atlas = ExtResource("2_7430a")
@@ -92,14 +93,12 @@ frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4.66903e-07, -3.07353)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bx531")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -11.1471)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1xjf6")
 
 [node name="Needkey" type="VBoxContainer" parent="."]
@@ -115,6 +114,11 @@ layout_mode = 2
 text = "[Key Required]"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sy455")
+pitch_scale = 2.0
+bus = &"Sound FX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
