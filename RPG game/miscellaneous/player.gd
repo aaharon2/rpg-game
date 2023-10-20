@@ -41,7 +41,7 @@ func _physics_process(delta):
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "fancy_lady")
 			lady_in_range = false
 			return
-	elif lady_in_range == true and Global.fancy_lady_talked == true:
+	if lady_in_range == true and Global.fancy_lady_talked == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == true:
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "fancy_lady2")
 			lady_in_range = false
