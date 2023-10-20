@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://s5f2us6pht66"]
+[gd_scene load_steps=20 format=3 uid="uid://s5f2us6pht66"]
 
-[ext_resource type="Script" path="res://maps/game_level.gd" id="1_a3mlu"]
 [ext_resource type="PackedScene" uid="uid://cw7x2dw1su1df" path="res://miscellaneous/player.tscn" id="2_nq0y7"]
 [ext_resource type="PackedScene" uid="uid://dsn1egetnecb4" path="res://objects/sign.tscn" id="4_ddxgw"]
 [ext_resource type="PackedScene" uid="uid://dsxu7w7uayik2" path="res://maps/calcaire_town_level.tscn" id="5_xne1l"]
@@ -33,7 +32,6 @@ point_count = 3
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(7, -1)
-script = ExtResource("1_a3mlu")
 
 [node name="Player" parent="." instance=ExtResource("2_nq0y7")]
 position = Vector2(57, 163)

@@ -112,8 +112,8 @@ layout_mode = 1
 anchor_right = 0.999
 anchor_bottom = 1.002
 offset_top = 1.0
-offset_right = 1151.0
-offset_bottom = 650.004
+offset_right = 2301.85
+offset_bottom = 1299.3
 
 [node name="Credits" type="VBoxContainer" parent="Control"]
 z_index = 4

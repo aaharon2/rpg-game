@@ -2,6 +2,7 @@ extends AudioStreamPlayer
 
 func _ready():
 	stream = load("res://music + fx/dungeon002.ogg")
+	bus = "Music"
 
 func _process(_delta):
 	if Global.in_dungeon == true and not playing:
