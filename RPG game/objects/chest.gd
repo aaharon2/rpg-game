@@ -21,9 +21,12 @@ func _process(_delta):
 				$FX.play()
 				$Empty.show()
 				chest_open = true
-	elif player_in_range == false:
+	elif player_in_range == false and chest_open == false:
 		$F.hide()
 		$Empty.hide()
+	elif player_in_range == false and chest_open == true:
+		$F.hide()
+		$Empty.show()
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("player"):

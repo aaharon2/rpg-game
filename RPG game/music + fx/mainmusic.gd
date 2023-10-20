@@ -2,6 +2,8 @@ extends AudioStreamPlayer
 
 func _ready():
 	stream = load("res://music + fx/TownTheme.mp3")
+	bus = "Music"
+	print(bus)
 	play()
 
 func _process(delta):

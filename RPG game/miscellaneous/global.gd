@@ -17,14 +17,16 @@ var mother_saved = false
 var man_saved = false
 var olivia_saved = false
 
+var npcs_talked = false
 var npcs_saved = false
 var npc = 0
+var npc2 = 0
 
 var current_scene = "game_level"
 
 var player_cur_attack = false #for when the player atk anim is on
 var has_key = false
-var enemy_alive = true
+var enemy_alive = false
 var monster_alive = true
 var in_dungeon = false
 var interacted = false
@@ -33,4 +35,7 @@ func _process(_delta):
 	if merida_saved == true and alphy_saved == true and fauna_saved == true and mother_saved == true and man_saved == true and olivia_saved == true:
 		print("saved")
 		npcs_saved = true
-		
+	
+	if fancy_lady_talked == true and alphy_talked == true and fauna_talked == true and mother_talked == true and man_talked == true and nerd_talked == true:
+		print("talked")
+		npcs_talked = true

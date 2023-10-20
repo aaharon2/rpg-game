@@ -17,6 +17,7 @@ var health = 100
 var player_alive = true
 var attack_ip = false
 signal npc
+signal npc2
 
 
 func _ready():
@@ -40,15 +41,17 @@ func _physics_process(delta):
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "fancy_lady")
 			lady_in_range = false
 			return
-		elif Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
-				DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "merida")
-				npc.emit(delta)
-				Global.merida_saved = true
-				lady_in_range = false
-				return
-	if lady_in_range == true and Global.fancy_lady_talked == true:
+	elif lady_in_range == true and Global.fancy_lady_talked == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == true:
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "fancy_lady2")
+			lady_in_range = false
+			return
+	if lady_in_range == true:
+		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+			Global.npc2 += 1
+			npc2.emit(delta)
+			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "merida")
+			Global.merida_saved = true
 			lady_in_range = false
 			return
 	if emoteen_in_range and Global.monster_alive == true and Global.alphy_talked == false and Global.alphy_talk == false:
@@ -68,11 +71,12 @@ func _physics_process(delta):
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "emo_teen_3")
 			emoteen_in_range = false
 			return
-	elif emoteen_in_range == true and Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+	if emoteen_in_range == true:
+		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+			Global.npc2 += 1
+			npc2.emit(delta)
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "alphy")
 			Global.alphy_saved = true
-			Global.npc += 1
-			npc.emit(delta)
 			emoteen_in_range = false
 			return
 	if girl_in_range == true and Global.fancy_lady_talked == true and Global.fauna_talked == false:
@@ -89,10 +93,10 @@ func _physics_process(delta):
 			return
 	if girl_in_range == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+			Global.npc2 += 1
+			npc2.emit(delta)
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "fauna")
 			Global.fauna_saved = true
-			Global.npc += 1
-			npc.emit(delta)
 			girl_in_range = false
 			return
 	if mother_in_range == true and Global.mother_talked == false:
@@ -102,17 +106,18 @@ func _physics_process(delta):
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "mother")
 			mother_in_range = false
 			return
-	if mother_in_range == true and Global.mother_talked == true:
-		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == true:
-			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "mother2")
-			mother_in_range = false
-			return
+	if mother_in_range == true:
+		if Global.mother_talked == true and Global.monster_alive == true:
+			if Input.is_action_just_pressed("ui_accept"):
+				DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "mother2")
+				mother_in_range = false
+				return
 	if mother_in_range == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+			Global.npc2 += 1
+			npc2.emit(delta)
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "motherr")
 			Global.mother_saved = true
-			Global.npc += 1
-			npc.emit(delta)
 			mother_in_range = false
 			return
 	if twins_in_range == true and Global.mother_talked == true and Global.twins_talked == false:
@@ -127,17 +132,18 @@ func _physics_process(delta):
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "man")
 			man_in_range = false
 			return
-	if man_in_range == true and Global.man_talked == true:
-		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == true:
-			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "man2")
-			man_in_range = false
+	if man_in_range == true: 
+		if Global.man_talked == true:
+			if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == true:
+				DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "man2")
+				man_in_range = false
 			return
 	if man_in_range == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+			Global.npc2 += 1
+			npc2.emit(delta)
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "mann")
 			Global.man_saved = true
-			Global.npc += 1
-			npc.emit(delta)
 			man_in_range = false
 			return
 	if nerd_in_range == true and Global.nerd_talked == false:
@@ -156,9 +162,10 @@ func _physics_process(delta):
 			return
 	if nerd_in_range == true:
 		if Input.is_action_just_pressed("ui_accept") and Global.monster_alive == false:
+			Global.npc2 += 1
+			npc2.emit(delta)
 			DialogueManager.show_example_dialogue_balloon(load("res://miscellaneous/main.dialogue"), "olivia")
 			Global.olivia_saved = true
-			npc.emit(delta)
 			nerd_in_range = false
 			return
 	
@@ -195,22 +202,6 @@ func player_movement(_delta): #player movement
 			current_dir = "up"
 			velocity.y = -speed
 			velocity.x = 0
-		#if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_right"):
-		#	velocity.x = speed
-		#	velocity.y = -speed^2 / 2
-		#if Input.is_action_pressed("ui_up") and Input.is_action_pressed("ui_left"):
-		#	velocity.x = -speed
-		#	velocity.y = -speed^2 / 2
-		#if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_left"):
-		#	velocity.x = -speed
-		#	velocity.y = speed^2 / 2
-		#if Input.is_action_pressed("ui_down") and Input.is_action_pressed("ui_right"):
-		#	velocity.x = speed
-		#	velocity.y = speed^2 / 2
-		#if not Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
-		#	play_anim(0)
-		#	velocity.x = 0
-		#	velocity.y = 0
 		else:
 			play_anim(0)
 			velocity.x = 0
@@ -266,7 +257,7 @@ func _on_detection_area_body_entered(body):
 		man_in_range = true
 	if body.has_method("nerd"):
 		nerd_in_range = true
-
+	
 func _on_detection_area_body_exited(body):
 	if body.has_method("fancy_lady"):
 		lady_in_range = false
@@ -353,7 +344,13 @@ func update_health():
 	else:
 		healthbar.visible = true
 
-func _on_collectables_area_entered(area): #collecting the health potions
+func _on_enemy_attack_cooldown_timeout():
+	enemy_attack_cooldown = true
+
+func _on_monster_attack_cooldown_timeout():
+	monster_attack_cooldown = true
+
+func _on_collectables_area_entered(area):#collecting the health potions
 	var heal = $hp
 	if area.has_method("collect"):
 		area.collect()
@@ -369,8 +366,4 @@ func _on_collectables_area_entered(area): #collecting the health potions
 			health = 0
 			print(health)
 
-func _on_enemy_attack_cooldown_timeout():
-	enemy_attack_cooldown = true
 
-func _on_monster_attack_cooldown_timeout():
-	monster_attack_cooldown = true

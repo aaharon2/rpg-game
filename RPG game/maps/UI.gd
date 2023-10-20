@@ -10,6 +10,7 @@ func _ready():
 	q2.hide()
 	q3.hide()
 	$npc.hide()
+	$npc2.hide()
 
 func _process(_delta):
 	if Global.interacted == true:
@@ -17,19 +18,23 @@ func _process(_delta):
 		q2.show()
 		q3.hide()
 		$npc.show()
-	if Global.npc == 6:
-		Global.npc = 0
+		$npc2.hide()
+	if Global.npcs_talked == true:
 		q1.hide()
 		q2.hide()
 		q3.show()
 		$npc.hide()
+		$npc2.hide()
 	if Global.monster_alive == false:
+		$npc.hide()
 		q1.hide()
 		q2.show()
 		q3.hide()
-		Global.npc = 0
-		$npc.show()
+		$npc2.show()
 
 func npcs_talked(_npc):
 	$npc.text = "[" + str(Global.npc) + "/6]"
 	
+
+func npcs2_talked(_npc):
+	$npc2.text = "[" + str(Global.npc2) + "/6]"
